@@ -1,0 +1,23 @@
+{
+  "id": "sobre-o-projeto/relatorio-de-testes",
+  "title": "Relatório de Testes: Serviços e Controladores da Aplicação",
+  "description": "1. AdministradoresService caso de teste",
+  "source": "@site/docs/sobre-o-projeto/relatorio-de-testes.md",
+  "sourceDirName": "sobre-o-projeto",
+  "slug": "/sobre-o-projeto/relatorio-de-testes",
+  "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/relatorio-de-testes",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 11,
+  "frontMatter": {
+    "sidebar_position": 11,
+    "sidebar_label": "Relatorio de Testes"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Branch Strategy",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/branch-strategy"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/2024.2-AGIS2/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/2024.2-AGIS2/docs",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "intro",
+              "path": "/2024.2-AGIS2/docs/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sobre-o-agis/equipe",
+              "path": "/2024.2-AGIS2/docs/sobre-o-agis/equipe",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/sobre-o-agis",
+              "path": "/2024.2-AGIS2/docs/category/sobre-o-agis",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/2024.2-AGIS2/docs/intro",
+                "label": "intro"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "sobre-o-projeto/branch-strategy",
+  "title": "Branch Strategy",
+  "description": "Um Brach Strategy é um conjunto de práticas e estratégias para manter um repositório organizado e separar bem os lançamentos e funcionalidades desenvolvidas simultaneamente pela equipe.",
+  "source": "@site/docs/sobre-o-projeto/branch-strategy.md",
+  "sourceDirName": "sobre-o-projeto",
+  "slug": "/sobre-o-projeto/branch-strategy",
+  "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/branch-strategy",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 10,
+  "frontMatter": {
+    "sidebar_position": 10,
+    "sidebar_label": "Branch Strategy"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Declaração do escopo do projeto",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/declaracao-do-escopo-do-projeto"
+  },
+  "next": {
+    "title": "Relatorio de Testes",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/relatorio-de-testes"
+  }
+}

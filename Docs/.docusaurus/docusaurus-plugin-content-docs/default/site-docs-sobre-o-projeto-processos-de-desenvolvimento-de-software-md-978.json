@@ -1,0 +1,27 @@
+{
+  "id": "sobre-o-projeto/processos-de-desenvolvimento-de-software",
+  "title": "Processos de desenvolvimento de software",
+  "description": "A equipe optou por utilizar abordagens ágeis visando uma maior agilidade e responsividade a mudanças durante o processo de desenvolvimento do sistema. Para isso, foi implementada uma adaptação dos métodos SCRUM e XP.",
+  "source": "@site/docs/sobre-o-projeto/processos-de-desenvolvimento-de-software.md",
+  "sourceDirName": "sobre-o-projeto",
+  "slug": "/sobre-o-projeto/processos-de-desenvolvimento-de-software",
+  "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/processos-de-desenvolvimento-de-software",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 8,
+  "frontMatter": {
+    "sidebar_label": "Processos de desenvolvimento de software",
+    "sidebar_position": 8
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Critérios de replanejamento",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/criterios-de-replanejamento"
+  },
+  "next": {
+    "title": "Declaração do escopo do projeto",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/declaracao-do-escopo-do-projeto"
+  }
+}

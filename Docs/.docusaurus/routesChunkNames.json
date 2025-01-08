@@ -1,0 +1,84 @@
+{
+  "/2024.2-AGIS2/__docusaurus/debug-612": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---2024-2-agis-2-docusaurus-debugb-38-b61"
+    }
+  },
+  "/2024.2-AGIS2/__docusaurus/debug/config-807": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---2024-2-agis-2-docusaurus-debugb-38-b61"
+    }
+  },
+  "/2024.2-AGIS2/__docusaurus/debug/content-4fc": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---2024-2-agis-2-docusaurus-debugb-38-b61"
+    },
+    "__props": "__props---2024-2-agis-2-docusaurus-debug-contenta-64-adf"
+  },
+  "/2024.2-AGIS2/__docusaurus/debug/globalData-48a": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---2024-2-agis-2-docusaurus-debugb-38-b61"
+    }
+  },
+  "/2024.2-AGIS2/__docusaurus/debug/metadata-b34": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---2024-2-agis-2-docusaurus-debugb-38-b61"
+    }
+  },
+  "/2024.2-AGIS2/__docusaurus/debug/registry-0d1": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---2024-2-agis-2-docusaurus-debugb-38-b61"
+    }
+  },
+  "/2024.2-AGIS2/__docusaurus/debug/routes-815": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---2024-2-agis-2-docusaurus-debugb-38-b61"
+    }
+  },
+  "/2024.2-AGIS2/markdown-page-3f3": {
+    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__context": {
+      "plugin": "plugin---2024-2-agis-2-markdown-pagea-74-a67"
+    },
+    "content": "content---2024-2-agis-2-markdown-page-393-991"
+  },
+  "/2024.2-AGIS2/docs-e4b": {
+    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__context": {
+      "plugin": "plugin---2024-2-agis-2-docsaba-166"
+    }
+  },
+  "/2024.2-AGIS2/docs-52e": {
+    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
+    "__props": "__props---2024-2-agis-2-docs-0-b-0-08f"
+  },
+  "/2024.2-AGIS2/docs-820": {
+    "__comp": "__comp---theme-doc-roota-94-67a"
+  },
+  "/2024.2-AGIS2/docs/category/sobre-o-agis-e13": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---2024-2-agis-2-docs-category-sobre-o-agis-44-c-46a"
+  },
+  "/2024.2-AGIS2/docs/intro-002": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---2024-2-agis-2-docs-intro-0-e-3-5d0"
+  },
+  "/2024.2-AGIS2/docs/sobre-o-agis/equipe-818": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---2024-2-agis-2-docs-sobre-o-agis-equipeb-64-e7e"
+  },
+  "/2024.2-AGIS2/-78f": {
+    "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
+    "__context": {
+      "plugin": "plugin---2024-2-agis-2-markdown-pagea-74-a67"
+    },
+    "config": "config---2024-2-agis-2-5-e-9-d89"
+  }
+}
