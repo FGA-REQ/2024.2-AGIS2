@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# VISÃO DO PRODUTO E PROJETO
+# Visão do produto e projeto
 
 Documento utilizado como guia para o registro das informações gerais do projeto, realizado na matéria de Requisitos 2024.2. O qual será atualizado, por meio de versões, ao longo do ciclo de vida do desenvolvimento do produto.
 
