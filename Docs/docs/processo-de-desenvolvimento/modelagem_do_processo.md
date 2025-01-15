@@ -8,4 +8,4 @@ O diagrama a seguir representa a modelagem de processos utilizada para o gerenci
 
 Esse modelo promove uma visão ampla do projeto.
 
-![Diagrama BPMN](../images/diagrama_bpmn.svg)
+![Diagrama BPMN](../imagens/diagrama_bpmn.svg)
