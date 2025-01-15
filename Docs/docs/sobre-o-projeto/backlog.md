@@ -40,11 +40,28 @@ As **Features** estão organizadas em grupos baseados nas **Capacidades** às qu
 - O sistema deve suportar a integração com calendários pessoais e enviar lembretes automáticos.
 - Deve estar em conformidade com a LGPD.
 
+
 #### **2. Garantir a Segurança e Privacidade dos Dados Médicos**
 **Descrição:** Implementar criptografia de ponta a ponta para todos os dados sensíveis, garantindo acesso somente a usuários autenticados.
 **Critérios de Aceitação:**  
 - Dados devem ser armazenados de forma segura.
 - O sistema deve registrar logins e tentativas de acesso.
+
+
+#### **3. Gestão de Agendamentos**
+**Descrição:** Permitir que as clínicas gerenciem agendamentos com eficiência, integrando restrições e alertas para pacientes. 
+**Critérios de Aceitação:**  
+- O sistema deve gerar alertas automáticos para pacientes e médicos em caso de conflitos de agendamento (ex: tentativa de agendamento em horário já ocupado).
+- O sistema deve oferecer a possibilidade de adiar ou reagendar consultas dentro de parâmetros definidos pela clínica.
+
+
+#### **4. Comunicação com Pacientes**
+**Descrição:** Facilitar a comunicação direta com pacientes através de mensagens e lembretes automatizados via integração com Google Agenda e WhatsApp. 
+**Critérios de Aceitação:**  
+- O sistema deve enviar lembretes automáticos via WhatsApp ou e-mail, com 24 horas e 2 horas de antecedência da consulta.
+- O sistema deve integrar-se com o Google Agenda para garantir que os agendamentos de consultas sejam sincronizados com os calendários pessoais dos pacientes e médicos.
+- A comunicação deve ser automatizada, mas o sistema deve possibilitar que a clínica envie mensagens específicas para pacientes individualmente.
+
 
 
 ### **Capabilities**
@@ -114,62 +131,62 @@ As **Features** estão organizadas em grupos baseados nas **Capacidades** às qu
 
 ### **User stories**
 
-#### **Agendamento de Consultas**
+#### **1. Agendamento de Consultas**
 **Como paciente**, quero agendar consultas com antecedência de 24 horas para evitar conflitos de horário.  
 **Critérios de Aceitação:**  
 - O sistema deve validar o horário de agendamento.  
 - Deve exibir mensagens de erro em caso de conflitos.  
 
 
-#### **Receber Lembretes de Consultas**
+#### **2. Receber Lembretes de Consultas**
 **Como paciente**, quero receber lembretes 24 horas antes da consulta para garantir que eu compareça no horário marcado.  
 **Critérios de Aceitação:**  
 - Notificações devem ser enviadas via WhatsApp ou e-mail.  
 - O paciente deve poder confirmar a consulta pelo lembrete.  
 
 
-#### **Gestão de Agendamentos**
+#### **3. Gestão de Agendamentos**
 **Como paciente**, quero ser notificado com antecedência caso minha consulta esteja marcada fora do horário permitido, para que eu possa escolher outro horário.  
 **Critérios de Aceitação:**  
 - Notificação enviada imediatamente após o conflito ser detectado.  
 
 
-#### **Cadastro de Usuários**
+#### **4. Cadastro de Usuários**
 **Como paciente**, quero me cadastrar no sistema para acessar funcionalidades como agendamento e lembretes.  
 **Critérios de Aceitação:**  
 - O cadastro deve exigir campos obrigatórios (nome, CPF, e-mail).  
 - O sistema deve validar se o CPF já está cadastrado.  
 
 
-#### **Alerta de Conflito de Horários**
+#### **5. Alerta de Conflito de Horários**
 **Como paciente**, quero ser informado sobre horários alternativos disponíveis quando tento marcar uma consulta em um horário já ocupado.  
 **Critérios de Aceitação:**  
 - O sistema deve exibir uma lista de horários alternativos.  
 - Deve impedir o agendamento de mais de uma consulta no mesmo horário.  
 
 
-#### **Prontuário Eletrônico**
+#### **6. Prontuário Eletrônico**
 **Como médico**, quero acessar e editar os prontuários dos meus pacientes para gerenciar informações clínicas de forma segura.  
 **Critérios de Aceitação:**  
 - Apenas médicos autenticados devem ter acesso aos prontuários.  
 - Alterações devem ser registradas com data, hora e nome do autor.  
 
 
-#### **Relatórios de Consultas**
+#### **7. Relatórios de Consultas**
 **Como administrador**, quero gerar relatórios mensais sobre agendamentos para monitorar a performance da clínica.  
 **Critérios de Aceitação:**  
 - O relatório deve incluir o número de consultas realizadas e canceladas.  
 - Deve ser possível exportar o relatório em PDF e Excel.  
 
 
-#### **Lembretes de Medicamentos**
+#### **8. Lembretes de Medicamentos**
 **Como paciente**, quero cadastrar horários para tomar medicamentos para receber lembretes automáticos.  
 **Critérios de Aceitação:**  
 - Lembretes devem ser enviados 15 minutos antes do horário cadastrado.  
 - O paciente deve poder editar ou excluir lembretes.  
 
 
-#### **Cancelamento Automático de Consultas**
+#### **9. Cancelamento Automático de Consultas**
 **Como administrador**, quero que consultas sejam canceladas automaticamente quando o paciente não confirmar até o início do expediente.  
 **Critérios de Aceitação:**  
 - O sistema deve enviar um aviso ao paciente antes de cancelar a consulta.  
