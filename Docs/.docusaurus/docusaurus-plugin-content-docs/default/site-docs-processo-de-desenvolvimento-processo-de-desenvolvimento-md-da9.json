@@ -1,0 +1,23 @@
+{
+  "id": "processo-de-desenvolvimento/processo_de_desenvolvimento",
+  "title": "Processo de desenvolvimento do sistema - MedManager",
+  "description": "O processo de desenvolvimento do sistema é dividido em etapas bem definidas, que incluem desde o planejamento inicial até a manutenção contínua do produto. Cada etapa desempenha um papel essencial para garantir que o sistema seja entregue de forma eficiente.",
+  "source": "@site/docs/processo-de-desenvolvimento/processo_de_desenvolvimento.md",
+  "sourceDirName": "processo-de-desenvolvimento",
+  "slug": "/processo-de-desenvolvimento/processo_de_desenvolvimento",
+  "permalink": "/2024.2-AGIS2/docs/processo-de-desenvolvimento/processo_de_desenvolvimento",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2,
+    "sidebar_label": "Processo de desenvolvimento"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Modelagem de processo",
+    "permalink": "/2024.2-AGIS2/docs/processo-de-desenvolvimento/modelagem_do_processo"
+  }
+}

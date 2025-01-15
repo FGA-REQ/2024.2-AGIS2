@@ -49,30 +49,70 @@
     },
     "content": "content---2024-2-agis-2-markdown-page-393-991"
   },
-  "/2024.2-AGIS2/docs-e4b": {
+  "/2024.2-AGIS2/docs-662": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---2024-2-agis-2-docsaba-166"
     }
   },
-  "/2024.2-AGIS2/docs-52e": {
+  "/2024.2-AGIS2/docs-590": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---2024-2-agis-2-docs-0-b-0-08f"
   },
-  "/2024.2-AGIS2/docs-820": {
+  "/2024.2-AGIS2/docs-777": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
-  "/2024.2-AGIS2/docs/category/sobre-o-agis-e13": {
+  "/2024.2-AGIS2/docs/category/detalhamento-do-projeto-0f9": {
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
-    "__props": "__props---2024-2-agis-2-docs-category-sobre-o-agis-44-c-46a"
+    "__props": "__props---2024-2-agis-2-docs-category-detalhamento-do-projeto-38-f-7ab"
+  },
+  "/2024.2-AGIS2/docs/category/processo-de-desenvolvimento-de-software-ce9": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---2024-2-agis-2-docs-category-processo-de-desenvolvimento-de-softwareac-1-d33"
+  },
+  "/2024.2-AGIS2/docs/category/sobre-o-medmannager-592": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---2024-2-agis-2-docs-category-sobre-o-medmannager-3-ea-e32"
   },
   "/2024.2-AGIS2/docs/intro-002": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---2024-2-agis-2-docs-intro-0-e-3-5d0"
   },
-  "/2024.2-AGIS2/docs/sobre-o-agis/equipe-818": {
+  "/2024.2-AGIS2/docs/processo-de-desenvolvimento/modelagem_do_processo-85e": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---2024-2-agis-2-docs-sobre-o-agis-equipeb-64-e7e"
+    "content": "content---2024-2-agis-2-docs-processo-de-desenvolvimento-modelagem-do-processoa-49-d93"
+  },
+  "/2024.2-AGIS2/docs/processo-de-desenvolvimento/processo_de_desenvolvimento-b77": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---2024-2-agis-2-docs-processo-de-desenvolvimento-processo-de-desenvolvimentoda-9-c61"
+  },
+  "/2024.2-AGIS2/docs/sobre-o-medmannager/equipe-02f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---2024-2-agis-2-docs-sobre-o-medmannager-equipe-243-dd1"
+  },
+  "/2024.2-AGIS2/docs/sobre-o-projeto/arquitetura-41e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---2024-2-agis-2-docs-sobre-o-projeto-arquitetura-610-e7a"
+  },
+  "/2024.2-AGIS2/docs/sobre-o-projeto/backlog-934": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---2024-2-agis-2-docs-sobre-o-projeto-backlog-84-b-f65"
+  },
+  "/2024.2-AGIS2/docs/sobre-o-projeto/lista_de_requisitos-261": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---2024-2-agis-2-docs-sobre-o-projeto-lista-de-requisitos-46-c-f8f"
+  },
+  "/2024.2-AGIS2/docs/sobre-o-projeto/processo_requisitos-2d7": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---2024-2-agis-2-docs-sobre-o-projeto-processo-requisitos-9-cf-b03"
+  },
+  "/2024.2-AGIS2/docs/sobre-o-projeto/regras_de_negocio-b86": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---2024-2-agis-2-docs-sobre-o-projeto-regras-de-negociod-51-fe0"
+  },
+  "/2024.2-AGIS2/docs/sobre-o-projeto/visao-aa5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---2024-2-agis-2-docs-sobre-o-projeto-visao-876-9c6"
   },
   "/2024.2-AGIS2/-78f": {
     "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",

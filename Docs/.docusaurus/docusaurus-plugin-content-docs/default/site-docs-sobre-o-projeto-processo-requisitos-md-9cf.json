@@ -1,0 +1,27 @@
+{
+  "id": "sobre-o-projeto/processo_requisitos",
+  "title": "Detalhamento do Processo de Requisitos - AGIS2",
+  "description": "1. Levantamento de Requisitos",
+  "source": "@site/docs/sobre-o-projeto/processo_requisitos.md",
+  "sourceDirName": "sobre-o-projeto",
+  "slug": "/sobre-o-projeto/processo_requisitos",
+  "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/processo_requisitos",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3,
+    "sidebar_label": "Processo de Requisitos"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Regras de Negócio",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/regras_de_negocio"
+  },
+  "next": {
+    "title": "Requisitos",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/lista_de_requisitos"
+  }
+}

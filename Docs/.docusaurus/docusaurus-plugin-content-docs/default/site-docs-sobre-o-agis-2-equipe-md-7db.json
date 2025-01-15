@@ -1,0 +1,26 @@
+{
+  "id": "sobre-o-agis2/equipe",
+  "title": "A equipe AGIS2",
+  "description": "Somos um time criado na disciplina de Requisitos de Software da Universidade de Brasília - Faculdade do Gama (FCTE).",
+  "source": "@site/docs/sobre-o-agis2/equipe.md",
+  "sourceDirName": "sobre-o-agis2",
+  "slug": "/sobre-o-agis2/equipe",
+  "permalink": "/2024.2-AGIS2/docs/sobre-o-agis2/equipe",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Sobre o AGIS2",
+    "permalink": "/2024.2-AGIS2/docs/category/sobre-o-agis2"
+  },
+  "next": {
+    "title": "Sobre o MedMannager",
+    "permalink": "/2024.2-AGIS2/docs/category/sobre-o-medmannager"
+  }
+}

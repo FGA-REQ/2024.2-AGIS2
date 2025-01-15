@@ -6,7 +6,7 @@
 export default {
   "title": "MedMannager",
   "tagline": "Soluções para a saúde",
-  "favicon": "img/logo.svg",
+  "favicon": "img/logo.jpeg",
   "deploymentBranch": "gh-pages",
   "trailingSlash": false,
   "url": "https://FGA-REQ.github.io",
@@ -43,7 +43,7 @@ export default {
       "title": "MedMannager",
       "logo": {
         "alt": "MedMannager Logo",
-        "src": "img/logo.svg"
+        "src": "img/logo.jpeg"
       },
       "items": [
         {

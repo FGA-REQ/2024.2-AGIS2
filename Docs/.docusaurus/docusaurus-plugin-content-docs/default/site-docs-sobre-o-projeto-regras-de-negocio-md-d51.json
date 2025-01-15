@@ -1,0 +1,27 @@
+{
+  "id": "sobre-o-projeto/regras_de_negocio",
+  "title": "Regras de Negócio - MedManager",
+  "description": "Regras de Restrição",
+  "source": "@site/docs/sobre-o-projeto/regras_de_negocio.md",
+  "sourceDirName": "sobre-o-projeto",
+  "slug": "/sobre-o-projeto/regras_de_negocio",
+  "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/regras_de_negocio",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2,
+    "sidebar_label": "Regras de Negócio"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Visão do produto e projeto",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/visao"
+  },
+  "next": {
+    "title": "Processo de Requisitos",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/processo_requisitos"
+  }
+}

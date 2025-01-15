@@ -1,0 +1,27 @@
+{
+  "id": "sobre-o-projeto/arquitetura",
+  "title": "Arquitetura",
+  "description": "Ao levantar todas as funcionalidades desejadas para o software nos deparamos com uma lista que a priore parece extensa, complexa e que nos levaria a criação de uma",
+  "source": "@site/docs/sobre-o-projeto/arquitetura.md",
+  "sourceDirName": "sobre-o-projeto",
+  "slug": "/sobre-o-projeto/arquitetura",
+  "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/arquitetura",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "sidebar_position": 6,
+    "sidebar_label": "Arquitetura"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Backlog",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/backlog"
+  },
+  "next": {
+    "title": "Processo de desenvolvimento de Software",
+    "permalink": "/2024.2-AGIS2/docs/category/processo-de-desenvolvimento-de-software"
+  }
+}

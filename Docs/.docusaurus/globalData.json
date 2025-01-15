@@ -16,13 +16,63 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "sobre-o-agis/equipe",
-              "path": "/2024.2-AGIS2/docs/sobre-o-agis/equipe",
+              "id": "processo-de-desenvolvimento/modelagem_do_processo",
+              "path": "/2024.2-AGIS2/docs/processo-de-desenvolvimento/modelagem_do_processo",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "/category/sobre-o-agis",
-              "path": "/2024.2-AGIS2/docs/category/sobre-o-agis",
+              "id": "processo-de-desenvolvimento/processo_de_desenvolvimento",
+              "path": "/2024.2-AGIS2/docs/processo-de-desenvolvimento/processo_de_desenvolvimento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sobre-o-medmannager/equipe",
+              "path": "/2024.2-AGIS2/docs/sobre-o-medmannager/equipe",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sobre-o-projeto/arquitetura",
+              "path": "/2024.2-AGIS2/docs/sobre-o-projeto/arquitetura",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sobre-o-projeto/backlog",
+              "path": "/2024.2-AGIS2/docs/sobre-o-projeto/backlog",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sobre-o-projeto/lista_de_requisitos",
+              "path": "/2024.2-AGIS2/docs/sobre-o-projeto/lista_de_requisitos",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sobre-o-projeto/processo_requisitos",
+              "path": "/2024.2-AGIS2/docs/sobre-o-projeto/processo_requisitos",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sobre-o-projeto/regras_de_negocio",
+              "path": "/2024.2-AGIS2/docs/sobre-o-projeto/regras_de_negocio",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sobre-o-projeto/visao",
+              "path": "/2024.2-AGIS2/docs/sobre-o-projeto/visao",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/sobre-o-medmannager",
+              "path": "/2024.2-AGIS2/docs/category/sobre-o-medmannager",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/detalhamento-do-projeto",
+              "path": "/2024.2-AGIS2/docs/category/detalhamento-do-projeto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/processo-de-desenvolvimento-de-software",
+              "path": "/2024.2-AGIS2/docs/category/processo-de-desenvolvimento-de-software",
               "sidebar": "tutorialSidebar"
             }
           ],

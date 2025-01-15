@@ -44,19 +44,31 @@ export default [
   },
   {
     path: '/2024.2-AGIS2/docs',
-    component: ComponentCreator('/2024.2-AGIS2/docs', 'e4b'),
+    component: ComponentCreator('/2024.2-AGIS2/docs', '662'),
     routes: [
       {
         path: '/2024.2-AGIS2/docs',
-        component: ComponentCreator('/2024.2-AGIS2/docs', '52e'),
+        component: ComponentCreator('/2024.2-AGIS2/docs', '590'),
         routes: [
           {
             path: '/2024.2-AGIS2/docs',
-            component: ComponentCreator('/2024.2-AGIS2/docs', '820'),
+            component: ComponentCreator('/2024.2-AGIS2/docs', '777'),
             routes: [
               {
-                path: '/2024.2-AGIS2/docs/category/sobre-o-agis',
-                component: ComponentCreator('/2024.2-AGIS2/docs/category/sobre-o-agis', 'e13'),
+                path: '/2024.2-AGIS2/docs/category/detalhamento-do-projeto',
+                component: ComponentCreator('/2024.2-AGIS2/docs/category/detalhamento-do-projeto', '0f9'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/2024.2-AGIS2/docs/category/processo-de-desenvolvimento-de-software',
+                component: ComponentCreator('/2024.2-AGIS2/docs/category/processo-de-desenvolvimento-de-software', 'ce9'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/2024.2-AGIS2/docs/category/sobre-o-medmannager',
+                component: ComponentCreator('/2024.2-AGIS2/docs/category/sobre-o-medmannager', '592'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -67,8 +79,56 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/2024.2-AGIS2/docs/sobre-o-agis/equipe',
-                component: ComponentCreator('/2024.2-AGIS2/docs/sobre-o-agis/equipe', '818'),
+                path: '/2024.2-AGIS2/docs/processo-de-desenvolvimento/modelagem_do_processo',
+                component: ComponentCreator('/2024.2-AGIS2/docs/processo-de-desenvolvimento/modelagem_do_processo', '85e'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/2024.2-AGIS2/docs/processo-de-desenvolvimento/processo_de_desenvolvimento',
+                component: ComponentCreator('/2024.2-AGIS2/docs/processo-de-desenvolvimento/processo_de_desenvolvimento', 'b77'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/2024.2-AGIS2/docs/sobre-o-medmannager/equipe',
+                component: ComponentCreator('/2024.2-AGIS2/docs/sobre-o-medmannager/equipe', '02f'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/2024.2-AGIS2/docs/sobre-o-projeto/arquitetura',
+                component: ComponentCreator('/2024.2-AGIS2/docs/sobre-o-projeto/arquitetura', '41e'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/2024.2-AGIS2/docs/sobre-o-projeto/backlog',
+                component: ComponentCreator('/2024.2-AGIS2/docs/sobre-o-projeto/backlog', '934'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/2024.2-AGIS2/docs/sobre-o-projeto/lista_de_requisitos',
+                component: ComponentCreator('/2024.2-AGIS2/docs/sobre-o-projeto/lista_de_requisitos', '261'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/2024.2-AGIS2/docs/sobre-o-projeto/processo_requisitos',
+                component: ComponentCreator('/2024.2-AGIS2/docs/sobre-o-projeto/processo_requisitos', '2d7'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/2024.2-AGIS2/docs/sobre-o-projeto/regras_de_negocio',
+                component: ComponentCreator('/2024.2-AGIS2/docs/sobre-o-projeto/regras_de_negocio', 'b86'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/2024.2-AGIS2/docs/sobre-o-projeto/visao',
+                component: ComponentCreator('/2024.2-AGIS2/docs/sobre-o-projeto/visao', 'aa5'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               }

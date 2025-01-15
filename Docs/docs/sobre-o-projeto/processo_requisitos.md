@@ -1,5 +1,6 @@
 ---
-sidebar_position: 5
+sidebar_position: 3
+sidebar_label: "Processo de Requisitos"
 ---
 
 # Detalhamento do Processo de Requisitos - AGIS2

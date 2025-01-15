@@ -1,5 +1,6 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
+sidebar_label: "Processo de desenvolvimento"
 ---
 
 # Processo de desenvolvimento do sistema - MedManager

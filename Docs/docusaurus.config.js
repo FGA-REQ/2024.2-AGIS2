@@ -10,7 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'MedMannager',
   tagline: 'Soluções para a saúde',
-  favicon: 'img/logo.svg',
+  favicon: 'img/logo.jpeg',
   deploymentBranch: "gh-pages",
   trailingSlash: false,
   // Set the production url of your site here
@@ -60,7 +60,7 @@ const config = {
         title: 'MedMannager',
         logo: {
           alt: 'MedMannager Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo.jpeg',
         },
         items: [
           {

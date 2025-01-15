@@ -1,0 +1,27 @@
+{
+  "id": "sobre-o-projeto/backlog",
+  "title": "Backlog - MedManager",
+  "description": "No contexto do SAFe (Scaled Agile Framework), as estruturas Épicos, Capacidades, Features e Histórias de Usuário representam os níveis hierárquicos de planejamento e detalhamento no backlog do produto. Aqui está o que cada uma delas significa:",
+  "source": "@site/docs/sobre-o-projeto/backlog.md",
+  "sourceDirName": "sobre-o-projeto",
+  "slug": "/sobre-o-projeto/backlog",
+  "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/backlog",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5,
+    "sidebar_label": "Backlog"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Requisitos",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/lista_de_requisitos"
+  },
+  "next": {
+    "title": "Arquitetura",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/arquitetura"
+  }
+}

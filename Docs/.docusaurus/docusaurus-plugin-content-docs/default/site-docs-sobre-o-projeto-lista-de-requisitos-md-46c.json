@@ -1,0 +1,27 @@
+{
+  "id": "sobre-o-projeto/lista_de_requisitos",
+  "title": "Lista de Requisitos - MedManager",
+  "description": "Requisitos Funcionais",
+  "source": "@site/docs/sobre-o-projeto/lista_de_requisitos.md",
+  "sourceDirName": "sobre-o-projeto",
+  "slug": "/sobre-o-projeto/lista_de_requisitos",
+  "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/lista_de_requisitos",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4,
+    "sidebar_label": "Requisitos"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Processo de Requisitos",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/processo_requisitos"
+  },
+  "next": {
+    "title": "Backlog",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/backlog"
+  }
+}
