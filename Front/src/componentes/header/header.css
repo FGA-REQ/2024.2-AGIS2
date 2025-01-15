@@ -1,0 +1,30 @@
+.container-header{
+    background-color: blue;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo-header{
+    width: 135px;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.btn-login-header{
+    height: 50px;
+    width: 120px;
+    font-size: 20px;
+    margin-right: 40px;
+    align-items: center;
+}
+
+.btn-login-header:hover{
+  background-color: rgb(217, 217, 221);
+}

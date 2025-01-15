@@ -1,0 +1,83 @@
+.listaPacientes {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
+    align-items: center;
+}
+
+.dropdown {
+    margin-bottom: 40px;
+    justify-content: center;
+    display: flex;
+    min-width: 70%;
+}
+
+.dropdown select {
+    width: 30%;
+    padding: 15px;
+    font-size: 16px;
+    color: white;
+    background-color: purple;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dropdown p {
+    font-size: 12px;
+    margin-top: 5px;
+    color: gray;
+}
+
+.pacientes-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 60%;
+}
+
+.paciente-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: #ffecec;
+}
+
+.user-icon-pacientes {
+    width: 40px;
+    height: 40px;
+}
+
+.paciente-info {
+    flex: 1;
+    margin-left: 20px;
+    font-size: 17px;
+}
+
+.paciente-info span {
+    display: block;
+}
+
+.paciente-edita-deleta {
+    display: flex;
+    gap: 10px;
+}
+
+.lapis-paciente {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.lixo-paciente {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 20px;
+}
