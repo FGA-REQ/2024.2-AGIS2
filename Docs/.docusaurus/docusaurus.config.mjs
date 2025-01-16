@@ -257,7 +257,9 @@ export default {
           }
         ]
       },
-      "additionalLanguages": [],
+      "additionalLanguages": [
+        "shell-session"
+      ],
       "magicComments": [
         {
           "className": "theme-code-block-highlighted-line",
