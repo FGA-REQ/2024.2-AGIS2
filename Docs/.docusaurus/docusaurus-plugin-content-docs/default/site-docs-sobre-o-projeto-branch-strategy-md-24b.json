@@ -1,0 +1,27 @@
+{
+  "id": "sobre-o-projeto/branch_strategy",
+  "title": "Branch Strategy",
+  "description": "Para manter a organização do repositório a equipe optou por uma estratégia de organização de branches simples mas efetiva composta por 3 tipos de branches",
+  "source": "@site/docs/sobre-o-projeto/branch_strategy.md",
+  "sourceDirName": "sobre-o-projeto",
+  "slug": "/sobre-o-projeto/branch_strategy",
+  "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/branch_strategy",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 7,
+  "frontMatter": {
+    "sidebar_position": 7,
+    "sidebar_label": "Branch Strategy"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Arquitetura",
+    "permalink": "/2024.2-AGIS2/docs/sobre-o-projeto/arquitetura"
+  },
+  "next": {
+    "title": "Processo de desenvolvimento de Software",
+    "permalink": "/2024.2-AGIS2/docs/category/processo-de-desenvolvimento-de-software"
+  }
+}

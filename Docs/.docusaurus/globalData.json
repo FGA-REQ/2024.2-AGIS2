@@ -41,6 +41,11 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "sobre-o-projeto/branch_strategy",
+              "path": "/2024.2-AGIS2/docs/sobre-o-projeto/branch_strategy",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "sobre-o-projeto/lista_de_requisitos",
               "path": "/2024.2-AGIS2/docs/sobre-o-projeto/lista_de_requisitos",
               "sidebar": "tutorialSidebar"
