@@ -68,7 +68,8 @@ Além disso, facilita a gestão de agendamentos, a segurança e a proteção de 
 
 As tecnologias devem ser selecionadas com base em suas funcionalidades específicas, garantindo uma experiência otimizada e assegurando que a plataforma seja intuitiva e eficiente. Abaixo estão as principais ferramentas escolhidas para o desenvolvimento do sistema:
 
-- **Banco de Dados:** MongoDB
+- **Banco de Dados:** PostgreSQL
 - **Front-end:** React, JavaScript
-- **Back-end:** Nest, TypeScript, JavaScript
+- **Back-end:** NestJS, TypeScript
 - **Integração:** Axios
+- **Ambiente** Docker

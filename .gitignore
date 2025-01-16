@@ -1,6 +1,6 @@
 **/node_modules
 **/*.Identifier
-back/.env
+**/.env
 **/server.key
 **/server.cert
-**/back/dist
+**/**/dist

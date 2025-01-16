@@ -44,15 +44,15 @@ export default [
   },
   {
     path: '/2024.2-AGIS2/docs',
-    component: ComponentCreator('/2024.2-AGIS2/docs', '662'),
+    component: ComponentCreator('/2024.2-AGIS2/docs', 'c50'),
     routes: [
       {
         path: '/2024.2-AGIS2/docs',
-        component: ComponentCreator('/2024.2-AGIS2/docs', '590'),
+        component: ComponentCreator('/2024.2-AGIS2/docs', 'd6e'),
         routes: [
           {
             path: '/2024.2-AGIS2/docs',
-            component: ComponentCreator('/2024.2-AGIS2/docs', '777'),
+            component: ComponentCreator('/2024.2-AGIS2/docs', '920'),
             routes: [
               {
                 path: '/2024.2-AGIS2/docs/category/detalhamento-do-projeto',
@@ -105,6 +105,12 @@ export default [
               {
                 path: '/2024.2-AGIS2/docs/sobre-o-projeto/backlog',
                 component: ComponentCreator('/2024.2-AGIS2/docs/sobre-o-projeto/backlog', '934'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/2024.2-AGIS2/docs/sobre-o-projeto/branch_strategy',
+                component: ComponentCreator('/2024.2-AGIS2/docs/sobre-o-projeto/branch_strategy', '2f4'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
