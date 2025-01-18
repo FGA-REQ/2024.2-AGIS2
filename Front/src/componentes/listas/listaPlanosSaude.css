@@ -1,0 +1,83 @@
+.listaPlanosSaude {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
+    align-items: center;
+}
+
+.dropdown {
+    margin-bottom: 40px;
+    justify-content: center;
+    display: flex;
+    min-width: 70%;
+}
+
+.dropdown select {
+    width: 30%;
+    padding: 15px;
+    font-size: 16px;
+    color: white;
+    background-color: teal;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dropdown p {
+    font-size: 12px;
+    margin-top: 5px;
+    color: gray;
+}
+
+.planos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 60%;
+}
+
+.plano-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: #e7f4f9;
+}
+
+.user-icon-planos {
+    width: 40px;
+    height: 40px;
+}
+
+.plano-info {
+    flex: 1;
+    margin-left: 20px;
+    font-size: 17px;
+}
+
+.plano-info span {
+    display: block;
+}
+
+.plano-edita-deleta {
+    display: flex;
+    gap: 10px;
+}
+
+.lapis-plano {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.lixo-plano {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 20px;
+}

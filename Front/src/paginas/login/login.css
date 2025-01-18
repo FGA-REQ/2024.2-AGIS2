@@ -1,0 +1,169 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
+  background-color: #3c80ff;
+}
+
+.container-login {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  width: 400px;
+  margin: 50px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.header-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.seta-login {
+  width: 34px; /* Ajuste conforme o tamanho desejado */
+  cursor: pointer;
+}
+
+.logo-login {
+  width: 60px; /* Ajuste conforme necessário */
+}
+
+/* Estilo para o título centralizado */
+.header-login h1 {
+  flex: 1;
+  text-align: center;
+  font-size: 34px;
+  color: #333;
+  margin: 0;
+}
+
+.container-login h2 {
+font-size: 24px;
+ color: blue;
+ text-align: center;
+}
+
+.forms-login label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+}
+
+.forms-login input {
+  width: 95%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.required {
+  color: red;
+  font-size: 12px;
+  text-align: right;
+  /* Alinha o texto à direita */
+  display: block;
+  /* Faz a span ocupar toda a linha */
+  width: 100%;
+  /* Garante que ocupe toda a largura disponível */
+  margin-top: 20px;
+  /* Ajuste o espaço entre a mensagem e o próximo campo */
+  margin-bottom: -10px;
+}
+
+.btn-entrar {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: rgb(46, 96, 233);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-entrar:hover {
+  background-color: rgb(0, 7, 100);
+}
+
+.forgot-password {
+  color: #007bff;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.forgot-password-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content h2 {
+  margin-bottom: 15px;
+}
+
+.popup-content input {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-enviar, .btn-cancelar {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-enviar {
+  background: #007bff;
+  color: white;
+}
+
+.btn-cancelar {
+  background: #ccc;
+  color: black;
+}
+
+.btn-enviar:hover {
+  background: #0056b3;
+}
+
+.btn-cancelar:hover {
+  background: #999;
+}
