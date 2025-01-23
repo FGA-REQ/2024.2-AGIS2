@@ -1,0 +1,49 @@
+.sidebar{
+    background-color: rgb(140, 140, 241);
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-sidebar{
+    padding: 20px;
+    font-size: 13.4874px;
+}
+
+.menu-sidebar{
+    background-color: rgb(214, 187, 240);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+
+.menu-sidebar li {
+    padding: 15px;
+    cursor: pointer;
+}
+
+.menu-sidebar li:hover {
+    background-color: brown;
+}
+
+.footer-sidebar {
+    display: flex;
+    justify-content: space-around;
+    margin-top: auto;
+  }
+  
+  .icon-horarios {
+    width: 70px;
+    cursor: pointer;
+  }
+
+  .icon-sair {
+width: 60px;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,117 @@
+.medico-calendario {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .rbc-calendar {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .rbc-toolbar {
+    background: #c8dbf8;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .rbc-time-content {
+    overflow: hidden; /* Remove rolagem interna */
+  }
+  
+  .rbc-event {
+    background-color: #f6a192; /* Cor de fundo do evento */
+    color: #ffffff; /* Cor do texto */
+    border: none;
+    border-radius: 50px; /* Arredondar bordas para manter o stick elegante */
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 15px; /* Espaçamento interno para o texto */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centralizar o texto */
+    position: absolute;
+    width: calc(100% - 10px); /* Ajustar para ocupar quase toda a largura disponível */
+    left: 5px; /* Margem para centralizar */
+    overflow: hidden; /* Evitar rolagem horizontal */
+    word-wrap: break-word; /* Permitir quebra de linha */
+    white-space: normal; /* Permitir quebra de linha automática */
+  }
+  
+  .rbc-time-slot, .rbc-header {
+    height: 60px; /* Define altura consistente para os slots */
+    padding: 0;
+  }
+  
+  .rbc-header {
+    background-color: #e8f4fd;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .filtros {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .filtro-especialidade, .filtro-medico {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filtro-especialidade select, .filtro-medico select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .rbc-time-view {
+    border-radius: 8px;
+  }
+  
+  .rbc-time-slot {
+    min-height: 180px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  
+  .rbc-event-label {
+    display: none; /* Ocultar o horário do stick */
+  }
+  
+  .rbc-event {
+    height: 4% !important; /* Altura */
+    width: 85% !important; /* Largura */
+    border-radius: 14px;
+    display: flex !important;
+
+    overflow: hidden; /* Impedir que o conteúdo saia do bloco */
+    background-color: #f6a192; /* Cor de fundo do evento */
+    color: #ffffff; /* Cor do texto */
+    font-weight: bold; /* Destaque para o nome */
+    margin: 20px;
+    font-size: 20px;
+
+  }
+
+  .rbc-event-content{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+  }
+  
+  .rbc-header {
+    background-color: #e8f4fd; /* Cor de fundo */
+    text-align: center; 
+    font-weight: bold;
+    position: sticky !important; /* Fixa no topo */
+    top: 0; /* Posição fixa no topo */
+    z-index: 10; /* Garantir que fique sobre outros elementos */
+    border-bottom: 1px solid #ccc; /* Opcional: Adiciona uma borda inferior para separação */
+  }
+  
