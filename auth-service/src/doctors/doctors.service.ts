@@ -24,7 +24,7 @@ export class DoctorsService {
   }
 
   findAll() {
-    return `This action returns all doctors`;
+    return this.prisma.doctor.findMany();
   }
 
   findOne(id: number) {
