@@ -26,7 +26,7 @@ function ListaPacientes({ onEditarPaciente }) {
             <div className="pacientes-lista">
                 {pacientes.map((paciente) => (
                     <div key={paciente.id} className="paciente-item">
-                        <img src="user.svg" alt="Ícone de usuário" className="user-icon-pacientes" />
+                        <img src="paciente.svg" alt="Ícone de usuário" className="user-icon-pacientes" />
                         <div className="paciente-info">
                             <span>{paciente.nome}</span>
                             <span>Plano de Saúde: {paciente.planoDeSaude}</span>
