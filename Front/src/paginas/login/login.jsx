@@ -15,11 +15,25 @@ function Login() {
     setPopEsqueceuSenha(true); // Abre o pop-up
   };
 
+  const validarEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
   const enviarEmail = () => {
-    // Simulação do envio de e-mail (a lógica real dependerá do backend)
+    if (email.trim() === "") {
+      alert("Por favor, digite seu e-mail.");
+      return;
+    }
+
+    if (!validarEmail(email)) {
+      alert("Por favor, digite um e-mail válido.");
+      return;
+    }
+
     alert(`E-mail de recuperação enviado para: ${email}`);
-    setPopEsqueceuSenha(false); // Fecha o pop-up
-    setEmail(""); // Limpa o campo de e-mail
+    setPopEsqueceuSenha(false);
+    setEmail("");
   };
 
   return (
@@ -41,7 +55,7 @@ function Login() {
           <span className="required">*campo obrigatório</span>
 
           <label>Usuário</label>
-          <input type="text" placeholder="Digite o usuário" required />
+          <input type="text" placeholder="Digite o CPF" required />
 
           <span className="required">*campo obrigatório</span>
 
@@ -69,7 +83,12 @@ function Login() {
               onChange={(e) => setEmail(e.target.value)}
             />
             <div className="popup-buttons">
-              <button className="btn-enviar" onClick={enviarEmail}>Enviar</button>
+              <button
+                className="btn-enviar"
+                onClick={enviarEmail}
+              >
+                Enviar
+              </button>
               <button className="btn-cancelar" onClick={() => setPopEsqueceuSenha(false)}>Cancelar</button>
             </div>
           </div>
