@@ -30,7 +30,7 @@
   background: none;
   border: none;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   outline: none;
   color: #555;
@@ -59,13 +59,13 @@
 .forms-cadastro label {
   display: flex;
   text-align: left;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .forms-cadastro input {
   width: 100%;
   padding: 8px;
-  font-size: 16px;
+  font-size: 12px;
   border-radius: 5px;
   border: 1px solid #ccc;
   outline: none;
@@ -74,7 +74,7 @@
 
 .required {
   color: red;
-  font-size: 14px;
+  font-size: 12px;
   text-align: right;
   margin-top: 20px;
   margin-bottom: -10px;
@@ -83,7 +83,7 @@
 .btn-salvar {
   margin-top: 30px;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   background-color: rgb(46, 96, 233);
   border: none;
