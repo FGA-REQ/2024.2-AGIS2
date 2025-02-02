@@ -14,7 +14,6 @@ function Login() {
   const esqueceuSenha = () => {
     setPopEsqueceuSenha(true); // Abre o pop-up
   };
-
   const validarEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
