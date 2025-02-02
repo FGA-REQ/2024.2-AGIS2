@@ -26,12 +26,14 @@
 }
 
 .seta-login {
-  width: 34px; /* Ajuste conforme o tamanho desejado */
+  width: 34px;
+  /* Ajuste conforme o tamanho desejado */
   cursor: pointer;
 }
 
 .logo-login {
-  width: 60px; /* Ajuste conforme necessário */
+  width: 60px;
+  /* Ajuste conforme necessário */
 }
 
 /* Estilo para o título centralizado */
@@ -44,9 +46,9 @@
 }
 
 .container-login h2 {
-font-size: 24px;
- color: blue;
- text-align: center;
+  font-size: 24px;
+  color: blue;
+  text-align: center;
 }
 
 .forms-login label {
@@ -122,12 +124,13 @@ font-size: 24px;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
-  width: 300px;
+  width: 400px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .popup-content h2 {
-  margin-bottom: 15px;
+  color: #007bff;
+  margin-bottom: 30px;
 }
 
 .popup-content input {
@@ -136,28 +139,29 @@ font-size: 24px;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin-top: 20px;
 }
 
 .popup-buttons {
+  margin-top: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  ;
 }
 
-.btn-enviar, .btn-cancelar {
+
+.btn-enviar,
+.btn-cancelar {
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
-  cursor: pointer;
+  margin-left: 35px;
 }
 
 .btn-enviar {
   background: #007bff;
   color: white;
-}
-
-.btn-cancelar {
-  background: #ccc;
-  color: black;
+  margin-left: -5px;
 }
 
 .btn-enviar:hover {
