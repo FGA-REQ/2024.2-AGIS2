@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        O MedMannager possui uma interface simples e fácil de usar! Basta entrar em sua conta e todas as funcionalidades estarão ao seu alcance!
+        O MedManager possui uma interface simples e fácil de usar! Basta entrar em sua conta e todas as funcionalidades estarão ao seu alcance!
       </>
     ),
   },
@@ -26,7 +26,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Basta um navegador e uma conexão com a internet para acessar o MedMannager!.
+        Basta um navegador e uma conexão com a internet para acessar o MedManager!.
       </>
     ),
   },

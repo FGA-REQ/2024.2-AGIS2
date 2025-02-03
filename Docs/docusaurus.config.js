@@ -8,7 +8,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'MedMannager',
+  title: 'MedManager',
   tagline: 'Soluções para a saúde',
   favicon: 'img/logo.jpeg',
   deploymentBranch: "gh-pages",
@@ -57,9 +57,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'MedMannager',
+        title: 'MedManager',
         logo: {
-          alt: 'MedMannager Logo',
+          alt: 'MedManager Logo',
           src: 'img/logo.jpeg',
         },
         items: [
