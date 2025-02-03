@@ -1,3 +1,5 @@
+// Header depois do Login
+
 import React from 'react';
 import './header2.css';
 
@@ -17,8 +19,7 @@ function Header2({ toggleSidebar }) {
 
             {/* Informações do usuário */}
             <div className="infos-header2">
-                <span>Admin</span>
-                <img src="user.svg" alt="Ícone de usuário" className="user-icon-medicos"/>
+                <img src="user.svg" alt="Ícone de usuário" className="user-icon-medicos" />
             </div>
         </header>
     );

@@ -1,3 +1,5 @@
+// Header do Home
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './header.css';
@@ -13,8 +15,8 @@ function Header() {
     <header className="header">
       <div className="container-header">
         <img className="logo-header" src="/logo.svg" alt="Logo do Med Manager" />
-        <button 
-          onClick={CliqueBtnLogin} 
+        <button
+          onClick={CliqueBtnLogin}
           className="btn-login-header"> Login </button>
       </div>
     </header>
