@@ -22,7 +22,17 @@ Uma possível solução identificada é um Sistema de Gestão para Consultórios
 
 Nosso software simplificará o gerenciamento de operações diárias de consultórios com foco na redução da evasão de pacientes durante seu tratamento médico. Ele também busca manter os pacientes engajados e motivados ao longo do processo, garantindo uma experiência beneficente para ambos os lados (cliente e clínica).
 
+![Diagrama Ishikawa](../imagens/Fishbone%20diagram%20-%20Page%201%20(1).svg)
+
 **Figura 01:** Diagrama de Ishikawa do projeto MedManager usado como forma para identificar possíveis causas para o problema identificado.
+
+<details>
+  <summary>Versão 1</summary>
+
+  ![Diagrama de Ishikawa](../imagens/img40.jpg)
+*Diagrama de Ishikawa - Versão 01*
+
+</details>
 
 ---
 

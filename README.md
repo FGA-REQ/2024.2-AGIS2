@@ -1,21 +1,25 @@
-# template-repository
+# MadManager
 
-Template de Repositório para a matéria de Requisitos de Software coordenado pela Professora Cristiane Ramos.
+Repositório dediaco ao projeto da matéria de Requisitos de Software coordenado pela Professora Cristiane Ramos.
 
-## Especificações Técnicas do Repositório
+---
 
-Este repositório é planejado e estruturado para que seja realizado documentações de software. Caso haja outra necessidades, deve-se consultar a professora.
+## Equipe
 
-Atualmente se usa a ferramenta MkDocs para gerar sua documentação baseado nos seus arquivos markdowns, vocês podem achar mais instruções sobre o MkDocs através do link da documentação da ferramenta: [https://www.mkdocs.org/](https://www.mkdocs.org/).
+<!-- Tabela com os nomes e fotos-->
+| <a href="https://github.com/Dridr1"><img src="https://avatars.githubusercontent.com/u/72324924?v=4" width="150" ></img></a> | <a href="https://github.com/ailujana"><img src="https://avatars.githubusercontent.com/u/107697177?v=4" width="150"></img></a> | <a href="https://github.com/Tutzs"><img src="https://avatars.githubusercontent.com/u/110691207?s=400&u=0f285ace4b3188bb274e2531ead3691d7161656a&v=4" width="150"></img></a> | <a href="https://github.com/junioramaral22"><img src="https://avatars.githubusercontent.com/u/106130191?v=4" width="150"></img></a> | <a href="https://github.com/Oleari19"><img src="https://avatars.githubusercontent.com/u/110275583?v=4" width="150"></img></a> | <a href="https://github.com/pedroluizfo"><img src="https://avatars.githubusercontent.com/u/101995982?v=4" width="150"></img></a>
+|----------|:------:|:------:|:------:|:------:|:------:|
+|[Adriano Fonseca](https://github.com/Dridr1)|  [Ana Julia](https://github.com/ailujana) | [Arthur Sousa](https://github.com/Tutzs) | [Necivaldo Amaral](https://github.com/junioramaral22) | [Maria Clara Oleari](https://github.com/Oleari19) |[Pedro Luiz](https://github.com/pedroluizfo)
 
-Também é usado uma "sub-ferramenta" do MkDocs para sua estilização, o Material Theme, que pode ser consultado através do link: [https://squidfunk.github.io/mkdocs-material/](https://squidfunk.github.io/mkdocs-material/).
 
-Este repositório também conta com uma pipeline de automatização de deploy do seu conteúdo MkDocs, para que a cada commit feito na main, a pipeline gere uma versão atualizada da sua documentação em minutos. Vale ressaltar que é importante realizar uma configuração para que tudo funcione da forma correta, as instruções são as seguintes:
+---
 
-* Acesse as configurações do repositório;
-* Procure a aba de "Pages"
-* Em "Source" escolha a opção "Deploy from a branch";
-* Em "Branch" escolha "gh-pages";
-* Clique em salvar e pronto;
+### Licença
 
-Após essas etapas de configuração, o seu GitPages deve funcionar normalmente.
+Esse projeto está sob licença: [MIT.](LICENSE)
+
+---
+
+### Modelo
+
+Esse README foi feito seguindo o seguinte [template.](https://github.com/DiasEllen26/template-readme)
