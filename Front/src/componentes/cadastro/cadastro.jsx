@@ -18,9 +18,9 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
   const [telefoneEmpresa, setTelefoneEmpresa] = useState("");
   const [emailEmpresa, setEmailEmpresa] = useState("");
 
-    // Estado para o pop-up
-    const [showModal, setShowModal] = useState(false);
-    const [modalMessage, setModalMessage] = useState("");
+  // Estado para o pop-up
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   useEffect(() => {
     if (medicoEditado) {
@@ -61,7 +61,7 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
       setModalMessage("Paciente salvo com sucesso!" + nome + email + cpf + telefone + dataNascimento + planoDeSaude);
     } else if (selected === "Plano") {
       if (onSalvarPlano) {
-        onSalvarPlano({ nome, numeroContrato, vencimentoContrato, empresaResponsavel, cnpj, telefoneEmpresa, emailEmpresa});
+        onSalvarPlano({ nome, numeroContrato, vencimentoContrato, empresaResponsavel, cnpj, telefoneEmpresa, emailEmpresa });
       }
       setModalMessage("Plano salvo com sucesso!" + nome + numeroContrato + vencimentoContrato + empresaResponsavel + cnpj + telefoneEmpresa + emailEmpresa);
     }
@@ -102,7 +102,7 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
       onVoltarParaLista();  // Redirect to the list page (e.g., médicos list)
     }
   };
-  
+
   return (
     <div className="cadastro">
       <div className="header-cadastro">
@@ -135,160 +135,160 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
 
         {selected === "Médico" && (
           <div className="apertou-medico">
-                    <span className="required">*campo obrigatório</span>
-        <label>Nome</label>
-        <input
-          type="text"
-          placeholder="Digite o nome"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-          required
-        />
-              <span className="required">*campo obrigatório</span>
-  <label>Email</label>
-  <input
-    type="text"
-    placeholder="Digite o email"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    required
-  />
+            <span className="required">*campo obrigatório</span>
+            <label>Nome</label>
+            <input
+              type="text"
+              placeholder="Digite o nome"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              required
+            />
+            <span className="required">*campo obrigatório</span>
+            <label>Email</label>
+            <input
+              type="text"
+              placeholder="Digite o email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
 
-  <span className="required">*campo obrigatório</span>
-  <label>CPF</label>
-  <input
-    type="text"
-    placeholder="Digite o CPF"
-    value={cpf}
-    onChange={(e) => setCpf(e.target.value)}
-    required
-  />
+            <span className="required">*campo obrigatório</span>
+            <label>CPF</label>
+            <input
+              type="text"
+              placeholder="Digite o CPF"
+              value={cpf}
+              onChange={(e) => setCpf(e.target.value)}
+              required
+            />
 
-  <span className="required">*campo obrigatório</span>
-  <label>Telefone</label>
-  <input
-    type="tel"
-    placeholder="Digite o telefone"
-    value={telefone}
-    onChange={(e) => setTelefone(e.target.value)}
-    required
-  />
+            <span className="required">*campo obrigatório</span>
+            <label>Telefone</label>
+            <input
+              type="tel"
+              placeholder="Digite o telefone"
+              value={telefone}
+              onChange={(e) => setTelefone(e.target.value)}
+              required
+            />
 
-  <span className="required">*campo obrigatório</span>
-  <label>Data de Nascimento</label>
-  <input
-    type="date"
-    value={dataNascimento}
-    onChange={(e) => setDataNascimento(e.target.value)}
-    required
-  />
+            <span className="required">*campo obrigatório</span>
+            <label>Data de Nascimento</label>
+            <input
+              type="date"
+              value={dataNascimento}
+              onChange={(e) => setDataNascimento(e.target.value)}
+              required
+            />
 
 
-      <span className="required">*campo obrigatório</span>
-      <label>CRM</label>
-      <input
-        type="text"
-        placeholder="Digite o CRM"
-        value={crm}
-        onChange={(e) => setCrm(e.target.value)}
-        required
-      />
+            <span className="required">*campo obrigatório</span>
+            <label>CRM</label>
+            <input
+              type="text"
+              placeholder="Digite o CRM"
+              value={crm}
+              onChange={(e) => setCrm(e.target.value)}
+              required
+            />
 
-      <span className="required">*campo obrigatório</span>
-      <label>Especialidade</label>
-      <input
-        type="text"
-        placeholder="Digite a Especialidade"
-        value={especialidade}
-        onChange={(e) => setEspecialidade(e.target.value)}
-        required
-      />
-                   <button type="submit" className="btn-salvar">
-          {medicoEditado || pacienteEditado || planoEditado ? "Editar" : "Salvar"}
-        </button>
+            <span className="required">*campo obrigatório</span>
+            <label>Especialidade</label>
+            <input
+              type="text"
+              placeholder="Digite a Especialidade"
+              value={especialidade}
+              onChange={(e) => setEspecialidade(e.target.value)}
+              required
+            />
+            <button type="submit" className="btn-salvar">
+              {medicoEditado || pacienteEditado || planoEditado ? "Editar" : "Salvar"}
+            </button>
           </div>
         )}
 
         {selected === "Paciente" && (
           <div className="apertou-paciente">
 
-             <span className="required">*campo obrigatório</span>
-  <label>Nome</label>
-  <input
-    type="text"
-    placeholder="Digite o nome"
-    value={nome}
-    onChange={(e) => setNome(e.target.value)}
-    required
-  />
+            <span className="required">*campo obrigatório</span>
+            <label>Nome</label>
+            <input
+              type="text"
+              placeholder="Digite o nome"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              required
+            />
 
-  <span className="required">*campo obrigatório</span>
-  <label>Email</label>
-  <input
-    type="text"
-    placeholder="Digite o email"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    required
-  />
+            <span className="required">*campo obrigatório</span>
+            <label>Email</label>
+            <input
+              type="text"
+              placeholder="Digite o email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
 
-  <span className="required">*campo obrigatório</span>
-  <label>CPF</label>
-  <input
-    type="text"
-    placeholder="Digite o CPF"
-    value={cpf}
-    onChange={(e) => setCpf(e.target.value)}
-    required
-  />
+            <span className="required">*campo obrigatório</span>
+            <label>CPF</label>
+            <input
+              type="text"
+              placeholder="Digite o CPF"
+              value={cpf}
+              onChange={(e) => setCpf(e.target.value)}
+              required
+            />
 
-  <span className="required">*campo obrigatório</span>
-  <label>Telefone</label>
-  <input
-    type="tel"
-    placeholder="Digite o telefone"
-    value={telefone}
-    onChange={(e) => setTelefone(e.target.value)}
-    required
-  />
+            <span className="required">*campo obrigatório</span>
+            <label>Telefone</label>
+            <input
+              type="tel"
+              placeholder="Digite o telefone"
+              value={telefone}
+              onChange={(e) => setTelefone(e.target.value)}
+              required
+            />
 
-  <span className="required">*campo obrigatório</span>
-  <label>Data de Nascimento</label>
-  <input
-    type="date"
-    value={dataNascimento}
-    onChange={(e) => setDataNascimento(e.target.value)}
-    required
-  />
+            <span className="required">*campo obrigatório</span>
+            <label>Data de Nascimento</label>
+            <input
+              type="date"
+              value={dataNascimento}
+              onChange={(e) => setDataNascimento(e.target.value)}
+              required
+            />
 
 
 
-      <span className="required">*campo obrigatório</span>
-      <label>Plano</label>
-      <input
-        type="text"
-        placeholder="Digite o plano"
-        value={planoDeSaude}
-        onChange={(e) => setPlano(e.target.value)}
-        required
-      />
-                   <button type="submit" className="btn-salvar">
-          {medicoEditado || pacienteEditado || planoEditado ? "Editar" : "Salvar"}
-        </button>
+            <span className="required">*campo obrigatório</span>
+            <label>Plano</label>
+            <input
+              type="text"
+              placeholder="Digite o plano"
+              value={planoDeSaude}
+              onChange={(e) => setPlano(e.target.value)}
+              required
+            />
+            <button type="submit" className="btn-salvar">
+              {medicoEditado || pacienteEditado || planoEditado ? "Editar" : "Salvar"}
+            </button>
           </div>
         )}
 
         {selected === "Plano" && (
           <div className="apertou-plano">
-                    <span className="required">*campo obrigatório</span>
-        <label>Nome</label>
-        <input
-          type="text"
-          placeholder="Digite o nome"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-          required
-        />
+            <span className="required">*campo obrigatório</span>
+            <label>Nome</label>
+            <input
+              type="text"
+              placeholder="Digite o nome"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              required
+            />
             <span className="required">*campo obrigatório</span>
             <label>Número do Contrato</label>
             <input
@@ -347,9 +347,9 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
               onChange={(e) => setEmailEmpresa(e.target.value)}
               required
             />
-                   <button type="submit" className="btn-salvar">
-          {medicoEditado || pacienteEditado || planoEditado ? "Editar" : "Salvar"}
-        </button>
+            <button type="submit" className="btn-salvar">
+              {medicoEditado || pacienteEditado || planoEditado ? "Editar" : "Salvar"}
+            </button>
           </div>
         )}
 
@@ -370,11 +370,3 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
 }
 
 export default Cadastro;
-
-
-
-
-
-
-
-
