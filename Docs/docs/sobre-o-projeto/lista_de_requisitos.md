@@ -5,165 +5,252 @@ sidebar_label: "Requisitos"
 
 # Lista de Requisitos - MedManager
 
-## Requisitos Funcionais
+## Requisitos Funcionais (RF)
 
-## Requisitos Funcionais
+RF1. O sistema impede que um paciente agende mais de uma consulta no mesmo dia e no mesmo horário.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US1:** Funcionalidades dos Admins
 
-1. O sistema deve impedir que um paciente agende mais de uma consulta no mesmo dia e no mesmo horário.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
-2. O sistema deve impedir agendamentos fora do expediente da clínica.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
-3. O sistema deve validar se o paciente está cadastrado e com dados confirmados antes de permitir qualquer ação.
-   - **Épico:** Otimizar a Experiência de Agendamento e Gestão Médica
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Criação de Perfis de Usuário
-4. O sistema deve permitir agendamentos com antecedência mínima de 24 horas.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
-5. O sistema deve permitir a criação de dois tipos de perfil, por um perfil administrador: médico e paciente.
-   - **Épico:** Otimizar a Experiência de Agendamento e Gestão Médica
-   - **Capacidade:** Conformidade com Segurança e LGPD
-   - **Feature:** Criação de Perfis de Usuário
-6. O sistema deve oferecer funcionalidades e restrições diferentes conforme o tipo de perfil logado.
-   - **Épico:** Otimizar a Experiência de Agendamento e Gestão Médica
-   - **Capacidade:** Conformidade com Segurança e LGPD
-   - **Feature:** Criação de Perfis de Usuário
-7. O sistema deve garantir que cada paciente tenha um cadastro único, identificado pelo CPF, contendo informações obrigatórias e opcionais.
-   - **Épico:** Otimizar a Experiência de Agendamento e Gestão Médica
-   - **Capacidade:** Conformidade com Segurança e LGPD
-   - **Feature:** Criação de Perfis de Usuário
-8. Administradores devem poder cadastrar e editar dados de médicos e pacientes.
-   - **Épico:** Otimizar a Experiência de Agendamento e Gestão Médica
-   - **Capacidade:** Conformidade com Segurança e LGPD
-   - **Feature:** Criação de Perfis de Usuário
-9. Apenas médicos ou usuários autorizados podem acessar ou editar prontuários.
-   - **Épico:** Garantir a Segurança e Privacidade dos Dados Médicos
-   - **Capacidade:** Gestão de Prontuários
-   - **Feature:** Prontuário Eletrônico
-10. O sistema deve armazenar prontuários arquivados de forma segura, com acesso fornecido sob solicitação do paciente ou médico.
-   - **Épico:** Garantir a Segurança e Privacidade dos Dados Médicos
-   - **Capacidade:** Gestão de Prontuários
-   - **Feature:** Prontuário Eletrônico
-11. O sistema deve enviar lembretes automáticos de consultas no dia anterior à consulta.
-   - **Épico:** Comunicação com Pacientes
-   - **Capacidade:** Comunicação com Pacientes
-   - **Feature:** Receber Lembretes de Consultas
-12. O paciente deve poder confirmar o agendamento por meio do lembrete.
-   - **Épico:** Comunicação com Pacientes
-   - **Capacidade:** Comunicação com Pacientes
-   - **Feature:** Receber Lembretes de Consultas
-13. O sistema deve integrar-se ao Google Agenda para a criação de lembretes.
-   - **Épico:** Comunicação com Pacientes
-   - **Capacidade:** Comunicação com Pacientes
-   - **Feature:** Integração com Google Agenda
-14. O sistema deve marcar a consulta apenas se o paciente confirmar.
-   - **Épico:** Comunicação com Pacientes
-   - **Capacidade:** Comunicação com Pacientes
-   - **Feature:** Receber Lembretes de Consultas
-15. O sistema deve exibir um alerta com horários alternativos caso um paciente tente agendar em um horário já ocupado.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Alerta de Conflito de Horários
-16. O sistema deve exibir um alerta caso o paciente tente agendar no mesmo dia e horário de outra consulta já marcada.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Alerta de Conflito de Horários
-17. O sistema deve exibir um aviso e impedir agendamentos caso o cadastro do paciente esteja incompleto.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Cadastro de Usuários
-18. O sistema deve enviar um aviso ao paciente em caso de atraso para a consulta.
-   - **Épico:** Comunicação com Pacientes
-   - **Capacidade:** Comunicação com Pacientes
-   - **Feature:** Receber Lembretes de Consultas
-19. O sistema deve enviar lembretes 15 minutos antes do horário cadastrado para uso do medicamento.
-   - **Épico:** Comunicação com Pacientes
-   - **Capacidade:** Comunicação com Pacientes
-   - **Feature:** Lembretes de Medicamentos
-20. O sistema deve criptografar os dados dos pacientes, incluindo prontuários e dados pessoais.
-   - **Épico:** Garantir a Segurança e Privacidade dos Dados Médicos
-   - **Capacidade:** Conformidade com Segurança e LGPD
-   - **Feature:** Criptografia de Dados Sensíveis
-21. O sistema deve exigir login e senha para acesso.
-   - **Épico:** Garantir a Segurança e Privacidade dos Dados Médicos
-   - **Capacidade:** Conformidade com Segurança e LGPD
-   - **Feature:** Criação de Perfis de Usuário
-22. O sistema deve impedir o compartilhamento de informações dos pacientes sem autorização.
-   - **Épico:** Garantir a Segurança e Privacidade dos Dados Médicos
-   - **Capacidade:** Conformidade com Segurança e LGPD
-   - **Feature:** Criptografia de Dados Sensíveis
-23. O sistema deve permitir a criação de um usuário administrador, que será responsável por cadastrar médicos e pacientes.
-   - **Épico:** Otimizar a Experiência de Agendamento e Gestão Médica
-   - **Capacidade:** Conformidade com Segurança e LGPD
-   - **Feature:** Criação de Perfis de Usuário
 
-## Requisitos Não Funcionais
+RF2. O sistema impede agendamentos fora do expediente da clínica.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US1:** Funcionalidades dos Admins
+
+
+RF3. O sistema valida se o paciente está cadastrado e com dados confirmados antes de permitir qualquer ação.
+   - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature: - F2** Criação de Perfis de Usuário
+   - **História de Usuário - US1:** Funcionalidades dos Admins
+
+
+RF4. O sistema não permite agendamentos no passado.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US1:** Funcionalidades dos Admins
+
+
+RF5. O sistema permite a criação de dois tipos de perfil, por um perfil administrador: médico e paciente.
+   - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
+   - **Capacidade - C4:** Conformidade com Segurança e LGPD
+   - **Feature - F2:** Criação de Perfis de Usuário
+   - **História de Usuário - US1:** Funcionalidades dos Admins
+
+
+RF6. O sistema oferece funcionalidades e restrições diferentes conforme o tipo de perfil logado.
+   - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
+   - **Capacidade - C4:** Conformidade com Segurança e LGPD
+   - **Feature - F2:** Criação de Perfis de Usuário
+   - **História de Usuário - US4:** Acesso a funcionalidades do sistema
+
+
+RF7. O sistema garante que cada paciente ou médico tenha um cadastro único, identificado pelo CPF, contendo informações obrigatórias e opcionais.
+   - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
+   - **Capacidade - C4:** Conformidade com Segurança e LGPD
+   - **Feature - F2:** Criação de Perfis de Usuário
+   - **História de Usuário - US5:** Segurança e proteção
+
+
+RF8. Administradores podem cadastrar, editar e excluir dados de médicos, pacientes, planos e agendamentos.
+   - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F2:** Criação de Perfis de Usuário
+   - **História de Usuário - US1:** Funcionalidades dos Admins
+
+
+RF9. Apenas médicos ou usuários autorizados podem acessar ou editar prontuários.
+   - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
+   - **Capacidade - C2:** Gestão de Prontuários
+   - **Feature - F3:** Criptografia de Dados Sensíveis 
+   - **História de Usuário - US3:** Prontuário Eletrônico
+
+
+RF10. O sistema armazena prontuários arquivados de forma segura, com acesso fornecido sob solicitação do paciente ou médico.
+   - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
+   - **Capacidade - C2:** Gestão de Prontuários
+   - **Feature - F3:** Criptografia de Dados Sensíveis 
+   - **História de Usuário - US3:** Prontuário Eletrônico
+
+
+RF11. O sistema envia lembretes automáticos de consultas no dia anterior à consulta.
+   - **Épico - E4:** Comunicação com Pacientes
+   - **Capacidade - C3:** Interação com Pacientes
+   - **Feature - F4:** Integração com WhatsApp
+   - **História de Usuário - US2:** Receber Lembretes de Consultas e/ou Remédios
+
+
+RF12. O paciente pode confirmar o agendamento por meio do lembrete.
+   - **Épico - E4:** Comunicação com Pacientes
+   - **Capacidade - C3:** Interação com Pacientes
+   - **Feature - F4:** Integração com o WhatsApp
+   - **História de Usuário - US2:** Receber Lembretes de Consultas e/ou Remédios
+
+
+RF13. O sistema integra-se ao Google Agenda para a criação de lembretes.
+   - **Épico - E4:** Comunicação com Pacientes
+   - **Capacidade - C3:** Interação com Pacientes
+   - **Feature - F1:** Integração com Google Agenda
+   - **História de Usuário - US2:** Receber Lembretes de Consultas e/ou Remédios
+
+
+RF14. O sistema exibe um alerta com horários alternativos caso um paciente tente agendar em um horário já ocupado.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US1:** Funcionalidades dos Admins
+
+
+RF15. O sistema exibe um alerta caso o paciente tente agendar no mesmo dia e horário de outra consulta já marcada.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US1:** Funcionalidades dos Admins
+
+
+RF16. O sistema exibe um aviso e impedir agendamentos caso o cadastro do paciente esteja incompleto.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US1:** Funcionalidades dos Admins
+
+
+RF17. O sistema envia lembretes 15 minutos antes do horário cadastrado para uso do medicamento.
+   - **Épico - E4:** Comunicação com Pacientes
+   - **Capacidade - C3:** Interação com Pacientes
+   - **Feature - F4:** Integração com WhatsApp
+   - **História de Usuário - US2:** Receber Lembretes de Consultas e/ou Remédios
+
+
+RF18. O sistema criptografa os dados dos pacientes, incluindo prontuários e dados pessoais.
+   - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
+   - **Capacidade - C4:** Conformidade com Segurança e LGPD
+   - **Feature - F3:** Criptografia de Dados Sensíveis
+   - **História de Usuário - US5:** Segurança e proteção
+
+
+RF19. O sistema exige login e senha para acesso.
+   - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
+   - **Capacidade - C4:** Conformidade com Segurança e LGPD
+   - **Feature - F2:** Criação de Perfis de Usuário
+    **História de Usuário - US4:** Acesso a funcionalidades do sistema
+
+
+RF20. O sistema impede o compartilhamento de informações dos pacientes sem autorização.
+   - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
+   - **Capacidade - C4:** Conformidade com Segurança e LGPD
+   - **Feature - F3:** Criptografia de Dados Sensíveis
+   - **História de Usuário - US5:** Segurança e proteção
+
+
+RF21. O sistema permite a criação de um usuário administrador, que será responsável por cadastrar médicos, pacientes, planos e agendamentos.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US1:** Funcionalidades dos Admins
+
+
+## Requisitos Não Funcionais (RNF)
 
 ### Segurança
-1. Os dados dos pacientes e médicos devem ser armazenados usando criptografia de ponta a ponta.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
-2. O sistema deve oferecer autenticação robusta, garantindo acesso apenas a usuários identificados.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
+
+RNF1. Os dados dos pacientes, médicos e planos devem ser armazenados usando criptografia de ponta a ponta.
+   - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
+   - **Capacidade - C4:** Conformidade com Segurança e LGPD
+   - **Feature - F3:** Criptografia de Dados Sensíveis 
+   - **História de Usuário - US5:** Segurança e proteção
+
+
+RNF2. O sistema deve oferecer autenticação robusta, garantindo acesso apenas a usuários identificados.
+   - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
+   - **Capacidade - C4:** Conformidade com Segurança e LGPD
+   - **Feature - F3:** Criptografia de Dados Sensíveis 
+   - **História de Usuário - US5:** Segurança e proteção
+
 
 ### Desempenho
-1. Páginas, dados e outros componentes não dependentes de requisições ao servidor devem carregar em até 2 segundos.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
+
+RNF3. Páginas, dados e outros componentes não dependentes de requisições ao servidor devem carregar em até 2 segundos.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US6:** Rapidez e Eficiência
+
 
 ### Escalabilidade
-1. O sistema deve ser capaz de escalar para manter o desempenho em caso de alto tráfego.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
+
+RNF4. O sistema deve ser capaz de escalar para manter o desempenho em caso de alto tráfego.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US6:** Rapidez e Eficiência
+
 
 ### Compatibilidade
-1. O sistema deve ser compatível com navegadores modernos e dispositivos móveis.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
-2. A integração com o Google Agenda deve funcionar de forma transparente e eficiente.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
+
+RNF5. O sistema deve ser compatível com navegadores modernos e dispositivos móveis.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US6:** Rapidez e Eficiência
+
+
+RNF6. A integração com o Google Agenda deve funcionar de forma transparente e eficiente.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C3:** Interação com Pacientes
+   - **Feature - F1:** Integração com Google Agenda
+   - **História de Usuário - US6:** Rapidez e Eficiência
+
 
 ### Usabilidade
-1. O sistema deve apresentar uma interface intuitiva para pacientes, médicos e administradores.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
-2. O sistema deve ser responsivo.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
+
+RFN7. O sistema deve apresentar uma interface intuitiva para pacientes, médicos e administradores.
+   - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US6:** Rapidez e Eficiência
+
+
+RNF8. O sistema deve ser responsivo.
+   - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US6:** Rapidez e Eficiência
+
 
 ### Confiabilidade
-1. O sistema deve estar disponível em grande parte do tempo, com tolerância a falhas em caso de picos de acesso.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
+
+RNF9. O sistema deve estar disponível em grande parte do tempo, com tolerância a falhas em caso de picos de acesso.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US6:** Rapidez e Eficiência
+
 
 ### Manutenabilidade
-1. O código deve ser modular e documentado, permitindo fácil manutenção e atualização.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
-2. O sistema deve permitir a atualização ou adição de novas funcionalidades sem impacto nas existentes.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
+
+RNF10. O código deve ser modular e documentado, permitindo fácil manutenção e atualização.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US7:** Crescimento do Software
+
+
+RNF11. O sistema deve permitir a atualização ou adição de novas funcionalidades sem impacto nas existentes.
+   - **Épico - E3:** Gestão de Agendamentos
+   - **Capacidade - C1:** Sistema de Agendamentos Automatizados
+   - **Feature - F5:** Organização do Sistema
+   - **História de Usuário - US7:** Crescimento do Software
+
 
 ### Legalidade
-1. O sistema deve estar em conformidade com a Lei Geral de Proteção de Dados (LGPD) ou com as leis locais de proteção de dados aplicáveis.
-   - **Épico:** Gestão de Agendamentos
-   - **Capacidade:** Sistema de Agendamentos Automatizados
-   - **Feature:** Gestão de Agendamentos
+
+RNF12. O sistema deve estar em conformidade com a Lei Geral de Proteção de Dados (LGPD) ou com as leis locais de proteção de dados aplicáveis.
+   - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
+   - **Capacidade - C4:** Conformidade com Segurança e LGPD
+   - **Feature - F3:** Criptografia de Dados Sensíveis 
+   - **História de Usuário - US5:** Segurança e proteção
