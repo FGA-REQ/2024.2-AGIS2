@@ -1,44 +1,70 @@
 .header2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    background-color: #0078d7;
-    color: white;
-    padding: 0 20px;
-    max-width: 100%;
-  }
-  
-  /* Botão hambúrguer */
-  .menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-    margin-right: 20px;
-  }
-  
-  /* Logo e título */
-  .conteudo-header-admin {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .logo-header-admin {
-    width: 40px;
-    height: 40px;
-  }
-  
-  /* Informações do usuário */
-  .infos-header2 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .avatar-admin {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid white;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: #0078d7;
+  color: white;
+  padding: 0 20px;
+  max-width: 100%;
+}
+
+/* Botão hambúrguer */
+.menu-icon {
+  font-size: 34px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+/* Logo e título */
+.conteudo-header-admin {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-header-admin {
+  width: 40px;
+  height: 40px;
+}
+
+.infos-header2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  background-color: white;
+  border: 1px solid #0078d7;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-dropdown button {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 10px 40px 10px 40px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.menu-dropdown button:hover {
+  background-color: #e7f4f9;
+}
+
+.user-icon-header2 {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+
+}
