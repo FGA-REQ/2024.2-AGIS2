@@ -1,8 +1,9 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { CreateDoctorDto } from './dto/create-doctor.dto';
 import { UpdateDoctorDto } from './dto/update-doctor.dto';
 import { PrismaService } from 'src/prisma.service';
 import * as bcrypt from 'bcrypt';
+import { throwError } from 'rxjs';
 
 @Injectable()
 export class DoctorsService {
@@ -31,11 +32,34 @@ export class DoctorsService {
     return `This action returns a #${id} doctor`;
   }
 
-  update(id: number, updateDoctorDto: UpdateDoctorDto) {
-    return `This action updates a #${id} doctor`;
+  async update(id: number, updateDoctorDto: UpdateDoctorDto) {
+    try {
+      const doctor = await this.prisma.doctor.findUnique({ where : { id }});
+      if (!doctor) {
+        throw new NotFoundException(`Doutor com id ${id} não encontrado`)
+      }
+
+      return await this.prisma.doctor.update({
+        where: { id },
+        data: updateDoctorDto,
+      });
+    } catch (error) {
+      this.logger.error(`Não foi possível atualizar o médico com o id: ${ id }: ${error.message}`);
+      throw error;
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} doctor`;
+  async remove(id: number) {
+    try {
+      const doctor = await this.prisma.doctor.findUnique({ where: { id } });
+      if (!doctor) {
+        throw new NotFoundException(`Doutor com id ${id} não encontrado`);
+      }
+      
+      return await this.prisma.doctor.delete({ where: { id } });
+    } catch (error) {
+      this.logger.error(`Falha ao excluir Doutor com id ${ id }: ${error.message}`);
+      throw error;
+    }
   }
 }

@@ -19,7 +19,7 @@ model Doctor {
   name           String
   telephone      String   @unique
   birthday       DateTime
-  CRM            String
+  CRM            String   @unique
   specialty      String
   hashedPassword String
 }
