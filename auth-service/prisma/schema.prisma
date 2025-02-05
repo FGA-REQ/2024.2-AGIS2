@@ -22,14 +22,23 @@ model Doctor {
   CRM            String   @unique
   specialty      String
   hashedPassword String
+  CPF            String   @unique
 }
 
-model Pacient {
+model Patient {
   id             Int      @id @default(autoincrement())
   name           String
   email          String   @unique
   birthday       DateTime
   CPF            String   @unique
   telephone      String   @unique
+  hashedPassword String
+}
+
+model Admin {
+  id             Int    @id @default(autoincrement())
+  name           String
+  email          String @unique
+  CPF            String @unique
   hashedPassword String
 }
