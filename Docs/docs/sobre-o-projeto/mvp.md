@@ -3,7 +3,7 @@ sidebar_position: 10
 sidebar_label: "MVP"
 ---
 
-# MVP - MedManager
+# MVP
 
 O MVP (Produto Mínimo Viável), prioriza as funcionalidades básicas do sistema para que haja uma validação da proposta com um esforço mínimo de desenvolvimento. É uma primeira versão do produto para que o cliente possa fornecer feedbacks para o desenvolvimento futuro do produto a fim de garantir que o resultado final atenderá as expectativas.
 

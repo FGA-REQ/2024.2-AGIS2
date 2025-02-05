@@ -3,7 +3,7 @@ sidebar_position: 2
 sidebar_label: "Processo de desenvolvimento"
 ---
 
-# Processo de desenvolvimento do sistema - MedManager
+# Processo de desenvolvimento do sistema 
 
 O processo de desenvolvimento do sistema é dividido em etapas bem definidas, que incluem desde o planejamento inicial até a manutenção contínua do produto. Cada etapa desempenha um papel essencial para garantir que o sistema seja entregue de forma eficiente.
 

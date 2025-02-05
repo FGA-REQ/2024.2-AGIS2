@@ -3,7 +3,7 @@ sidebar_position: 3
 sidebar_label: "Processo de Requisitos"
 ---
 
-# Detalhamento do Processo de Requisitos - AGIS2
+# Detalhamento do Processo de Requisitos 
 
 ## 1. Levantamento de Requisitos
 

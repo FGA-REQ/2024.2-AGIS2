@@ -3,7 +3,7 @@ sidebar_position: 2
 sidebar_label: "Regras de Negócio"
 ---
 
-# Regras de Negócio - MedManager
+# Regras de Negócio 
 
 ## Regras de Restrição
 

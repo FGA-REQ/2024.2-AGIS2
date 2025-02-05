@@ -3,7 +3,7 @@ sidebar_position: 9
 sidebar_label: "DoD"
 ---
 
-# Definition of Done (DoD) - MedManager
+# Definition of Done (DoD)
 
 A Definition of Done (DoD) assegura que um item do backlog esteja completamente desenvolvido e pronto para entrega. Para o MedManager, um item é considerado "Done" quando:
 
