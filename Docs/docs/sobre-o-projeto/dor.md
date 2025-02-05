@@ -1,11 +1,11 @@
 ---
 sidebar_position: 8
-sidebar_label: "Arquitetura"
+sidebar_label: "DoR"
 ---
 
-# Definition of Ready (DOR) - MedManager
+# Definition of Ready (DoR) - MedManager
 
-A Definition of Ready (DOR) garante que um item do backlog esteja suficientemente detalhado e pronto para ser desenvolvido. Para o MedManager, um item do backlog deve atender aos seguintes critérios antes de ser iniciado:
+A Definition of Ready (DoR) garante que um item do backlog esteja suficientemente detalhado e pronto para ser desenvolvido. Para o MedManager, um item do backlog deve atender aos seguintes critérios antes de ser iniciado:
 
 ## Critérios Gerais:
 
