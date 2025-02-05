@@ -39,7 +39,8 @@
 }
 
 .campo {
-    width: 48%; /* Ajusta a largura dos campos para caber lado a lado */
+    width: 48%;
+    /* Ajusta a largura dos campos para caber lado a lado */
     margin-bottom: 15px;
 }
 
@@ -66,7 +67,7 @@
     background-color: #015aa3;
 }
 
-.escreve-receita textarea{
+.escreve-receita textarea {
     font-size: 16px;
     width: 100%;
 }

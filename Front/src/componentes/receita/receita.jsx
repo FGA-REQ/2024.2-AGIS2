@@ -116,7 +116,7 @@ function Receita() {
                         value={receita}
                         onChange={(e) => setReceita(e.target.value)}
                         placeholder="Escreva aqui a receita médica"
-                        rows="30" 
+                        rows="30"
                         cols="60"
                     ></textarea>
                 </div>
