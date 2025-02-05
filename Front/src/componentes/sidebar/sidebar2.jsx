@@ -1,3 +1,5 @@
+// sidebar de paciente
+
 import React from 'react';
 import './sidebar2.css';
 import { useNavigate } from 'react-router-dom';
@@ -18,11 +20,11 @@ function Sidebar2 ({ setConteudo }) {
     return (
         <div className="sidebar">
             <div className="header-sidebar">
-                <h1>Med Manager</h1>
+                <h1>Menu</h1>
                 <ul className="menu-sidebar">
                     <li onClick={() => handleMenuClick('Início')}>Início</li>
                     <li onClick={() => handleMenuClick('Consultas')}>Consultas</li>
-                    <li onClick={() => handleMenuClick('Remédios')}>Rempédios</li>
+                    <li onClick={() => handleMenuClick('Remédios')}>Remédios</li>
                 </ul>
             </div>
             <div className="footer-sidebar">
