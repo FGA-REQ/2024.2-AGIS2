@@ -6,9 +6,37 @@ function Login() {
   const navigate = useNavigate();
   const [showForgotPassword, setPopEsqueceuSenha] = useState(false); // Controle do pop-up
   const [email, setEmail] = useState(""); // Controle do campo de e-mail
+  const [formData, setFormData] = useState({
+    login: "",
+    senha: "",
+  }); // Estado para armazenar dados do formulário
 
   const cliqueSeta = () => {
     navigate("/");
+  };
+
+  const botaoLogin = () => {
+    const { login, senha } = formData;
+
+    // Lógica para determinar a rota com base no login
+    if (login === "admin") {
+      navigate("/admin");
+    } else if (login === "paciente") {
+      navigate("/paciente");
+    } else if (login === "medico") {
+      navigate("/medico");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData); // Printar os dados do formulário
+    botaoLogin();
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const esqueceuSenha = () => {
@@ -50,16 +78,23 @@ function Login() {
         </div>
         <h2>Med Manager</h2>
 
-        <form className="forms-login">
-          <span className="required">*campo obrigatório</span>
+        <form className="forms-login" onSubmit={handleSubmit}>
 
           <label>Usuário</label>
-          <input type="text" placeholder="Digite o CPF" required />
-
-          <span className="required">*campo obrigatório</span>
+          <input 
+          type="text" 
+          name="login"
+          placeholder="Digite o CPF" 
+          required
+          onChange={handleChange} />
 
           <label>Senha</label>
-          <input type="password" placeholder="Digite a senha" required />
+          <input 
+          type="password" 
+          name="senha"
+          placeholder="Digite a senha" 
+          required
+          onChange={handleChange} />
 
           <button type="submit" className="btn-entrar">Entrar</button>
         </form>
