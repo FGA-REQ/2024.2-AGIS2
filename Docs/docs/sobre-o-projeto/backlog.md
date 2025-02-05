@@ -9,16 +9,16 @@ No contexto do **SAFe (Scaled Agile Framework)**, as estruturas **Épicos**, **C
 
 ### **Resumo do Fluxo Hierárquico**
 
-1. **Épicos**  
+1. **Épicos (E)**  
    Grandes iniciativas estratégicas que direcionam os objetivos do produto e orientam os investimentos em desenvolvimento.
 
-2. **Capacidades**  
+2. **Capacidades (C)**  
    Funcionalidades amplas que conectam os Épicos às entregas concretas, alinhadas aos objetivos estratégicos dentro de um programa.
 
-3. **Features**  
+3. **Features (F)**  
    Funcionalidades específicas que entregam valor diretamente ao cliente, representando entregas tangíveis e menores do que Capacidades.
 
-4. **Histórias de Usuário**  
+4. **Histórias de Usuário (User Stories (US))**  
    Unidades de trabalho detalhadas que descrevem uma necessidade específica do usuário e são implementadas diretamente pelas equipes.
 
 Essas estruturas ajudam a organizar e priorizar o trabalho de forma escalável, garantindo que o desenvolvimento esteja alinhado com os objetivos de negócios e entregando valor continuamente.
@@ -35,28 +35,28 @@ As **Features** estão organizadas em grupos baseados nas **Capacidades** às qu
 
 ### **Epics**
 
-#### **1. Otimizar a Experiência de Agendamento e Gestão Médica**
+#### **E1. Otimizar a Experiência de Agendamento e Gestão Médica**
 **Descrição:** Desenvolver um sistema integrado para gerenciar agendamentos, prontuários e comunicação com pacientes, com foco em reduzir a evasão e melhorar a experiência.
 **Critérios de Aceitação:**  
 - O sistema deve suportar a integração com calendários pessoais e enviar lembretes automáticos.
 - Deve estar em conformidade com a LGPD.
 
 
-#### **2. Garantir a Segurança e Privacidade dos Dados Médicos**
+#### **E2. Garantir a Segurança e Privacidade dos Dados Médicos**
 **Descrição:** Implementar criptografia de ponta a ponta para todos os dados sensíveis, garantindo acesso somente a usuários autenticados.
 **Critérios de Aceitação:**  
 - Dados devem ser armazenados de forma segura.
 - O sistema deve registrar logins e tentativas de acesso.
 
 
-#### **3. Gestão de Agendamentos**
+#### **E3. Gestão de Agendamentos**
 **Descrição:** Permitir que as clínicas gerenciem agendamentos com eficiência, integrando restrições e alertas para pacientes. 
 **Critérios de Aceitação:**  
 - O sistema deve gerar alertas automáticos para pacientes e médicos em caso de conflitos de agendamento (ex: tentativa de agendamento em horário já ocupado).
 - O sistema deve oferecer a possibilidade de adiar ou reagendar consultas dentro de parâmetros definidos pela clínica.
 
 
-#### **4. Comunicação com Pacientes**
+#### **E4. Comunicação com Pacientes**
 **Descrição:** Facilitar a comunicação direta com pacientes através de mensagens e lembretes automatizados via integração com Google Agenda e WhatsApp. 
 **Critérios de Aceitação:**  
 - O sistema deve enviar lembretes automáticos via WhatsApp ou e-mail, com 24 horas e 2 horas de antecedência da consulta.
@@ -65,130 +65,118 @@ As **Features** estão organizadas em grupos baseados nas **Capacidades** às qu
 
 
 
-### **Capabilities**
+### **Capabilities (C)**
 
-#### **1. Sistema de Agendamentos Automatizados**
-**Descrição:** Permitir que pacientes e médicos gerenciem agendamentos com alertas de conflitos e lembretes integrados. Inclui a criação de perfis de usuário diferenciados e sincronização com Google Agenda.  
+#### **C1. Sistema de Agendamentos Automatizados**
+**Descrição:** Permitir que o sistema no geral funcione de maneira adequada e eficiênte. Além disso, permitir que administrador gerencie agendamentos com alertas de conflitos e lembretes integrados. Inclui a criação de perfis de usuário diferenciados e sincronização com Google Agenda.  
 **Critérios de Aceitação:**  
-- Deve suportar marcação com 24 horas de antecedência.  
-- Exibir horários alternativos em caso de conflitos.  
+- Não permitir agendar no passado ou fora do expediente.  
+- Exibir horários alternativos em caso de conflitos.
+- Status ativo e sem conflitos do sistema  
 
 
-#### **2. Gestão de Prontuários**
+#### **C2. Gestão de Prontuários**
 **Descrição:** Permitir o armazenamento e acesso seguro aos prontuários, com controle de acesso para médicos e autorizados. Inclui busca rápida e arquivamento de prontuários antigos.  
 **Critérios de Aceitação:**  
 - Prontuários devem ser acessíveis apenas por médicos autenticados.  
-- Deve incluir registro de alterações no prontuário.  
+- Deve permanecer os prontuários no histórico.  
 
 
-#### **3. Comunicação com Pacientes**
+#### **C3. Interação com Pacientes**
 **Descrição:** Lembretes automáticos de consulta (24h e 2h de antecedência) e notificações de medicamentos baseadas em horários cadastrados.  
 **Critérios de Aceitação:**  
-- Notificações devem fornecer informações sobre a consulta, como local, horário e médico responsável.  
+- Notificações sobre o agendamento, devem fornecer informações sobre a consulta, como local, horário e médico responsável.  
+- Notificações de medicamentos devem chegar 15 minutos antes do horário cadastrado do remédio
 
 
-#### **4. Conformidade com Segurança e LGPD**
+#### **C4. Conformidade com Segurança e LGPD**
 **Descrição:** Implementação de criptografia de ponta a ponta para dados sensíveis, autenticação com login e senha, e auditoria de acessos e alterações no sistema.  
 **Critérios de Aceitação:**  
-- Criação de diferentes tipos de perfis (administrador, paciente, médico) com diferentes níveis de acesso.  
+- Criação de diferentes tipos de perfis (administrador, paciente, médico) com diferentes níveis de acesso e apenas um cadastro único.
+- Esquecimento de senha pelo e-mail.  
 
 
 
-### **Features**
+### **Features (F)**
 
-#### **1. Integração com Google Agenda (C3)**
+#### **F1. Integração com Google Agenda (C3)**
 **Descrição:** Sincronizar agendamentos com o calendário do Google do paciente e do médico.  
 **Critérios de Aceitação:**  
 - Lembretes devem ser enviados automaticamente.  
 - Notificações de conflitos devem ser exibidas durante o agendamento.  
 
 
-#### **2. Criação de Perfis de Usuário (C4)**
+#### **F2. Criação de Perfis de Usuário (C4)**
 **Descrição:** Permitir o cadastro de dois tipos de perfil (médico e paciente) com funcionalidades distintas.  
 **Critérios de Aceitação:**  
 - O sistema deve validar os dados do paciente no momento do cadastro.  
 - O administrador deve ser capaz de editar perfis existentes.  
 
 
-#### **3. Criptografia de Dados Sensíveis (C4)**
+#### **F3. Criptografia de Dados Sensíveis (C4)**
 **Descrição:** Implementar criptografia para dados como prontuários e informações pessoais.  
 **Critérios de Aceitação:**  
 - Dados devem ser armazenados criptografados no banco de dados.  
 - O sistema deve registrar tentativas de acesso não autorizadas.  
 
 
-#### **4. Integração com WhatsApp (C3)**
+#### **F4. Integração com WhatsApp (C3)**
 **Descrição:** Enviar lembretes automáticos via WhatsApp para recordação de consulta.  
 **Critérios de Aceitação:**  
-- Paciente da clínica recebe a mensagem de auto entendimento.  
+- Paciente da clínica recebe a mensagem de atendimento com possibilidade de confirmação.
 
 
-#### **5. Gestão de Agendamentos (C1)**
-**Descrição:** Implementar calendário dinâmico para médicos e administradores e permitir agendamentos com antecedência mínima de 24 horas.  
+#### **F5. Organização do Sistema (C1)**
+**Descrição:** Implementar calendário dinâmico para administradores e permitir agendamentos conforme as restrições, e CRUDs sem conflitos para todos os perfis.
 **Critérios de Aceitação:**  
-- Exibir horários alternativos em caso de conflito.  
+- Exibir horários alternativos em caso de conflito. 
+- CRUDs funcionais 
 
 
 
-### **User stories**
+### **User stories (US)**
 
-#### **1. Agendamento de Consultas**
-**Como paciente**, quero agendar consultas com antecedência de 24 horas para evitar conflitos de horário.  
+#### **US1. Funcionalidades dos Admins**
+**Como administrador**, quero agendar consultas e evitar conflitos de horário, também quero gerenciar médicos, planos e pacientes. 
 **Critérios de Aceitação:**  
 - O sistema deve validar o horário de agendamento.  
 - Deve exibir mensagens de erro em caso de conflitos.  
+- CRUDs funcionando.
 
 
-#### **2. Receber Lembretes de Consultas**
-**Como paciente**, quero receber lembretes 24 horas antes da consulta para garantir que eu compareça no horário marcado.  
+#### **US2. Receber Lembretes de Consultas e/ou Remédios**
+**Como paciente**, quero receber lembretes 24 horas antes da consulta para garantir que eu compareça no horário marcado e confirme, e, caso eu cadastre, receber lembretes também 15 minutos antes da hora que devo tomar remédio.
 **Critérios de Aceitação:**  
 - Notificações devem ser enviadas via WhatsApp ou e-mail.  
-- O paciente deve poder confirmar a consulta pelo lembrete.  
+- O paciente deve poder confirmar a consulta pelo lembrete.     
 
 
-#### **3. Gestão de Agendamentos**
-**Como paciente**, quero ser notificado com antecedência caso minha consulta esteja marcada fora do horário permitido, para que eu possa escolher outro horário.  
-**Critérios de Aceitação:**  
-- Notificação enviada imediatamente após o conflito ser detectado.  
-
-
-#### **4. Cadastro de Usuários**
-**Como paciente**, quero me cadastrar no sistema para acessar funcionalidades como agendamento e lembretes.  
-**Critérios de Aceitação:**  
-- O cadastro deve exigir campos obrigatórios (nome, CPF, e-mail).  
-- O sistema deve validar se o CPF já está cadastrado.  
-
-
-#### **5. Alerta de Conflito de Horários**
-**Como paciente**, quero ser informado sobre horários alternativos disponíveis quando tento marcar uma consulta em um horário já ocupado.  
-**Critérios de Aceitação:**  
-- O sistema deve exibir uma lista de horários alternativos.  
-- Deve impedir o agendamento de mais de uma consulta no mesmo horário.  
-
-
-#### **6. Prontuário Eletrônico**
+#### **US3. Prontuário Eletrônico**
 **Como médico**, quero acessar e editar os prontuários dos meus pacientes para gerenciar informações clínicas de forma segura.  
 **Critérios de Aceitação:**  
 - Apenas médicos autenticados devem ter acesso aos prontuários.  
-- Alterações devem ser registradas com data, hora e nome do autor.  
+- Alterações devem ser registradas com data, hora e nome do autor.   
 
-
-#### **7. Relatórios de Consultas**
-**Como administrador**, quero gerar relatórios mensais sobre agendamentos para monitorar a performance da clínica.  
+#### **US4. Acesso a funcionalidades do sistema**
+**Como usuário do sistema**, quero ter acesso as minhas funcionalidades disponíveis.  
 **Critérios de Aceitação:**  
-- O relatório deve incluir o número de consultas realizadas e canceladas.  
-- Deve ser possível exportar o relatório em PDF e Excel.  
+- O sistema deve diferenciar perfis
+- O sistema deve mostrar as funcionalidades corretas de cada perfil
 
-
-#### **8. Lembretes de Medicamentos**
-**Como paciente**, quero cadastrar horários para tomar medicamentos para receber lembretes automáticos.  
+#### **US5. Segurança e proteção**
+**Como usuário do sistema**, quero a LGPD, criptografia e segurança de dados pessoais, e não deixar não autorizados terem acesso.
 **Critérios de Aceitação:**  
-- Lembretes devem ser enviados 15 minutos antes do horário cadastrado.  
-- O paciente deve poder editar ou excluir lembretes.  
+- Apenas médicos tem acesso aos prontuários
+- Apenas os admins tem acesso a dados pessoais
 
-
-#### **9. Cancelamento Automático de Consultas**
-**Como administrador**, quero que consultas sejam canceladas automaticamente quando o paciente não confirmar até o início do expediente.  
+#### **US6. Rapidez e Eficiência**
+**Como usuário do sistema**, quero um bom e otimizado funcionamento do sistema, além disso um sistema fácil de utilizar.
 **Critérios de Aceitação:**  
-- O sistema deve enviar um aviso ao paciente antes de cancelar a consulta.  
-- Consultas canceladas devem ser registradas para relatórios.  
+- Possibilidade de escalamento
+- Carregamento rápido
+
+#### **US7. Crescimento do Software**
+**Como desenvolvedor do sistema**, quero uma boa documentação e facilidade em atualizar ou adicionar novas funcionalidades.
+**Critérios de Aceitação:**  
+- Documentação válida
+
