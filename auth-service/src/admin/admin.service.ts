@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import { UpdateAdminDto } from './dto/update-admin.dto';
 import { PrismaService } from 'src/prisma.service';
@@ -31,11 +31,36 @@ export class AdminService {
     return `This action returns a #${id} admin`;
   }
 
-  update(id: number, updateAdminDto: UpdateAdminDto) {
-    return `This action updates a #${id} admin`;
+  async update(CPF: string, updateAdminDto: UpdateAdminDto) {
+    try {
+      const admin = await this.prisma.admin.findUnique({ where: { CPF } });
+      if (!admin) {
+        throw new NotFoundException(`Usuário com CPF ${CPF} não encontrado`);
+      }
+      const salt = bcrypt.genSaltSync(10);
+      const hashedPassword = bcrypt.hashSync(updateAdminDto.password, salt);
+
+      const payload = { ...(({ password, ...all }) => all)(updateAdminDto), hashedPassword };
+      await this.prisma.admin.update({ where: { CPF: CPF }, data: payload });
+      return;
+    } catch (error) {
+      this.logger.error(`Falha ao editar Usuário com CPF ${CPF}: ${error.message}`);
+      throw error;
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} admin`;
+  async remove(CPF: string) {
+    try {
+      const admin = await this.prisma.admin.findUnique({ where: { CPF } });
+      if (!admin) {
+        throw new NotFoundException(`Usuáario com CPF ${CPF} não encontrado`);
+      }
+
+      await this.prisma.admin.delete({ where: { CPF } });
+      return;
+    } catch (error) {
+      this.logger.error(`Falha ao excluir Usuáario com CPF ${CPF}: ${error.message}`);
+      throw error;
+    }
   }
 }
