@@ -1,6 +1,34 @@
 # MadManager
 
-Repositório dediaco ao projeto da matéria de Requisitos de Software coordenado pela Professora Cristiane Ramos.
+Repositório dedicado ao projeto da matéria de Requisitos de Software coordenado pela Professora Cristiane Ramos.
+
+O MedManager é uma plataforma de gerenciamento de consultas médicas, prontuários e comunicação entre médicos, pacientes e administradores. O objetivo do sistema é otimizar a gestão de agendamentos, oferecer acesso seguro aos prontuários médicos e melhorar a interação com pacientes através de lembretes automatizados e integração com ferramentas como Google Agenda e WhatsApp.
+
+## Objetivo 
+
+O MedManager visa proporcionar uma experiência eficiente e segura para clínicas e consultórios médicos, garantindo uma gestão automatizada e organizada dos agendamentos, a integridade e segurança dos dados médicos, e uma comunicação fluida com os pacientes.
+
+## Funcionalidades principais
+
+1. Gestão de Agendamentos: Permite a criação e o gerenciamento de consultas médicas, com validações de disponibilidade e regras de agendamento, como evitar conflitos de horários e agendamentos fora do expediente.
+
+2. Gestão de Prontuários: Armazena e gerencia os prontuários dos pacientes de forma segura, com acesso restrito a médicos e autorizados.
+
+3. Integração com Google Agenda: Sincroniza os agendamentos com os calendários do Google, permitindo que médicos e pacientes recebam lembretes automáticos de consultas.
+
+4. Comunicação com Pacientes: Envia lembretes de consultas e medicamentos através de integração com WhatsApp, além de permitir a confirmação de agendamentos.
+
+5. Segurança e Conformidade com LGPD: Implementa criptografia de dados sensíveis e autenticação robusta, garantindo que todas as informações sejam armazenadas e acessadas de acordo com as leis de proteção de dados.
+
+## Como rodar o projeto
+
+1. Clone o repositório
+
+`git clone `
+
+3. Instale as depêndencias
+
+4. `
 
 ---
 
@@ -17,9 +45,3 @@ Repositório dediaco ao projeto da matéria de Requisitos de Software coordenado
 ### Licença
 
 Esse projeto está sob licença: [MIT.](LICENSE)
-
----
-
-### Modelo
-
-Esse README foi feito seguindo o seguinte [template.](https://github.com/DiasEllen26/template-readme)
