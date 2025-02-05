@@ -13,7 +13,7 @@ export class DrugServiceService {
       const { name, actionSite } = createDrugServiceDto;
 
       await this.prisma.drug.create({ data: { name, actionSite } });
-      this.logger.log(`Created drug ${name}`);
+      this.logger.log(`Remédio ${name} criado com sucesso`);
       return;
     } catch (error) {
       this.logger.log(error);
@@ -34,6 +34,7 @@ export class DrugServiceService {
       if (!drug) throw new NotFoundException(`Remédio com ${name} não encontrado`);
 
       await this.prisma.drug.update({ where: { id }, data: updateDrugServiceDto });
+      this.logger.log(`Remédio ${name} atualizado com sucesso`);
       return;
     } catch (error) {
       this.logger.error(`Falha ao editar Remédio com nome ${name}: ${error.message}`);
@@ -47,6 +48,7 @@ export class DrugServiceService {
       if (!drug) throw new NotFoundException(`Remédio com ${name} não encontrado`);
 
       await this.prisma.drug.delete({ where: { id } });
+      this.logger.log(`Remédio ${name} removido com sucesso`);
       return;
     } catch (error) {
       this.logger.error(`Falha ao excluir Remédio com nome ${name}: ${error.message}`);
