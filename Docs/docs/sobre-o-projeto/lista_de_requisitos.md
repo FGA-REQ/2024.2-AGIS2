@@ -3,7 +3,7 @@ sidebar_position: 4
 sidebar_label: "Requisitos"
 ---
 
-# Lista de Requisitos - MedManager
+# Lista de Requisitos 
 
 ## Requisitos Funcionais (RF)
 

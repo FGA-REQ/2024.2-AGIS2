@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+sidebar_label: "Visão do produto"
 ---
 
 # Visão do produto e projeto

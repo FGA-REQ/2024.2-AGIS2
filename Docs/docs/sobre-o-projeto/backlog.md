@@ -3,7 +3,7 @@ sidebar_position: 5
 sidebar_label: "Backlog"
 ---
 
-# Backlog - MedManager
+# Backlog 
 
 No contexto do **SAFe (Scaled Agile Framework)**, as estruturas **Épicos**, **Capacidades**, **Features** e **Histórias de Usuário** representam os níveis hierárquicos de planejamento e detalhamento no backlog do produto. Aqui está o que cada uma delas significa:
 
