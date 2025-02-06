@@ -1,0 +1,75 @@
+.atendimento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detalhes-paciente input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.lista-pacientes {
+    background: #e7f4f9;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.lista-pacientes div {
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.lista-pacientes div:hover {
+    background: #5ab2fa;
+}
+
+.detalhes-paciente {
+    width: 60%;
+    text-align: left;
+    margin-top: 30px;
+    padding: 40px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.detalhes-paciente h3 {
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.detalhes-paciente .campo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.botao-salvar-prontuario {
+    background: #0078d7;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    margin-top: 20px;
+}
+
+.botao-salvar:hover {
+    background: darkblue;
+}
+
+.busca-container input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

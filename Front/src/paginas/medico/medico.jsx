@@ -5,6 +5,7 @@ import Inicio from '../../componentes/inicio/inicio';
 import Sidebar3 from '../../componentes/sidebar/sidebar3';
 import Receita from '../../componentes/receita/receita';
 import AgendaMedico from '../../componentes/agenda/agendaMedico';
+import Atendimento from '../../componentes/atendimento/atendimento';
 
 function Medico() {
     const [conteudo, setConteudo] = useState('Inicio');
@@ -20,8 +21,8 @@ function Medico() {
                 return <AgendaMedico />
             case 'Receita':
                 return <Receita />
-            case 'Prontuário':
-                return <h1>R</h1>
+            case 'Atendimento':
+                return <Atendimento />
             default:
                 return <Inicio />;
         }
