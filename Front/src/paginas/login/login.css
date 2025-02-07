@@ -54,30 +54,22 @@
 .forms-login label {
   display: block;
   text-align: left;
-  font-size: 14px;
+  margin: 4%;
+  font-size: 16px;
 }
 
 .forms-login input {
   width: 95%;
-  padding: 8px;
+  padding: 3%;
   font-size: 14px;
-  border-radius: 5px;
+  border-radius: 15px;
   border: 1px solid #ccc;
   outline: none;
 }
 
-.required {
-  color: red;
-  font-size: 12px;
-  text-align: right;
-  /* Alinha o texto à direita */
-  display: block;
-  /* Faz a span ocupar toda a linha */
-  width: 100%;
-  /* Garante que ocupe toda a largura disponível */
-  margin-top: 20px;
-  /* Ajuste o espaço entre a mensagem e o próximo campo */
-  margin-bottom: -10px;
+.forms-login input:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 .btn-entrar {
@@ -87,7 +79,7 @@
   color: white;
   background-color: rgb(46, 96, 233);
   border: none;
-  border-radius: 30px;
+  border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.3s;
 }

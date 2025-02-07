@@ -27,7 +27,8 @@ function Sidebar2({ setConteudo }) {
                 </ul>
             </div>
             <div className="footer-sidebar">
-                <img className='icon-sair' src='sair.svg' alt="Icon de logout"
+
+                <img className='icon-sair' src='sair.svg' alt="Icon de logout" title="Sair"
                     onClick={logout} />
             </div>
         </div>

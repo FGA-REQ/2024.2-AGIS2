@@ -33,7 +33,8 @@ function Sidebar3({ setConteudo }) {
             </div>
 
             <div className="footer-sidebar">
-                <img className="icon-sair" src="sair.svg" alt="Icon de logout" onClick={logout} />
+                <img className="icon-sair" src="sair.svg" alt="Icon de logout" title='Sair'
+                onClick={logout} />
             </div>
         </div>
     );

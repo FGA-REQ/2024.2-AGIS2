@@ -7,18 +7,18 @@ import Medico from './paginas/medico/medico';
 import Paciente from './paginas/paciente/paciente';
 
 function Rotas() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/admin" element={<Admin />} />                <Route path="/medico" element={<Medico />} />
-                <Route path="/paciente" element={<Paciente />} />                <Route path="/medico" element={<Medico />} />
-                <Route path="/medico" element={<Medico />} />                <Route path="/medico" element={<Medico />} />
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<Admin />} />                <Route path="/medico" element={<Medico />} />
+        <Route path="/paciente" element={<Paciente />} />                <Route path="/medico" element={<Medico />} />
+        <Route path="/medico" element={<Medico />} />                <Route path="/medico" element={<Medico />} />
 
-            </Routes>
-        </BrowserRouter>
-    );
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default Rotas;
