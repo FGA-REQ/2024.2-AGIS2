@@ -1,4 +1,4 @@
-.container-header{
+.container-header {
     background-color: blue;
     position: fixed;
     top: 0;
@@ -11,13 +11,13 @@
     z-index: 1000;
 }
 
-.logo-header{
+.logo-header {
     width: 135px;
     align-items: center;
     margin-left: 40px;
 }
 
-.btn-login-header{
+.btn-login-header {
     height: 50px;
     width: 120px;
     font-size: 20px;
@@ -25,6 +25,6 @@
     align-items: center;
 }
 
-.btn-login-header:hover{
-  background-color: rgb(217, 217, 221);
+.btn-login-header:hover {
+    background-color: rgb(217, 217, 221);
 }

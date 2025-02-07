@@ -24,19 +24,12 @@ function ListaPlanosSaude({ onEditarPlano }) {
 
     return (
         <div className="listaPlanosSaude">
-            <div className="dropdown">
-                <select>
-                    <option value="default">Todos os planos</option>
-                    <option value="saudeTotal">Plano Saúde Total</option>
-                    <option value="vidaSaudavel">Plano Vida Saudável</option>
-                </select>
-            </div>
 
             <div className="planos-lista">
                 {planos.map((plano) => (
                     <div key={plano.id} className="plano-item">
                         <img
-                            src="user.svg"
+                            src="plano.svg"
                             alt="Ícone de plano"
                             className="user-icon-planos"
                         />

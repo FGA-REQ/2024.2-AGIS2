@@ -1,5 +1,4 @@
 .listaPacientes {
-    font-family: Arial, sans-serif;
     margin: 20px;
     display: flex;
     justify-content: center;
@@ -19,19 +18,15 @@
 .dropdown select {
     width: 30%;
     padding: 15px;
-    font-size: 16px;
+    font-size: 13px;
     color: white;
-    background-color: purple;
+    background-color: #0078d7;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: 600;
 }
 
-.dropdown p {
-    font-size: 12px;
-    margin-top: 5px;
-    color: gray;
-}
 
 .pacientes-lista {
     display: flex;
@@ -44,20 +39,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 15px;
     border-radius: 4px;
-    background-color: #ffecec;
+    background-color: #e7f4f9;
 }
 
 .user-icon-pacientes {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
 
 .paciente-info {
     flex: 1;
     margin-left: 20px;
-    font-size: 17px;
+    font-size: 12px;
 }
 
 .paciente-info span {
@@ -70,14 +65,14 @@
 }
 
 .lapis-paciente {
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
     cursor: pointer;
 }
 
 .lixo-paciente {
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
     cursor: pointer;
     margin-left: 20px;
 }

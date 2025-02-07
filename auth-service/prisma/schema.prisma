@@ -14,31 +14,34 @@ datasource db {
 }
 
 model Doctor {
-  id             Int      @id @default(autoincrement())
-  email          String   @unique
-  name           String
-  telephone      String   @unique
-  birthday       DateTime
-  CRM            String   @unique
-  specialty      String
-  hashedPassword String
-  CPF            String   @unique
+  id                   Int      @id @default(autoincrement())
+  email                String   @unique
+  name                 String
+  telephone            String   @unique
+  birthday             DateTime
+  CRM                  String   @unique
+  specialty            String
+  hashedPassword       String
+  CPF                  String   @unique
+  passwordResetToken   String?
 }
 
 model Patient {
-  id             Int      @id @default(autoincrement())
-  name           String
-  email          String   @unique
-  birthday       DateTime
-  CPF            String   @unique
-  telephone      String   @unique
-  hashedPassword String
+  id                   Int      @id @default(autoincrement())
+  name                 String
+  email                String   @unique
+  birthday             DateTime
+  CPF                  String   @unique
+  telephone            String   @unique
+  hashedPassword       String
+  passwordResetToken   String?
 }
 
 model Admin {
-  id             Int    @id @default(autoincrement())
-  name           String
-  email          String @unique
-  CPF            String @unique
-  hashedPassword String
+  id                   Int    @id @default(autoincrement())
+  name                 String
+  email                String @unique
+  CPF                  String @unique
+  hashedPassword       String
+  passwordResetToken   String?
 }

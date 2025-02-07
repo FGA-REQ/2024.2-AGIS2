@@ -1,80 +1,96 @@
 .inicio {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin-left: 160px;
-    gap: 180px;
-    margin-top: 40px;
-    font-size: 20px;
-  }
-  
-  .header-inicio{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .logo-inicio {
-    position: fixed;
-    top: 34%;
-    left: 730px;
-    transform: translateY(-30%);
-    width: 540px;
-    height: auto;
-
-    /* Define um z-index menor para ficar atrás dos outros elementos */
-    opacity: 0.4;
-    /* Opacidade para torná-la transparente */
-  }
-  
-  .popupContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .alterarSenhaPopup {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    width: 100%;
-    position: relative;
-    /* Para que o posicionamento absoluto do fecharPopup funcione corretamente */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 50px;
+  gap: 180px;
+  margin-top: 40px;
+  font-size: 20px;
 }
-  
-  .fecharPopup {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 20px;
-  }
-  
-  .erroSenha {
-    color: red;
-    margin-top: 5px;
-    font-size: 14px;
-  }
-  
-  .alterar-senha-inicio button {
-    background-color: #4CAF50;
-    font-size: 1em;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .alterar-senha-inicio button:hover {
-    background-color: #45a049;
-  }
+
+.header-inicio {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.popupContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alterarSenhaPopup {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  width: 100%;
+  position: relative;
+  /* Para que o posicionamento absoluto do fecharPopup funcione corretamente */
+}
+
+.fecharPopup {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.erroSenha {
+  color: red;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.alterar-senha-inicio button {
+  background-color: #0078d7;
+  font-size: 14px;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.alterar-senha-inicio button:hover {
+  background-color: #004985;
+}
+
+.alterarSenhaPopup h2 {
+  color: #0078d7;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.alterarSenhaPopup form label {
+  font-size: 15px;
+}
+
+.alterarSenhaPopup form input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-items: left;
+
+}
+
+.alterarSenhaPopup form input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.alterarSenhaPopup form {
+  display: flex;
+  flex-direction: column;
+}
