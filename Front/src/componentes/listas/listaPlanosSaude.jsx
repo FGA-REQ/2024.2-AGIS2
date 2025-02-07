@@ -15,18 +15,42 @@ function ListaPlanosSaude({ onEditarPlano }) {
             numeroContrato: "654321",
             empresaResponsavel: "Bem Estar Corp.",
         },
-        // Outros planos...
+        {
+            id: 3,
+            nome: "Plano Família Protegida",
+            numeroContrato: "789012",
+            empresaResponsavel: "Saúde Sempre",
+        },
     ]);
+
+    const [filtroEmpresa, setFiltroEmpresa] = useState("default");
 
     const deletaPlano = (id) => {
         setPlanos(planos.filter((plano) => plano.id !== id));
     };
 
+    const handleFiltroChange = (event) => {
+        setFiltroEmpresa(event.target.value);
+    };
+
+    const planosFiltrados = filtroEmpresa === "default"
+        ? planos
+        : planos.filter((plano) => plano.empresaResponsavel === filtroEmpresa);
+
     return (
         <div className="listaPlanosSaude">
+            <div className="dropdown">
+
+                {/* FORMA DE COLOCAR TODOS OS CADASTADOS AQ AUTOMATICAMENTE*/}
+                <select onChange={handleFiltroChange} value={filtroEmpresa}>
+                    <option value="default">Todas as empresas</option>
+                    <option value="Saúde Sempre">Saúde Sempre</option>
+                    <option value="Bem Estar Corp.">Bem Estar Corp.</option>
+                </select>
+            </div>
 
             <div className="planos-lista">
-                {planos.map((plano) => (
+                {planosFiltrados.map((plano) => (
                     <div key={plano.id} className="plano-item">
                         <img
                             src="plano.svg"

@@ -5,11 +5,11 @@ import { useState } from 'react';
 function Login() {
   const navigate = useNavigate();
   const [showForgotPassword, setPopEsqueceuSenha] = useState(false); // Controle do pop-up
-  const [email, setEmail] = useState(""); // Controle do campo de e-mail
-  const [formData, setFormData] = useState({
-    login: "",
-    senha: "",
-  }); // Estado para armazenar dados do formulário
+
+  const [email, setEmail] = useState(""); // Controle do campo de e-mail do esqueci senha
+  const [cpf, setCpf] = useState("");
+  const [senha, setSenha] = useState("");
+
 
   const cliqueSeta = () => {
     navigate("/");
@@ -40,11 +40,17 @@ function Login() {
   };
 
   const esqueceuSenha = () => {
-    setPopEsqueceuSenha(true); // Abre o pop-up
+    setPopEsqueceuSenha(true);
   };
+
   const validarEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
+  };
+
+  const validarCpf = (cpf) => {
+    const regex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/; // Valida CPF no formato xxx.xxx.xxx-xx
+    return regex.test(cpf);
   };
 
   const enviarEmail = () => {
@@ -61,6 +67,31 @@ function Login() {
     alert(`E-mail de recuperação enviado para: ${email}`);
     setPopEsqueceuSenha(false);
     setEmail("");
+  };
+
+  const handleCpfChange = (e) => {
+    let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
+
+    // Adiciona a formatação automática
+    if (value.length <= 3) {
+      value = value.replace(/(\d{3})(\d+)/, "$1");
+    } else if (value.length <= 6) {
+      value = value.replace(/(\d{3})(\d{3})(\d+)/, "$1.$2");
+    } else if (value.length <= 9) {
+      value = value.replace(/(\d{3})(\d{3})(\d{3})(\d+)/, "$1.$2.$3");
+    } else {
+      value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    }
+
+    setCpf(value); // Atualiza o estado com o CPF formatado
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validarCpf(cpf)) {
+      alert("Por favor, digite um CPF válido com o formato xxx.xxx.xxx-xx.");
+      return;
+    }
   };
 
   return (
@@ -80,21 +111,29 @@ function Login() {
 
         <form className="forms-login" onSubmit={handleSubmit}>
 
-          <label>Usuário</label>
-          <input 
-          type="text" 
-          name="login"
-          placeholder="Digite o CPF" 
-          required
-          onChange={handleChange} />
+          <span className="required">*campo obrigatório</span>
+
+          <label>Usuário (CPF)</label>
+          <input
+            type="text"
+            placeholder="Digite o CPF"
+            value={cpf}
+            onChange={handleCpfChange}
+            maxLength="14"
+            required
+          />
+
+          <span className="required">*campo obrigatório</span>
 
           <label>Senha</label>
-          <input 
-          type="password" 
-          name="senha"
-          placeholder="Digite a senha" 
-          required
-          onChange={handleChange} />
+          <input
+            type="password"
+            placeholder="Digite a senha"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+            required
+          />
+
 
           <button type="submit" className="btn-entrar">Entrar</button>
         </form>

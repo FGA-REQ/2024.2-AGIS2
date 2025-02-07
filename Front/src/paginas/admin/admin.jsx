@@ -8,6 +8,7 @@ import ListaPacientes from '../../componentes/listas/listaPacientes';
 import ListaPlanosSaude from '../../componentes/listas/listaPlanosSaude'; // Importando ListaPlanosSaude
 import Inicio from '../../componentes/inicio/inicio';
 import Agenda from '../../componentes/agenda/agenda';
+import Dashboard from '../../componentes/dashboard/dashboard';
 
 function Admin() {
   const [conteudo, setConteudo] = useState('Inicio');
@@ -50,31 +51,34 @@ function Admin() {
     setPlanoEditado(null);
   };
 
-  const getConteudo = () => {
-    switch (conteudo) {
-      case 'Médicos':
-        return <ListaMedicos onEditarMedico={handleEditarMedico} />;
-      case 'Pacientes':
-        return <ListaPacientes onEditarPaciente={handleEditarPaciente} />;
-      case 'Planos de Saúde': // Adicionando a opção para listar planos de saúde
-        return <ListaPlanosSaude onEditarPlano={handleEditarPlano} />;
-      case 'Agenda':
-        return <Agenda />
-      case 'Cadastro':
-        return (
-          <Cadastro
-            medicoEditado={medicoEditado}
-            pacienteEditado={pacienteEditado}
-            planoEditado={planoEditado} // Passando o planoEditado
-            onSalvarMedico={handleSalvarMedico}
-            onSalvarPaciente={handleSalvarPaciente}
-            onSalvarPlano={handleSalvarPlano} // Adicionando o callback para salvar plano
-          />
-        );
-      default:
-        return <Inicio />;
-    }
-  };
+    const getConteudo = () => {
+        switch (conteudo) {
+            case 'Médicos':
+                return <ListaMedicos onEditarMedico={handleEditarMedico} />;
+            case 'Pacientes':
+                return <ListaPacientes onEditarPaciente={handleEditarPaciente} />;
+            case 'Planos de Saúde': 
+                return <ListaPlanosSaude onEditarPlano={handleEditarPlano} />;
+            case 'Agenda':
+                return <Agenda />
+            case 'Dashboard':
+                    return <Dashboard />
+            case 'Cadastro':
+                return (
+                    <Cadastro
+                        medicoEditado={medicoEditado}
+                        pacienteEditado={pacienteEditado}
+                        planoEditado={planoEditado} // Passando o planoEditado
+                        onSalvarMedico={handleSalvarMedico}
+                        onSalvarPaciente={handleSalvarPaciente}
+                        onSalvarPlano={handleSalvarPlano} // Adicionando o callback para salvar plano
+                    />
+                );
+            default:
+                return <Inicio />;
+        }
+    };
+
 
   return (
     <div className="admin">
