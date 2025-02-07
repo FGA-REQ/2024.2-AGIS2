@@ -1,4 +1,3 @@
-import './paciente.css';
 import React, { useState } from 'react';
 import Header2 from '../../componentes/header/header2';
 import Inicio from '../../componentes/inicio/inicio';

@@ -9,8 +9,8 @@ function Remedio() {
     // Estados para os campos do formulário
     const [nome, setNome] = useState("");
     const [localDeAcao, setLocalDeAcao] = useState("");
-    const [quantidadeDias, setQuantidadeDias] = useState(1);
-    const [quantidadeHoras, setQuantidadeHoras] = useState(1);
+    const [quantidadeDias, setQuantidadeDias] = useState("");
+    const [quantidadeHoras, setQuantidadeHoras] = useState("");
 
     // Função para adicionar ou editar remédio
     const handleSubmit = (e) => {
@@ -59,6 +59,14 @@ function Remedio() {
         setMostrarFormulario(true);
     };
 
+    // Função para garantir que o valor seja um número positivo ou zero
+    const handleChangePositive = (setState) => (e) => {
+        const value = e.target.value;
+        if (value === "" || /^[0-9\b]+$/.test(value)) {
+            setState(value); // Permitir apagar ou inserir números positivos
+        }
+    };
+
     return (
         <div className="cadastro-remedio">
             <button className="btn-adicionar" onClick={() => setMostrarFormulario(!mostrarFormulario)}>
@@ -82,8 +90,9 @@ function Remedio() {
                         <input
                             type="number"
                             value={quantidadeDias}
-                            onChange={(e) => setQuantidadeDias(Math.max(1, e.target.value))}
+                            onChange={handleChangePositive(setQuantidadeDias)}
                             required
+                            min="1"
                         />
                     </div>
 
@@ -92,8 +101,9 @@ function Remedio() {
                         <input
                             type="number"
                             value={quantidadeHoras}
-                            onChange={(e) => setQuantidadeHoras(Math.max(1, e.target.value))}
+                            onChange={handleChangePositive(setQuantidadeHoras)}
                             required
+                            min="1"
                         />
                     </div>
 
@@ -106,7 +116,7 @@ function Remedio() {
                 {remedios.map((remedio) => (
                     <div key={remedio.id} className="remedio-item">
                         <div className="remedio-info">
-                            <span><strong>{remedio.nome}</strong></span>
+                            <span className='nome-remedio'><strong>{remedio.nome}</strong></span>
                             <span>Local: {remedio.localDeAcao}</span>
                             <span>Duração: {remedio.quantidadeDias} dias</span>
                             <span>Intervalo: {remedio.quantidadeHoras}h</span>
