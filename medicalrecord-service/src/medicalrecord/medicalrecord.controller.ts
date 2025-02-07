@@ -22,7 +22,7 @@ export class MedicalrecordController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.medicalrecordService.findOne(+id);
+    return this.medicalrecordService.findOne(id);
   }
 
   @Patch(':id')
