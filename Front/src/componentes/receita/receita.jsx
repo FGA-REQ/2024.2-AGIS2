@@ -3,7 +3,7 @@ import './receita.css';
 
 function Receita() {
     const [nomePaciente, setNomePaciente] = useState('');
-    const [nomeMedico, setNomeMedico] = useState('');
+    const [nomeMedico, setNomeMedico] = useState('Maria Clara'); // Nome padrão inserido automaticamente
     const [crmMedico, setCrmMedico] = useState('123456'); // CRM padrão inserido automaticamente
     const [dataReceita, setDataReceita] = useState('');
     const [receita, setReceita] = useState('');
@@ -76,8 +76,7 @@ function Receita() {
                         <input
                             type="text"
                             value={nomeMedico}
-                            onChange={(e) => setNomeMedico(e.target.value)}
-                            placeholder="Nome do médico"
+                            readOnly
                         />
                     </div>
                     <div className="campo">

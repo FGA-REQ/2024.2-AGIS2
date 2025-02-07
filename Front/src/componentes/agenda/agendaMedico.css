@@ -64,13 +64,17 @@
 }
 
 .filtro-container label {
-  font-size: 16px;
+  font-size: 18px;
   margin-right: 10px;
 }
 
 .filtro-container input {
-  font-size: 12px;
+  font-size: 14px;
   padding: 5px;
+  border-radius: 5px;
+  border: black 1px solid;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .agenda-medico {

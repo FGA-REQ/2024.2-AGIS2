@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './atendimento.css';
 
 const pacientesMock = [
-    { id: 1, nome: "João Silva", idade: 45, peso: "", altura: "", alergias: "" },
-    { id: 2, nome: "Maria Souza Leite Gomes", idade: 30, peso: "", altura: "", alergias: "" },
-    { id: 3, nome: "Carlos Oliveira", idade: 50, peso: "", altura: "", alergias: "" },
+    { id: 1, nome: "João Silva", idade: "", peso: "", altura: "", alergias: "" },
+    { id: 2, nome: "Maria Souza Leite Gomes", idade: "", peso: "", altura: "", alergias: "" },
+    { id: 3, nome: "Carlos Oliveira", idade: "", peso: "", altura: "", alergias: "" },
 ];
 
 function Atendimento() {
@@ -13,15 +13,25 @@ function Atendimento() {
     const [pacienteSelecionado, setPacienteSelecionado] = useState(null);
     const [peso, setPeso] = useState("");
     const [altura, setAltura] = useState("");
+    const [idade, setIdade] = useState("");
     const [alergias, setAlergias] = useState("");
     const [prontuario, setProntuario] = useState("");
     const [historico, setHistorico] = useState({});
     const [visualizando, setVisualizando] = useState(null);
     const [data, setData] = useState(new Date().toISOString().split('T')[0]);
 
+    const formatarData = (data) => {
+        const date = new Date(data);
+        const dia = String(date.getDate()).padStart(2, '0');
+        const mes = String(date.getMonth() + 1).padStart(2, '0');
+        const ano = date.getFullYear();
+        return `${dia}/${mes}/${ano}`;
+      };
+
     useEffect(() => {
         setPeso(pacienteSelecionado?.peso || "");
         setAltura(pacienteSelecionado?.altura || "");
+        setIdade(pacienteSelecionado?.idade || "");
         setAlergias(pacienteSelecionado?.alergias || "");
     }, [pacienteSelecionado]);
 
@@ -38,11 +48,16 @@ function Atendimento() {
             ...historico,
             [pacienteSelecionado.id]: [
                 ...(historico[pacienteSelecionado.id] || []),
-                { data, descricao: prontuario },
+                { data, peso, altura, idade, alergias, descricao: prontuario },
             ],
         };
         setHistorico(novoHistorico);
         setProntuario("");
+        setPeso("");
+        setAltura("");
+        setIdade("");
+        setAlergias("");
+        alert("Prontuário salvo com sucesso!");
     };
 
     return (
@@ -78,11 +93,15 @@ function Atendimento() {
                         </div>
                         <div className="campo-prontuario">
                             <label>Peso (kg):</label>
-                            <input type="text" value={peso} onChange={(e) => setPeso(e.target.value)} />
+                            <input type="text" value={peso} onChange={(e) => setPeso(e.target.value.replace(/[^0-9.,]/g, ''))} />
                         </div>
                         <div className="campo-prontuario">
                             <label>Altura (m):</label>
-                            <input type="text" value={altura} onChange={(e) => setAltura(e.target.value)} />
+                            <input type="text" value={altura} onChange={(e) => setAltura(e.target.value.replace(/[^0-9.,]/g, ''))} />
+                        </div>
+                        <div className="campo-prontuario">
+                            <label>Idade:</label>
+                            <input type="text" value={idade} onChange={(e) => setIdade(e.target.value.replace(/\D/g, ''))} />
                         </div>
                     </div>
                     <div className="campo-prontuario">
@@ -95,7 +114,7 @@ function Atendimento() {
                             value={prontuario}
                             onChange={(e) => setProntuario(e.target.value)}
                             placeholder="Descreva o atendimento"
-                            rows="10"
+                            rows="30"
                         />
                     </div>
                     <div className="campo-prontuario" style={{ textAlign: 'center' }}>
@@ -109,11 +128,12 @@ function Atendimento() {
                     <h4>Histórico de Prontuários</h4>
                     <ul>
                         {(historico[pacienteSelecionado.id] || []).map((p, index) => (
-                            <li key={index} onClick={() => setVisualizando(p)}>
-                                {p.data}
-                            </li>
+                            <button key={index} onClick={() => setVisualizando(p)}>
+                                {new Date(p.data).toLocaleDateString('pt-BR')}
+                            </button>
                         ))}
                     </ul>
+
                 </div>
             )}
 
@@ -121,10 +141,18 @@ function Atendimento() {
                 <div className="modal-prontuario">
                     <h3>Detalhes do Prontuário</h3>
                     <div className="prontuario-detalhado">
-                        <p><strong>Data:</strong> {visualizando.data}</p>
-                        <p>{visualizando.descricao}</p>
+                        <p><strong>Nome:</strong> {pacienteSelecionado.nome}</p>
+                        <p><strong>Data:</strong> {formatarData(visualizando.data)}</p>
+                        <p><strong>Peso:</strong> {visualizando.peso} kg</p>
+                        <p><strong>Altura:</strong> {visualizando.altura} m</p>
+                        <p><strong>Idade:</strong> {visualizando.idade} anos</p>
+                        <p><strong>Alergias:</strong> {visualizando.alergias}</p>
+                        <p className='detalhe-espaco'><strong>Descrição:</strong></p>
+                        <div className='descricao-box'>{visualizando.descricao.split('\n').map((line, index) => (
+                            <p key={index}>{line}</p>
+                        ))}</div>
                     </div>
-                    <button onClick={() => setVisualizando(null)}>Fechar</button>
+                    <button className='btn-fechar-prontuario' onClick={() => setVisualizando(null)}>Fechar</button>
                 </div>
             )}
         </div>
