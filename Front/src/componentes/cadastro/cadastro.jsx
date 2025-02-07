@@ -18,10 +18,6 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
   const [telefoneEmpresa, setTelefoneEmpresa] = useState("");
   const [emailEmpresa, setEmailEmpresa] = useState("");
 
-  // Estado para o pop-up
-  const [showModal, setShowModal] = useState(false);
-  const [modalMessage, setModalMessage] = useState("");
-
   useEffect(() => {
     if (medicoEditado) {
       setSelected("Médico");
@@ -49,25 +45,27 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (selected === "Médico") {
       if (onSalvarMedico) {
         onSalvarMedico({ nome, email, cpf, telefone, dataNascimento, crm, especialidade });
       }
-      setModalMessage("Médico salvo com sucesso!" + nome + email + cpf + telefone + dataNascimento + crm + especialidade);
+      alert("Médico salvo com sucesso!");
     } else if (selected === "Paciente") {
       if (onSalvarPaciente) {
         onSalvarPaciente({ nome, email, cpf, telefone, dataNascimento, planoDeSaude });
       }
-      setModalMessage("Paciente salvo com sucesso!" + nome + email + cpf + telefone + dataNascimento + planoDeSaude);
+      alert("Paciente salvo com sucesso!");
     } else if (selected === "Plano") {
       if (onSalvarPlano) {
         onSalvarPlano({ nome, numeroContrato, vencimentoContrato, empresaResponsavel, cnpj, telefoneEmpresa, emailEmpresa });
       }
-      setModalMessage("Plano salvo com sucesso!" + nome + numeroContrato + vencimentoContrato + empresaResponsavel + cnpj + telefoneEmpresa + emailEmpresa);
+      alert("Plano de Saúde salvo com sucesso!");
     }
-    setShowModal(true);  // Show modal
+
     resetForm();
   };
+
 
   const resetForm = () => {
     setNome("");
@@ -94,13 +92,6 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
     setPlano("");
     setEspecialidade("");
     setCrm("");
-  };
-
-  const handleModalClose = () => {
-    setShowModal(false);  // Close modal
-    if (onVoltarParaLista) {
-      onVoltarParaLista();  // Redirect to the list page (e.g., médicos list)
-    }
   };
 
   return (
@@ -130,7 +121,10 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
           </button>
         </div>
       )}
+
+
       <form className="forms-cadastro" onSubmit={handleSubmit}>
+
 
 
         {selected === "Médico" && (
@@ -139,16 +133,20 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
             <label>Nome</label>
             <input
               type="text"
-              placeholder="Digite o nome"
+              placeholder="Digite o nome do médico"
               value={nome}
-              onChange={(e) => setNome(e.target.value)}
+              onChange={(e) => {
+                const value = e.target.value.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ\s]/g, "");
+                setNome(value);
+              }}
               required
             />
+
             <span className="required">*campo obrigatório</span>
             <label>Email</label>
             <input
-              type="text"
-              placeholder="Digite o email"
+              type="email"
+              placeholder="Digite o email do médico"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -158,9 +156,16 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
             <label>CPF</label>
             <input
               type="text"
-              placeholder="Digite o CPF"
+              placeholder="Digite o CPF do médico"
               value={cpf}
-              onChange={(e) => setCpf(e.target.value)}
+              onChange={(e) => {
+                let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
+                value = value.replace(/(\d{3})(\d)/, "$1.$2");
+                value = value.replace(/(\d{3})(\d)/, "$1.$2");
+                value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+                setCpf(value);
+              }}
+              maxLength="14"
               required
             />
 
@@ -168,9 +173,15 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
             <label>Telefone</label>
             <input
               type="tel"
-              placeholder="Digite o telefone"
+              placeholder="Digite o telefone do médico"
               value={telefone}
-              onChange={(e) => setTelefone(e.target.value)}
+              onChange={(e) => {
+                let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
+                value = value.replace(/^(\d{2})(\d)/g, "($1) $2");
+                value = value.replace(/(\d{5})(\d)/, "$1-$2");
+                setTelefone(value);
+              }}
+              maxLength="15"
               required
             />
 
@@ -183,14 +194,16 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
               required
             />
 
-
             <span className="required">*campo obrigatório</span>
             <label>CRM</label>
             <input
               type="text"
               placeholder="Digite o CRM"
               value={crm}
-              onChange={(e) => setCrm(e.target.value)}
+              onChange={(e) => {
+                const value = e.target.value.replace(/\D/g, ""); // Permite apenas números
+                setCrm(value);
+              }}
               required
             />
 
@@ -200,14 +213,20 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
               type="text"
               placeholder="Digite a Especialidade"
               value={especialidade}
-              onChange={(e) => setEspecialidade(e.target.value)}
+              onChange={(e) => {
+                const value = e.target.value.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ\s]/g, "");
+                setEspecialidade(value);
+              }}
               required
             />
+
             <button type="submit" className="btn-salvar">
               {medicoEditado || pacienteEditado || planoEditado ? "Editar" : "Salvar"}
             </button>
           </div>
         )}
+
+
 
         {selected === "Paciente" && (
           <div className="apertou-paciente">
@@ -216,17 +235,20 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
             <label>Nome</label>
             <input
               type="text"
-              placeholder="Digite o nome"
+              placeholder="Digite o nome do paciente"
               value={nome}
-              onChange={(e) => setNome(e.target.value)}
+              onChange={(e) => {
+                const value = e.target.value.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ\s]/g, "");
+                setNome(value);
+              }}
               required
             />
 
             <span className="required">*campo obrigatório</span>
             <label>Email</label>
             <input
-              type="text"
-              placeholder="Digite o email"
+              type="email"
+              placeholder="Digite o email do paciente"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -236,9 +258,16 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
             <label>CPF</label>
             <input
               type="text"
-              placeholder="Digite o CPF"
+              placeholder="Digite o CPF do paciente"
               value={cpf}
-              onChange={(e) => setCpf(e.target.value)}
+              onChange={(e) => {
+                let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
+                value = value.replace(/(\d{3})(\d)/, "$1.$2");
+                value = value.replace(/(\d{3})(\d)/, "$1.$2");
+                value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+                setCpf(value);
+              }}
+              maxLength="14"
               required
             />
 
@@ -246,9 +275,15 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
             <label>Telefone</label>
             <input
               type="tel"
-              placeholder="Digite o telefone"
+              placeholder="Digite o telefone do paciente"
               value={telefone}
-              onChange={(e) => setTelefone(e.target.value)}
+              onChange={(e) => {
+                let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
+                value = value.replace(/^(\d{2})(\d)/g, "($1) $2");
+                value = value.replace(/(\d{5})(\d)/, "$1-$2");
+                setTelefone(value);
+              }}
+              maxLength="15"
               required
             />
 
@@ -261,22 +296,26 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
               required
             />
 
-
-
             <span className="required">*campo obrigatório</span>
             <label>Plano</label>
             <input
               type="text"
-              placeholder="Digite o plano"
+              placeholder="Digite o plano, caso não tenha, digite 'Particular'"
               value={planoDeSaude}
-              onChange={(e) => setPlano(e.target.value)}
+              onChange={(e) => {
+                const value = e.target.value.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ\s]/g, "");
+                setPlano(value);
+              }}
               required
             />
+
             <button type="submit" className="btn-salvar">
               {medicoEditado || pacienteEditado || planoEditado ? "Editar" : "Salvar"}
             </button>
           </div>
         )}
+
+
 
         {selected === "Plano" && (
           <div className="apertou-plano">
@@ -284,18 +323,25 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
             <label>Nome</label>
             <input
               type="text"
-              placeholder="Digite o nome"
+              placeholder="Digite o nome do plano de saúde"
               value={nome}
-              onChange={(e) => setNome(e.target.value)}
+              onChange={(e) => {
+                const value = e.target.value.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ\s]/g, "");
+                setNome(value);
+              }}
               required
             />
+
             <span className="required">*campo obrigatório</span>
             <label>Número do Contrato</label>
             <input
               type="text"
               placeholder="Digite o número do contrato"
               value={numeroContrato}
-              onChange={(e) => setNumeroContrato(e.target.value)}
+              onChange={(e) => {
+                const value = e.target.value.replace(/\D/g, ""); // Apenas números
+                setNumeroContrato(value);
+              }}
               required
             />
 
@@ -312,7 +358,7 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
             <label>Empresa Responsável</label>
             <input
               type="text"
-              placeholder="Digite a empresa responsável"
+              placeholder="Digite o nome da empresa responsável"
               value={empresaResponsavel}
               onChange={(e) => setEmpresaResponsavel(e.target.value)}
               required
@@ -324,25 +370,38 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
               type="text"
               placeholder="Digite o CNPJ"
               value={cnpj}
-              onChange={(e) => setCnpj(e.target.value)}
+              onChange={(e) => {
+                let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
+                value = value.replace(/^(\d{2})(\d)/, "$1.$2"); // Formata os 2 primeiros números
+                value = value.replace(/(\d{3})(\d)/, "$1.$2"); // Formata os 3 próximos números
+                value = value.replace(/(\d{3})(\d)/, "$1/$2"); // Formata os 3 próximos números com '/'
+                value = value.replace(/(\d{4})(\d{1,2})$/, "$1-$2"); // Formata o final com '-'
+                setCnpj(value);
+              }}
+              maxLength="18"
               required
             />
 
             <span className="required">*campo obrigatório</span>
-            <label>Telefone da Empresa</label>
+            <label>Telefone</label>
             <input
               type="tel"
-              placeholder="Digite o telefone da empresa"
+              placeholder="Digite o telefone da empresa responsável"
               value={telefoneEmpresa}
-              onChange={(e) => setTelefoneEmpresa(e.target.value)}
+              onChange={(e) => {
+                let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
+                value = value.replace(/^(\d{2})(\d)/g, "($1) $2");
+                value = value.replace(/(\d{5})(\d)/, "$1-$2");
+                setTelefoneEmpresa(value);
+              }}
               required
             />
 
             <span className="required">*campo obrigatório</span>
-            <label>Email da Empresa</label>
+            <label>Email</label>
             <input
-              type="text"
-              placeholder="Digite o email da empresa"
+              type="email"
+              placeholder="Digite o email da empresa responsável"
               value={emailEmpresa}
               onChange={(e) => setEmailEmpresa(e.target.value)}
               required
@@ -352,19 +411,7 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
             </button>
           </div>
         )}
-
       </form>
-
-      {/* Modal de confirmação */}
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>{modalMessage}</h2>
-            <button className='btn-modal' onClick={handleModalClose}>Fechar</button>
-          </div>
-        </div>
-      )}
-
     </div>
   );
 }
