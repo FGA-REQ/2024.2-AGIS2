@@ -37,6 +37,7 @@ function Sidebar({ setConteudo }) {
             </div>
         </div>
     );
+
 }
 
 export default Sidebar;

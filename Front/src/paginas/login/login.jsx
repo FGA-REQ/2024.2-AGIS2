@@ -5,12 +5,38 @@ import { useState } from 'react';
 function Login() {
   const navigate = useNavigate();
   const [showForgotPassword, setPopEsqueceuSenha] = useState(false); // Controle do pop-up
+
   const [email, setEmail] = useState(""); // Controle do campo de e-mail do esqueci senha
   const [cpf, setCpf] = useState("");
   const [senha, setSenha] = useState("");
 
+
   const cliqueSeta = () => {
     navigate("/");
+  };
+
+  const botaoLogin = () => {
+    const { login, senha } = formData;
+
+    // Lógica para determinar a rota com base no login
+    if (login === "admin") {
+      navigate("/admin");
+    } else if (login === "paciente") {
+      navigate("/paciente");
+    } else if (login === "medico") {
+      navigate("/medico");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData); // Printar os dados do formulário
+    botaoLogin();
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const esqueceuSenha = () => {
@@ -84,6 +110,7 @@ function Login() {
         <h2>Med Manager</h2>
 
         <form className="forms-login" onSubmit={handleSubmit}>
+
           <span className="required">*campo obrigatório</span>
 
           <label>Usuário (CPF)</label>
@@ -106,6 +133,7 @@ function Login() {
             onChange={(e) => setSenha(e.target.value)}
             required
           />
+
 
           <button type="submit" className="btn-entrar">Entrar</button>
         </form>

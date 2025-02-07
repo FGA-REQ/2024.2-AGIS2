@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./listaMedicos.css";
 
 function ListaMedicos({ onEditarMedico }) {
+
     const [medicos, setMedicos] = useState([
         { id: 1, nome: "Dr Daniel Pereira", especialidade: "Oncologista" },
         { id: 2, nome: "Dra Ana Silva", especialidade: "Cardiologista" },
@@ -58,9 +59,13 @@ function ListaMedicos({ onEditarMedico }) {
                         </div>
                     </div>
                 ))}
+
             </div>
-        </div>
-    );
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default ListaMedicos;

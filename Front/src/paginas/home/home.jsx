@@ -14,7 +14,7 @@ function Home() {
     <div className="home-container">
       <header className="home-header">
         <div className="logo-container">
-          <h1>Bem-vindo ao MedMannager</h1>
+          <h1>Bem-vindo ao MedManager</h1>
           <img src="logo.svg" alt="MedMannager Logo" className="home-logo" />
         </div>
         <p>Gerencie suas tarefas médicas e acadêmicas de forma simples e eficiente.</p>
@@ -24,7 +24,7 @@ function Home() {
       <section className="about-section">
         <h2>Sobre Nós</h2>
         <p>
-          O MedMannager é uma plataforma inovadora desenvolvida para atender às
+          O MedManager é uma plataforma inovadora desenvolvida para atender às
           necessidades de profissionais da saúde e da gestão acadêmica,
           oferecendo ferramentas modernas para facilitar a organização e o gerenciamento. Nossa missão é simplificar o trabalho de médicos, estudantes e outros
           profissionais, permitindo que eles se concentrem no que realmente importa.

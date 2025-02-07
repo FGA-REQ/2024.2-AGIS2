@@ -11,45 +11,45 @@ import Agenda from '../../componentes/agenda/agenda';
 import Dashboard from '../../componentes/dashboard/dashboard';
 
 function Admin() {
-    const [conteudo, setConteudo] = useState('Inicio');
-    const [sidebarVisivel, setSidebarVisivel] = useState(false);
-    const [medicoEditado, setMedicoEditado] = useState(null);
-    const [pacienteEditado, setPacienteEditado] = useState(null);
-    const [planoEditado, setPlanoEditado] = useState(null); // Adicionando o estado para plano editado
+  const [conteudo, setConteudo] = useState('Inicio');
+  const [sidebarVisivel, setSidebarVisivel] = useState(false);
+  const [medicoEditado, setMedicoEditado] = useState(null);
+  const [pacienteEditado, setPacienteEditado] = useState(null);
+  const [planoEditado, setPlanoEditado] = useState(null); // Adicionando o estado para plano editado
 
-    const toggleSidebar = () => {
-        setSidebarVisivel(!sidebarVisivel);
-    };
+  const toggleSidebar = () => {
+    setSidebarVisivel(!sidebarVisivel);
+  };
 
-    const handleEditarMedico = (medico) => {
-        setMedicoEditado(medico);
-        setConteudo('Cadastro');
-    };
+  const handleEditarMedico = (medico) => {
+    setMedicoEditado(medico);
+    setConteudo('Cadastro');
+  };
 
-    const handleEditarPaciente = (paciente) => {
-        setPacienteEditado(paciente);
-        setConteudo('Cadastro');
-    };
+  const handleEditarPaciente = (paciente) => {
+    setPacienteEditado(paciente);
+    setConteudo('Cadastro');
+  };
 
-    const handleEditarPlano = (plano) => {
-        setPlanoEditado(plano);
-        setConteudo('Cadastro');
-    };
+  const handleEditarPlano = (plano) => {
+    setPlanoEditado(plano);
+    setConteudo('Cadastro');
+  };
 
-    const handleSalvarMedico = (medicoAtualizado) => {
-        console.log('Médico atualizado:', medicoAtualizado);
-        setMedicoEditado(null);
-    };
+  const handleSalvarMedico = (medicoAtualizado) => {
+    console.log('Médico atualizado:', medicoAtualizado);
+    setMedicoEditado(null);
+  };
 
-    const handleSalvarPaciente = (pacienteAtualizado) => {
-        console.log('Paciente atualizado:', pacienteAtualizado);
-        setPacienteEditado(null);
-    };
+  const handleSalvarPaciente = (pacienteAtualizado) => {
+    console.log('Paciente atualizado:', pacienteAtualizado);
+    setPacienteEditado(null);
+  };
 
-    const handleSalvarPlano = (planoAtualizado) => {
-        console.log('Plano de Saúde atualizado:', planoAtualizado);
-        setPlanoEditado(null);
-    };
+  const handleSalvarPlano = (planoAtualizado) => {
+    console.log('Plano de Saúde atualizado:', planoAtualizado);
+    setPlanoEditado(null);
+  };
 
     const getConteudo = () => {
         switch (conteudo) {
@@ -79,17 +79,18 @@ function Admin() {
         }
     };
 
-    return (
-        <div className="admin">
-            {sidebarVisivel && <Sidebar setConteudo={setConteudo} />}
-            <div className={`conteudo-admin ${sidebarVisivel ? 'with-sidebar' : ''}`}>
-                <Header2 toggleSidebar={toggleSidebar} />
-                <div className="principal-admin">
-                    {getConteudo()}
-                </div>
-            </div>
+
+  return (
+    <div className="admin">
+      {sidebarVisivel && <Sidebar setConteudo={setConteudo} />}
+      <div className={`conteudo-admin ${sidebarVisivel ? 'with-sidebar' : ''}`}>
+        <Header2 toggleSidebar={toggleSidebar} />
+        <div className="principal-admin">
+          {getConteudo()}
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Admin;
