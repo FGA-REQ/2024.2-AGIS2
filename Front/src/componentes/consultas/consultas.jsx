@@ -23,7 +23,7 @@ function Consulta() {
                                 <p><strong>Horário:</strong> {consulta.horario}</p>
                                 <p><strong>Data:</strong> {consulta.data}</p>
                             </div>
-                        
+
                         </div>
                     ))}
                 </div>

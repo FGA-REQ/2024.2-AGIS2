@@ -76,11 +76,13 @@ input {
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
-    background-color: #e7f4f9}
+    background-color: #e7f4f9
+}
 
 .remedio-info {
     display: flex;
-    flex-direction: column;;
+    flex-direction: column;
+    ;
 }
 
 .remedio-acoes {
