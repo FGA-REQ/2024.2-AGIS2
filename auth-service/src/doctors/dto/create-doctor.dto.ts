@@ -6,4 +6,5 @@ export class CreateDoctorDto {
   CRM: string;
   specialty: string;
   password: string;
+  CPF: string;
 }
