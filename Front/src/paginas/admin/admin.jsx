@@ -8,6 +8,7 @@ import ListaPacientes from '../../componentes/listas/listaPacientes';
 import ListaPlanosSaude from '../../componentes/listas/listaPlanosSaude'; // Importando ListaPlanosSaude
 import Inicio from '../../componentes/inicio/inicio';
 import Agenda from '../../componentes/agenda/agenda';
+import Dashboard from '../../componentes/dashboard/dashboard';
 
 function Admin() {
     const [conteudo, setConteudo] = useState('Inicio');
@@ -56,10 +57,12 @@ function Admin() {
                 return <ListaMedicos onEditarMedico={handleEditarMedico} />;
             case 'Pacientes':
                 return <ListaPacientes onEditarPaciente={handleEditarPaciente} />;
-            case 'Planos de Saúde': // Adicionando a opção para listar planos de saúde
+            case 'Planos de Saúde': 
                 return <ListaPlanosSaude onEditarPlano={handleEditarPlano} />;
             case 'Agenda':
                 return <Agenda />
+            case 'Dashboard':
+                    return <Dashboard />
             case 'Cadastro':
                 return (
                     <Cadastro

@@ -28,6 +28,7 @@ function Sidebar({ setConteudo }) {
                     <li onClick={() => handleMenuClick('Planos de Saúde')}>Planos</li>
                     <li onClick={() => handleMenuClick('Agenda')}>Agenda</li>
                     <li onClick={() => handleMenuClick('Cadastro')}>Cadastro</li>
+                    <li onClick={() => handleMenuClick('Dashboard')}>Dashboard</li>
                 </ul>
             </div>
             <div className="footer-sidebar">
