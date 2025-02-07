@@ -26,7 +26,7 @@ function Atendimento() {
         const mes = String(date.getMonth() + 1).padStart(2, '0');
         const ano = date.getFullYear();
         return `${dia}/${mes}/${ano}`;
-      };
+    };
 
     useEffect(() => {
         setPeso(pacienteSelecionado?.peso || "");
@@ -59,6 +59,10 @@ function Atendimento() {
         setAlergias("");
         alert("Prontuário salvo com sucesso!");
     };
+
+    // Nome e especialidade do médico logado
+    const medico = "Maria Clara";
+    const especialidade = "Oftal";
 
     return (
         <div className="atendimento">
@@ -93,20 +97,30 @@ function Atendimento() {
                         </div>
                         <div className="campo-prontuario">
                             <label>Peso (kg):</label>
-                            <input type="text" value={peso} onChange={(e) => setPeso(e.target.value.replace(/[^0-9.,]/g, ''))} />
+                            <input type="text" value={peso}
+                                onChange={(e) => setPeso(e.target.value.replace(/[^0-9.,]/g, ''))}
+                                placeholder="Peso atual do paciente" />
+
                         </div>
                         <div className="campo-prontuario">
                             <label>Altura (m):</label>
-                            <input type="text" value={altura} onChange={(e) => setAltura(e.target.value.replace(/[^0-9.,]/g, ''))} />
+                            <input type="text" value={altura}
+                                onChange={(e) => setAltura(e.target.value.replace(/[^0-9.,]/g, ''))}
+                                placeholder="Altura atual do paciente" />
+
                         </div>
                         <div className="campo-prontuario">
                             <label>Idade:</label>
-                            <input type="text" value={idade} onChange={(e) => setIdade(e.target.value.replace(/\D/g, ''))} />
+                            <input type="text" value={idade}
+                                onChange={(e) => setIdade(e.target.value.replace(/\D/g, ''))}
+                                placeholder="Idade atual do paciente" />
                         </div>
                     </div>
                     <div className="campo-prontuario">
                         <label>Alergias:</label>
-                        <input type="text" value={alergias} onChange={(e) => setAlergias(e.target.value)} />
+                        <input type="text" value={alergias}
+                            onChange={(e) => setAlergias(e.target.value)}
+                            placeholder="Escreva todas as alergias detalhadas" />
                     </div>
                     <div className="prontuario-container">
                         <label>Prontuário:</label>
@@ -142,7 +156,9 @@ function Atendimento() {
                     <h3>Detalhes do Prontuário</h3>
                     <div className="prontuario-detalhado">
                         <p><strong>Nome:</strong> {pacienteSelecionado.nome}</p>
-                        <p><strong>Data:</strong> {formatarData(visualizando.data)}</p>
+                        <p><strong>Especialidade:</strong> {especialidade}</p>
+                        <p><strong>Médico:</strong> {medico}</p>
+                        <p className='detalhe-espaco'><strong>Data:</strong> {formatarData(visualizando.data)}</p>
                         <p><strong>Peso:</strong> {visualizando.peso} kg</p>
                         <p><strong>Altura:</strong> {visualizando.altura} m</p>
                         <p><strong>Idade:</strong> {visualizando.idade} anos</p>
