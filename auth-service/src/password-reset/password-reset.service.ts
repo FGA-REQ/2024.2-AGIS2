@@ -11,12 +11,12 @@ export class PasswordResetService {
         private readonly emailService: EmailService
     ) { }
 
-    async sendResetToken(email: string, userType: "doctor" | "pacient"): Promise<string> {
+    async sendResetToken(email: string, userType: "doctor" | "patient"): Promise<string> {
         let user;
         if (userType === "doctor") {
             user = await this.prisma.doctor.findUnique({ where: { email } });
-        } else if (userType === "pacient") {
-            user = await this.prisma.pacient.findUnique({ where: { email } });
+        } else if (userType === "patient") {
+            user = await this.prisma.patient.findUnique({ where: { email } });
         }
         if (!user) {
             throw new Error('Usuario nao encontrado');
@@ -25,21 +25,21 @@ export class PasswordResetService {
         if (userType === 'doctor') {
             await this.prisma.doctor.update({ where: { email }, data: { passwordResetToken: token } });
           } else {
-            await this.prisma.pacient.update({ where: { email }, data: { passwordResetToken: token } });
+            await this.prisma.patient.update({ where: { email }, data: { passwordResetToken: token } });
           }
           await this.emailService.sendPasswordResetEmail(email, token);
         return 'Token enviado com sucesso';
     }
 
-    async resetPassword(email: string, token: string, newPassword: string, userType: "doctor" | "pacient"): Promise<string> {
+    async resetPassword(email: string, token: string, newPassword: string, userType: "doctor" | "patient"): Promise<string> {
         let user;
         const salt = bcrypt.genSaltSync(10);
         const senhaEncriptada = bcrypt.hashSync(newPassword, salt);
 
         if (userType === "doctor") {
             user = await this.prisma.doctor.findUnique({ where: { email } });
-        } else if (userType === "pacient") {
-            user = await this.prisma.pacient.findUnique({ where: { email } });
+        } else if (userType === "patient") {
+            user = await this.prisma.patient.findUnique({ where: { email } });
         }
         if (!user) {
             throw new Error('Usuario nao encontrado');
@@ -50,7 +50,7 @@ export class PasswordResetService {
         if (userType === 'doctor') {
             await this.prisma.doctor.update({ where: { email }, data: { hashedPassword: senhaEncriptada, passwordResetToken: null } });
           } else {
-            await this.prisma.pacient.update({ where: { email }, data: { hashedPassword: senhaEncriptada, passwordResetToken: null } });
+            await this.prisma.patient.update({ where: { email }, data: { hashedPassword: senhaEncriptada, passwordResetToken: null } });
           }
           return 'Senha redefinida com sucesso';
     }
