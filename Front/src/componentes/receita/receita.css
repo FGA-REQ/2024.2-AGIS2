@@ -4,7 +4,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 40px auto;
 }
 
 .header-receita {
@@ -19,7 +19,7 @@
     margin-right: 10px;
 }
 
-h2 {
+.header-receita h2 {
     font-size: 24px;
     color: #333;
     margin: 0;
@@ -34,59 +34,40 @@ h2 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
+    font-size: 14px;
+    gap: 10px;
 }
 
 .campo {
-    width: 48%; /* Ajusta a largura dos campos para caber lado a lado */
+    width: 48%;
+    /* Ajusta a largura dos campos para caber lado a lado */
     margin-bottom: 15px;
 }
 
 .campo input,
 .campo textarea {
     padding: 8px;
-    font-size: 16px;
+    font-size: 12px;
     margin-top: 5px;
     width: 100%;
 }
 
 .campo button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #0078d7;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 16px;
+    border-radius: 4px;
+    margin-top: 20px;
 }
 
 .campo button:hover {
-    background-color: #45a049;
+    background-color: #015aa3;
 }
 
-.botao-imprimir {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
+.escreve-receita textarea {
     font-size: 16px;
-}
-
-.botao-imprimir:hover {
-    background-color: #45a049;
-}
-
-.receita-impressao {
-    display: none; /* Esconde essa div para não aparecer na tela */
-}
-
-.header-impressao {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.logo-receita-impressao {
-    width: 100px;
-    margin-bottom: 10px;
+    width: 100%;
 }
