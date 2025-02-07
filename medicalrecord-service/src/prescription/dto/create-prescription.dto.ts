@@ -1,1 +1,5 @@
-export class CreatePrescriptionDto {}
+export class CreatePrescriptionDto {
+  id: string
+  content: string
+  createdAt: Date
+}

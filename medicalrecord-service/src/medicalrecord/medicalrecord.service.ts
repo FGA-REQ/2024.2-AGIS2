@@ -10,7 +10,7 @@ export class MedicalrecordService {
 
   async create(createMedicalrecordDto: CreateMedicalrecordDto) {
     try {
-      const {id, age, weight, height, recordText, alergies, createdAt } = createMedicalrecordDto;
+      const { id, age, weight, height, recordText, alergies, createdAt } = createMedicalrecordDto;
 
       await this.prisma.medicalRecords.create({ data: { id, age, weight, height, recordText, alergies, createdAt } });
       this.logger.log(`Prontuário médico criado com sucesso`);
@@ -24,7 +24,7 @@ export class MedicalrecordService {
     return `This action returns all medicalrecord`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} medicalrecord`;
   }
 

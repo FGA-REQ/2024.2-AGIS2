@@ -1,4 +1,3 @@
-
 export class CreateMedicalrecordDto {
   id: string
   age: number
