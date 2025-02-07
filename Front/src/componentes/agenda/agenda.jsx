@@ -1,85 +1,66 @@
 import React, { useState } from "react";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
+import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import "./agenda.css";
+import { format, parse, startOfWeek, getDay } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
+import Modal from "react-modal";
 
-const localizer = momentLocalizer(moment);
+const locales = { "pt-BR": ptBR };
+const localizer = dateFnsLocalizer({ format, parse, startOfWeek, getDay, locales });
 
-function Agenda () {
-  const [especialidades] = useState([
-    "Cardiologia",
-    "Dermatologia",
-    "Pediatria",
-    "Ortopedia",
-  ]);
+const especialidades = ["Cardiologia", "Dermatologia", "Pediatria", "Ortopedia"];
+const medicos = [
+  { id: 1, nome: "Dr. João Silva", especialidade: "Cardiologia" },
+  { id: 2, nome: "Dra. Maria Oliveira", especialidade: "Dermatologia" },
+  { id: 3, nome: "Dr. Carlos Santos", especialidade: "Pediatria" },
+  { id: 4, nome: "Dra. Ana Costa", especialidade: "Ortopedia" },
+  { id: 5, nome: "Dr. Pedro Lima", especialidade: "Cardiologia" },
+];
 
-  const [medicos] = useState([
-    { id: 1, nome: "Dr. João Silva", especialidade: "Cardiologia" },
-    { id: 2, nome: "Dra. Maria Oliveira", especialidade: "Dermatologia" },
-    { id: 3, nome: "Dr. Carlos Santos", especialidade: "Pediatria" },
-    { id: 4, nome: "Dra. Ana Costa", especialidade: "Ortopedia" },
-    { id: 5, nome: "Dr. Pedro Lima", especialidade: "Cardiologia" },
-  ]);
-
+const Agenda = () => {
+  const [view, setView] = useState("week");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [newEvent, setNewEvent] = useState({ title: "", start: null, end: null });
+  const [allEvents, setAllEvents] = useState([]);
   const [especialidadeSelecionada, setEspecialidadeSelecionada] = useState("");
   const [medicoSelecionado, setMedicoSelecionado] = useState("");
-  const [eventos, setEventos] = useState({});
 
-  const horariosDisponiveis = generateHorarios();
-
-  // Gerar horários disponíveis entre 8h e 18h com intervalos de 30 minutos
-  function generateHorarios() {
-    const horarios = [];
-    const inicio = moment().set({ hour: 8, minute: 0, second: 0, millisecond: 0 });
-    const fim = moment().set({ hour: 18, minute: 0, second: 0, millisecond: 0 });
-
-    while (inicio.isBefore(fim)) {
-      horarios.push({
-        start: inicio.toDate(),
-        end: inicio.clone().add(30, "minutes").toDate(),
-      });
-      inicio.add(30, "minutes");
-    }
-
-    return horarios;
-  }
-
-  const handleSelectSlot = (slotInfo) => {
-    const titulo = prompt(
-      `Digite o nome do paciente ou descrição do agendamento para o ${medicoSelecionado.nome}:`
-    );
-    if (titulo) {
-      const novoEvento = {
-        title: titulo,
-        start: slotInfo.start,
-        end: slotInfo.end,
-      };
-      setEventos({
-        ...eventos,
-        [medicoSelecionado.id]: [...(eventos[medicoSelecionado.id] || []), novoEvento],
-      });
-    }
+  const handleSelectSlot = ({ start, end }) => {
+    setNewEvent({ title: "", start, end });
+    setIsModalOpen(true);
   };
 
-  const handleSelectEvent = (event) => {
-    alert(`Agendamento para ${event.title}`);
+  const handleAddEvent = () => {
+    const eventoComMedico = { ...newEvent, medico: medicoSelecionado, especialidade: especialidadeSelecionada };
+    setAllEvents([...allEvents, eventoComMedico]);
+    setIsModalOpen(false);
+  };
+
+  const handleDoubleClickEvent = (event) => {
+    setSelectedEvent(event);
+    setIsEditModalOpen(true);
+  };
+
+  const handleEditEvent = () => {
+    setAllEvents(
+      allEvents.map((event) => (event === selectedEvent ? { ...selectedEvent, title: newEvent.title } : event))
+    );
+    setIsEditModalOpen(false);
+  };
+
+  const handleDeleteEvent = () => {
+    setAllEvents(allEvents.filter((event) => event !== selectedEvent));
+    setIsEditModalOpen(false);
   };
 
   const medicosFiltrados = especialidadeSelecionada
     ? medicos.filter((medico) => medico.especialidade === especialidadeSelecionada)
     : [];
 
-    // Seleciona todos os elementos com a classe 'rbc-day-bg'
-const dayBgElements = document.querySelectorAll('.rbc-day-bg.rbc-row');
-
-// Remove cada um dos elementos
-dayBgElements.forEach(element => {
-  element.remove();
-});
-
   return (
-    <div className="medico-calendario">
+    <div style={{ height: "100vh", padding: "20px" }}>
       <h1>Calendário de Agendamentos</h1>
       <div className="filtros">
         <div className="filtro-especialidade">
@@ -88,14 +69,12 @@ dayBgElements.forEach(element => {
             value={especialidadeSelecionada}
             onChange={(e) => {
               setEspecialidadeSelecionada(e.target.value);
-              setMedicoSelecionado(null);
+              setMedicoSelecionado("");
             }}
           >
             <option value="">Selecione</option>
             {especialidades.map((especialidade) => (
-              <option key={especialidade} value={especialidade}>
-                {especialidade}
-              </option>
+              <option key={especialidade} value={especialidade}>{especialidade}</option>
             ))}
           </select>
         </div>
@@ -103,48 +82,52 @@ dayBgElements.forEach(element => {
         {especialidadeSelecionada && (
           <div className="filtro-medico">
             <label>Selecione o Médico:</label>
-            <select
-              value={medicoSelecionado ? medicoSelecionado.id : ""}
-              onChange={(e) =>
-                setMedicoSelecionado(
-                  medicosFiltrados.find((medico) => medico.id === parseInt(e.target.value))
-                )
-              }
-            >
+            <select value={medicoSelecionado} onChange={(e) => setMedicoSelecionado(e.target.value)}>
               <option value="">Selecione</option>
               {medicosFiltrados.map((medico) => (
-                <option key={medico.id} value={medico.id}>
-                  {medico.nome}
-                </option>
+                <option key={medico.id} value={medico.nome}>{medico.nome}</option>
               ))}
             </select>
           </div>
         )}
       </div>
 
-      {medicoSelecionado ? (
+      {medicoSelecionado && (
         <Calendar
           localizer={localizer}
-          events={eventos[medicoSelecionado.id] || []}
-          startAccessor="start"
-          endAccessor="end"
-          selectable
-          onSelectSlot={handleSelectSlot}
-          onSelectEvent={handleSelectEvent}
+          events={allEvents.filter((event) => event.medico === medicoSelecionado)}
+          defaultView={view}
+          views={["month", "week", "day"]}
           step={30}
           timeslots={1}
-          min={new Date(2024, 0, 1, 8, 0)}
-          max={new Date(2024, 0, 1, 18, 0)}
-          defaultView="week"
-          views={["day", "week", "agenda"]}
           defaultDate={new Date()}
-          className="custom-calendar"
+          style={{ height: "90vh", fontSize: "16px" }}
+          min={new Date(2025, 1, 3, 8, 0)}
+          max={new Date(2025, 1, 3, 18, 0)}
+          selectable
+          onSelectSlot={handleSelectSlot}
+          onDoubleClickEvent={handleDoubleClickEvent}
+          messages={{ next: "Próximo", previous: "Anterior", today: "Hoje", month: "Mês", week: "Semana", day: "Dia" }}
         />
-      ) : (
-        <p className="mensagem-selecao">Selecione uma especialidade e um médico para visualizar o calendário.</p>
       )}
+
+      <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
+        <h2>Novo Agendamento</h2>
+        <input type="text" placeholder="Título" value={newEvent.title} onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })} />
+        <button onClick={handleAddEvent}>Adicionar</button>
+        <button onClick={() => setIsModalOpen(false)}>Cancelar</button>
+      </Modal>
+
+      <Modal isOpen={isEditModalOpen} onRequestClose={() => setIsEditModalOpen(false)}>
+        <h2>Editar Agendamento</h2>
+        <input type="text" placeholder="Título" value={selectedEvent?.title || ""} onChange={(e) => setSelectedEvent({ ...selectedEvent, title: e.target.value })} />
+        <button onClick={handleEditEvent}>Salvar</button>
+        <button onClick={handleDeleteEvent}>Excluir</button>
+        <button onClick={() => setIsEditModalOpen(false)}>Cancelar</button>
+      </Modal>
     </div>
   );
 };
 
+Modal.setAppElement("#root");
 export default Agenda;

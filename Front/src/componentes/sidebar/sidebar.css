@@ -1,5 +1,6 @@
-.sidebar{
-    background-color: rgb(140, 140, 241);
+.sidebar {
+    background-color: #0078d7;
+    ;
     position: fixed;
     top: 0;
     left: 0;
@@ -7,15 +8,16 @@
     height: 100%;
     display: flex;
     justify-content: space-between;
+    width: 250px;
 }
 
-.header-sidebar{
-    padding: 20px;
+.header-sidebar {
+    padding: 30px;
     font-size: 13.4874px;
 }
 
-.menu-sidebar{
-    background-color: rgb(214, 187, 240);
+.menu-sidebar {
+    background-color: white;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -23,27 +25,26 @@
 }
 
 .menu-sidebar li {
-    padding: 15px;
+    padding: 20px 40px 10px 10px;
     cursor: pointer;
 }
 
 .menu-sidebar li:hover {
-    background-color: brown;
+    background-color: #e7f4f9;
 }
 
 .footer-sidebar {
     display: flex;
     justify-content: space-around;
     margin-top: auto;
-  }
-  
-  .icon-horarios {
+}
+
+.icon-horarios {
     width: 70px;
     cursor: pointer;
-  }
+}
 
-  .icon-sair {
-width: 60px;
+.icon-sair {
+    width: 60px;
     cursor: pointer;
-  }
-  
+}

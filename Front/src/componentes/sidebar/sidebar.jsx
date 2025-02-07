@@ -1,3 +1,5 @@
+// Sidebar Admin
+
 import React from 'react';
 import './sidebar.css';
 import { useNavigate } from 'react-router-dom';
@@ -7,18 +9,18 @@ function Sidebar({ setConteudo }) {
     const navigate = useNavigate();
 
     const handleMenuClick = (menu) => {
-            setConteudo(menu); // Atualizar o conteúdo exibido
-      
+        setConteudo(menu); // Atualizar o conteúdo exibido
+
     };
 
     const logout = () => {
         navigate("/");
-      };
+    };
 
     return (
         <div className="sidebar">
             <div className="header-sidebar">
-                <h1>Med Manager</h1>
+                <h1>Menu</h1>
                 <ul className="menu-sidebar">
                     <li onClick={() => handleMenuClick('Início')}>Início</li>
                     <li onClick={() => handleMenuClick('Médicos')}>Médicos</li>
@@ -29,9 +31,9 @@ function Sidebar({ setConteudo }) {
                 </ul>
             </div>
             <div className="footer-sidebar">
-          <img className='icon-sair' src='sair.svg' alt="Icon de logout" 
-          onClick={logout}/>
-        </div>
+                <img className='icon-sair' src='sair.svg' alt="Icon de logout"
+                    onClick={logout} />
+            </div>
         </div>
     );
 }

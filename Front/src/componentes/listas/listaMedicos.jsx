@@ -26,7 +26,7 @@ function ListaMedicos({ onEditarMedico }) {
             <div className="medicos-lista">
                 {medicos.map((medico) => (
                     <div key={medico.id} className="medico-item">
-                        <img src="user.svg" alt="Ícone de usuário" className="user-icon-medicos" />
+                        <img src="medico.svg" alt="Ícone de usuário" className="user-icon-medicos" />
                         <div className="medico-info">
                             <span>{medico.nome}</span>
                             <span>Especialidade: {medico.especialidade}</span>
