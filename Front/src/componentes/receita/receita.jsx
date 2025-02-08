@@ -62,6 +62,13 @@ function Receita() {
         janelaImpressao.print();
     };
 
+    const handleNomePacienteChange = (e) => {
+        const value = e.target.value;
+        if (/^[a-zA-Z\s]*$/.test(value)) {
+            setNomePaciente(value);
+        }
+    };
+
     return (
         <div className="receita">
             <div className="header-receita">
@@ -95,7 +102,7 @@ function Receita() {
                         <input
                             type="text"
                             value={nomePaciente}
-                            onChange={(e) => setNomePaciente(e.target.value)}
+                            onChange={handleNomePacienteChange}
                             placeholder="Nome do paciente"
                         />
                     </div>

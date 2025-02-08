@@ -23,7 +23,7 @@ function Sidebar3({ setConteudo }) {
     return (
         <div className="sidebar">
             <div className="header-sidebar">
-                <h1>Med Manager</h1>
+                <h1>Menu </h1>
                 <ul className="menu-sidebar">
                     <li onClick={() => handleMenuClick('Início')}>Início</li>
                     <li onClick={() => handleMenuClick('Agenda')}>Agenda</li>

@@ -82,7 +82,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validarCpf(cpf)) {
-      alert("Por favor, digite um CPF válido com o formato xxx.xxx.xxx-xx.");
+      alert("Por favor, digite um CPF válido com 11 dígitos");
       return;
     }
   };
@@ -104,7 +104,7 @@ function Login() {
 
         <form className="forms-login" onSubmit={handleSubmit}>
 
-          <label>Usuário (CPF)</label>
+          <label>Usuário </label>
           <input
             type="text"
             placeholder="Digite o CPF"
