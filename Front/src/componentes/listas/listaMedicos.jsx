@@ -1,32 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./listaMedicos.css";
+import * as api from "../../services/api";
+import { debounce } from "lodash";
 
-function ListaMedicos({ onEditarMedico }) {
-
-    const [medicos, setMedicos] = useState([
-        { id: 1, nome: "Dr Daniel Pereira", especialidade: "Oncologista" },
-        { id: 2, nome: "Dra Ana Silva", especialidade: "Cardiologista" },
-        { id: 3, nome: "Dr João Souza", especialidade: "Ortopedista" },
-        { id: 4, nome: "Dra Maria Clara", especialidade: "Oftalmologista" },
-        { id: 5, nome: "Dra Oleari", especialidade: "Oftalmologista" },
-    ]);
-
+function ListaMedicos() {
+    const [medicos, setMedicos] = useState([]);
+    const [pesquisa, setPesquisa] = useState("");
     const [filtroEspecialidade, setFiltroEspecialidade] = useState("default");
+    const [alert, setAlert] = useState(null);
 
-    const deletaMedico = (id) => {
-        setMedicos(medicos.filter((medico) => medico.id !== id));
-    };
+    // 🚀 Buscar médicos na API ao carregar a página
+    useEffect(() => {
+        const fetchMedicos = async () => {
+            try {
+                const response = await api.buscarDoutor();
+                setMedicos(response.data); // Acesse a propriedade data da resposta
+            } catch (error) {
+                console.error("Erro ao buscar médicos:", error);
+                setAlert({ type: "error", message: "Erro ao buscar médicos" });
+            }
+        };
+        fetchMedicos();
+    }, []);
 
-    const medicosFiltrados = filtroEspecialidade === "default"
-        ? medicos
-        : medicos.filter((medico) => medico.especialidade.toLowerCase() === filtroEspecialidade);
+    // 🔍 Filtrar médicos por nome/especialidade
+    const handleSearch = debounce((searchTerm) => {
+        setPesquisa(searchTerm);
+    }, 300);
+
+    const medicosFiltrados = medicos.filter((medico) => {
+        const matchesSearch =
+            medico.name.toLowerCase().includes(pesquisa.toLowerCase()) ||
+            medico.specialty.toLowerCase().includes(pesquisa.toLowerCase());
+
+        const matchesSpecialty =
+            filtroEspecialidade === "default" ||
+            medico.specialty.toLowerCase() === filtroEspecialidade;
+
+        return matchesSearch && matchesSpecialty;
+    });
 
     return (
         <div className="listaMedicos">
-
-            {/* FORMA DE COLOCAR TODOS OS CADASTADOS AQ AUTOMATICAMENTE*/}
+            {/* 🔽 Filtro por especialidade */}
             <div className="dropdown">
-                <select onChange={(e) => setFiltroEspecialidade(e.target.value)}>
+                <select
+                    className="filtro-select"
+                    onChange={(e) => setFiltroEspecialidade(e.target.value)}
+                >
                     <option value="default">Todas especialidades</option>
                     <option value="oncologista">Oncologista</option>
                     <option value="cardiologista">Cardiologista</option>
@@ -35,31 +56,40 @@ function ListaMedicos({ onEditarMedico }) {
                 </select>
             </div>
 
-            <div className="medicos-lista">
-                {medicosFiltrados.map((medico) => (
-                    <div key={medico.id} className="medico-item">
-                        <img src="medico.svg" alt="Ícone de usuário" className="user-icon-medicos" />
-                        <div className="medico-info">
-                            <span>{medico.nome}</span>
-                            <span>Especialidade: {medico.especialidade}</span>
-                        </div>
-                        <div className="medico-edita-deleta">
-                            <img
-                                src="lapis.svg"
-                                alt="Editar"
-                                className="lapis-medico"
-                                onClick={() => onEditarMedico(medico)}
-                            />
-                            <img
-                                src="lixo.svg"
-                                alt="Deletar"
-                                className="lixo-medico"
-                                onClick={() => deletaMedico(medico.id)}
-                            />
-                        </div>
-                    </div>
-                ))}
+            {/* 🔍 Barra de pesquisa */}
+            <div className="barra-de-pesquisa">
+                <input
+                    type="text"
+                    placeholder="Pesquise por nome ou especialidade..."
+                    onChange={(e) => handleSearch(e.target.value)}
+                />
             </div>
+
+            {/* 📜 Lista de Médicos */}
+            <div className="lista-funcionarios">
+                {medicosFiltrados.length > 0 ? (
+                    medicosFiltrados.map((medico) => (
+                        <div key={medico._id} className="medico-card">
+                            <div className="medico-info">
+                                <UserPlus size={24} />
+                                <div>
+                                    <p className="medico-nome">{medico.name}</p>
+                                    <p className="medico-especialidade">
+                                        Especialidade: {medico.specialty}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="medico-acoes">
+                            </div>
+                        </div>
+                    ))
+                ) : (
+                    <p className="nenhum-medico">Nenhum médico encontrado.</p>
+                )}
+            </div>
+
+            {/* 🚨 Alerta de erro */}
+            {alert && <div className={`alert ${alert.type}`}>{alert.message}</div>}
         </div>
     );
 }

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Sidebar from '../../componentes/sidebar/sidebar';
 import Header2 from '../../componentes/header/header2';
 import Cadastro from '../../componentes/cadastro/cadastro';
-import ListaMedicos from '../../componentes/listas/listaMedicos';
+import ListaMedicos from '../../componentes/listas/listaMedicos.jsx';
 import ListaPacientes from '../../componentes/listas/listaPacientes';
 import ListaPlanosSaude from '../../componentes/listas/listaPlanosSaude'; // Importando ListaPlanosSaude
 import Inicio from '../../componentes/inicio/inicio';
@@ -54,7 +54,7 @@ function Admin() {
     const getConteudo = () => {
         switch (conteudo) {
             case 'Médicos':
-                return <ListaMedicos onEditarMedico={handleEditarMedico} />;
+                return <ListaMedicos/>;
             case 'Pacientes':
                 return <ListaPacientes onEditarPaciente={handleEditarPaciente} />;
             case 'Planos de Saúde': 

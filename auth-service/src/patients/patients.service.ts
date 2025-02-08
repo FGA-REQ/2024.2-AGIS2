@@ -23,7 +23,7 @@ export class PatientsService {
   }
 
   findAll() {
-    return `This action returns all patients`;
+    return this.prisma.patient.findMany();
   }
 
   findOne(id: number) {

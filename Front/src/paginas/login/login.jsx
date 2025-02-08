@@ -15,6 +15,8 @@ function Login() {
     navigate("/");
   };
 
+
+  //verify async variavel decoded try catch
   const botaoLogin = () => {
 
     // Lógica para determinar a rota com base no login

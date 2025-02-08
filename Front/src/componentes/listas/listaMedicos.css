@@ -1,4 +1,4 @@
-.listaMedicos {
+/* .listaMedicos {
   margin: 20px;
   display: flex;
   justify-content: center;
@@ -60,4 +60,84 @@
   height: 22px;
   cursor: pointer;
   margin-left: 20px;
+} */
+
+.listaMedicos {
+  padding: 20px;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.filtro-select {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.barra-de-pesquisa input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.lista-funcionarios {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.medico-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e3f2fd;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.medico-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.medico-nome {
+  font-weight: bold;
+}
+
+.medico-especialidade {
+  color: #555;
+  font-size: 14px;
+}
+
+.medico-acoes {
+  display: flex;
+  gap: 10px;
+}
+
+.icone {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.editar:hover {
+  color: #007bff;
+}
+
+.excluir:hover {
+  color: #ff3b3b;
+}
+
+.nenhum-medico {
+  text-align: center;
+  color: #888;
 }

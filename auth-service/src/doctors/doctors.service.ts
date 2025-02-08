@@ -29,8 +29,8 @@ export class DoctorsService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} doctor`;
-  }
+  return this.prisma.doctor.findUnique({ where: { id } });
+}
 
   async update(CRM: string, updateDoctorDto: UpdateDoctorDto) {
     try {
