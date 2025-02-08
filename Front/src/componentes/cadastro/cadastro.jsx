@@ -149,6 +149,7 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
               placeholder="Digite o email do médico"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               required
             />
 
@@ -251,6 +252,7 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
               placeholder="Digite o email do paciente"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$"
               required
             />
 
