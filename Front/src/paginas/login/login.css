@@ -54,11 +54,9 @@
 .forms-login label {
   display: block;
   text-align: left;
-  font-size: 14px;
-  margin-bottom: 10px;
-  margin-top: 7px;
-  margin-left: 10px;
-
+  margin: 4%;
+  font-size: 16px;
+}
 
 .forms-login input {
   width: 95%;

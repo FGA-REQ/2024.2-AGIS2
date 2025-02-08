@@ -1,48 +1,48 @@
 /* Layout geral */
 .admin {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* Sidebar dinâmica */
-.sidebar-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100%;
-  background-color: #8361c7;
-  transition: transform 0.3s ease-in-out;
-  z-index: 1000;
-}
-
-/* Sidebar oculta */
-.sidebar-container.hidden {
-  transform: translateX(-100%);
-}
-
-/* Sidebar visível */
-.sidebar-container.visible {
-  transform: translateX(0);
-}
-
-/* Conteúdo principal */
-.conteudo-admin {
-  flex: 1;
-  margin-left: 0;
-  transition: margin-left 0.3s ease-in-out;
-}
-
-/* Espaço para a sidebar visível */
-.conteudo-admin.with-sidebar {
-  margin-left: 250px;
-  /* Mesma largura da sidebar */
-}
-
-/* Área principal do conteúdo */
-.principal-admin {
-  padding: 20px;
-  flex: 1;
-  overflow-y: auto;
-}
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Sidebar dinâmica */
+  .sidebar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #8361c7;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  
+  /* Sidebar oculta */
+  .sidebar-container.hidden {
+    transform: translateX(-100%);
+  }
+  
+  /* Sidebar visível */
+  .sidebar-container.visible {
+    transform: translateX(0);
+  }
+  
+  /* Conteúdo principal */
+  .conteudo-admin {
+    flex: 1;
+    margin-left: 0;
+    transition: margin-left 0.3s ease-in-out;
+  }
+  
+  /* Espaço para a sidebar visível */
+  .conteudo-admin.with-sidebar {
+    margin-left: 250px; /* Mesma largura da sidebar */
+  }
+  
+  /* Área principal do conteúdo */
+  .principal-admin {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+  }
+  

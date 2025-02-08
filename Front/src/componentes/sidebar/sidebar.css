@@ -1,5 +1,6 @@
 .sidebar {
     background-color: #0078d7;
+    ;
     position: fixed;
     top: 0;
     left: 0;
@@ -13,10 +14,6 @@
 .header-sidebar {
     padding: 30px;
     font-size: 13.4874px;
-}
-
-.header-sidebar h1 {
-    color: white;
 }
 
 .menu-sidebar {
