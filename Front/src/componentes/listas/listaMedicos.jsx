@@ -59,13 +59,9 @@ function ListaMedicos({ onEditarMedico }) {
                         </div>
                     </div>
                 ))}
-
             </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+        </div>
+    );
 }
 
 export default ListaMedicos;
