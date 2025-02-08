@@ -68,10 +68,10 @@ As **Features** estão organizadas em grupos baseados nas **Capacidades** às qu
 ### **Capabilities (C)**
 
 #### **C1. Sistema de Agendamentos Automatizados**
-**Descrição:** Permitir que o sistema no geral funcione de maneira adequada e eficiênte. Além disso, permitir que administrador gerencie agendamentos com alertas de conflitos e lembretes integrados. Inclui a criação de perfis de usuário diferenciados e sincronização com Google Agenda.  
+**Descrição:** Permitir que o sistema no geral funcione de maneira adequada e eficiênte. Além disso, permitir que administrador gerencie agendamentos com alertas de conflitos e lembretes integrados. Inclui a criação de perfis de usuário diferenciados, cadastramento completo e sincronização com Google Agenda.  
 **Critérios de Aceitação:**  
 - Não permitir agendar no passado ou fora do expediente.  
-- Exibir horários alternativos em caso de conflitos.
+- Não permitir cadastros incompletos.
 - Status ativo e sem conflitos do sistema  
 
 

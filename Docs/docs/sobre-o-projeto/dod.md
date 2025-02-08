@@ -7,8 +7,6 @@ sidebar_label: "DoD"
 
 A Definition of Done (DoD) assegura que um item do backlog esteja completamente desenvolvido e pronto para entrega. Para o MedManager, um item é considerado "Done" quando:
 
-## Critérios Gerais:
-
 1. Código Implementado: A funcionalidade foi completamente desenvolvida e cumpre os requisitos da história.
 
 2. Revisão: O código foi revisado e aprovado por, pelo menos, um membro da equipe.
@@ -21,12 +19,16 @@ A Definition of Done (DoD) assegura que um item do backlog esteja completamente 
 
 6. Feedback do Time: O time aprovou a funcionalidade durante as revisões.
 
-7. Código Integrado: O código foi integrado ao branch de desenvolvimento principal sem conflitos.
+7. Testes: Testes unitários, de integração e manuais foram feitos.
 
-8. Documentação Atualizada: Foram atualizados os documentos adequadamente.
+8. Aceitação: Um membro revisa, evitando conflitos e discrepâncias.
 
-9. Validação do Product Owner: O PO revisou e aprovou.
+9. Código Integrado: Após a aprovação na revisão, o código foi integrado ao branch de desenvolvimento principal sem conflitos.
 
-10. História ou Tarefa Fechada: A história foi marcada como concluída no backlog e revisada na reunião.
+10. Documentação Atualizada: Foram atualizados os documentos adequadamente, a documentação técnica, API e user guides foram revisados e atualizados.
+
+11. Validação do Product Owner: O PO revisou e aprovou.
+
+12. História ou Tarefa Fechada: A história foi marcada como concluída no backlog e revisada na reunião.
 
 

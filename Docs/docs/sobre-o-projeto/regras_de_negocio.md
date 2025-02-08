@@ -22,8 +22,8 @@ sidebar_label: "Regras de Negócio"
   - O paciente pode visualizar **apenas suas próprias consultas**.
 - **Cadastro de Remédios**:
   - Todos os campos são obrigatórios:
-    - Nome do remédio (texto)
-    - Local de ação (texto)
+    - Nome do remédio
+    - Local de ação (**apenas letras**)
     - Quantidade de dias (**apenas números positivos maiores que 1**)
     - Intervalo de horas (**apenas números positivos maiores que 1**)
   - Caso algum campo não seja preenchido corretamente, um alerta deve ser exibido.
@@ -38,13 +38,14 @@ sidebar_label: "Regras de Negócio"
 - **Atendimentos / Prontuário Eletrônico**:
   - O médico pode buscar pacientes **pelo nome**.
   - O médico pode vincular um **prontuário** ao paciente.
-  - O campo **Descrição do Prontuário** é **obrigatório**.
+  - O campo **Descrição do Prontuário** é o único que precisa ser preenchido **obrigatório**.
+  _ O campo **Altura**, **Idade** e **Peso** só aceitam dígitos
   - O médico pode visualizar o **histórico de prontuários anteriores**, incluindo todos os detalhes preenchidos e o médico que realizou o atendimento.
 - **Receita Médica**:
   - Todos os campos são obrigatórios:
     - Nome do médico (preenchido automaticamente)
     - CRM do médico (preenchido automaticamente)
-    - Nome do paciente
+    - Nome do paciente (**apenas letras**)
     - Data
     - Descrição da receita
   - O **nome do médico e CRM não podem ser alterados**, pois são preenchidos automaticamente, conforme o cadastro fornecido do médico logado no sistema.
@@ -67,6 +68,10 @@ sidebar_label: "Regras de Negócio"
 - **Lista de Planos de Saúde**:
   - Permite **editar e excluir planos**.
   - Permite **filtrar planos por nome**.
+- **Cadastro** 
+  - Campos: nome, especialidade e plano, **só aceitam letras**.
+  - Campos: CPF, telefone, data de nascimento, número do contrato, vencimento do contráto e CNPJ, **só aceitam dígitos**.
+  - Campos de e-mail só aceitam o formato com o **@texto**.
 - **Dashboard**:
   - Permite visualizar **graficamente**:
     - Planos de Saúde por Paciente.
