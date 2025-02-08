@@ -10,12 +10,14 @@ export class ScheduleService {
   constructor(private readonly prisma: PrismaService, private readonly apiService: ApiService) { }
   private readonly logger = new Logger(ScheduleService.name);
 
+
   async create(createScheduleDto: CreateScheduleDto) {
     try {
       const { doctorId, patientId, createdAt } = createScheduleDto;
 
-      const isThereADoctor = await this.checkDPExists(doctorId, 'doctors');
-      const isThereAPatient = await this.checkDPExists(patientId, 'patients');
+
+      const isThereADoctor = await this.apiService.get(`/doctors/${doctorId}`, '3001');
+      const isThereAPatient = await this.apiService.get(`/patients/${patientId}`, '3001');
 
       if (!isThereADoctor) throw new BadRequestException('O médico informado não existe.');
       if (!isThereAPatient) throw new BadRequestException('O paciente informado não existe.');
@@ -53,12 +55,12 @@ export class ScheduleService {
       const { doctorId, patientId, createdAt } = updateScheduleDto;
 
       if (doctorId) {
-        const isThereADoctor = await this.checkDPExists(doctorId, 'doctors');
+        const isThereADoctor = await this.apiService.get(`/doctors/${doctorId}`, '3001');
         if (!isThereADoctor) throw new BadRequestException('O médico informado não existe');
       }
 
       if (patientId) {
-        const isThereAPatient = await this.checkDPExists(patientId, 'patients');
+        const isThereAPatient = await this.apiService.get(`/patients/${patientId}`, '3001');
         if (!isThereAPatient) throw new BadRequestException('O médico informado não existe');
       }
 
@@ -98,11 +100,6 @@ export class ScheduleService {
     }
   }
 
-  private async checkDPExists(DPId: number, existingDP: 'doctors' | 'patients'): Promise<boolean> {
-    const path = `${existingDP}/${DPId}`;
-    const data = await this.apiService.get(path);
 
-    return !!data?.id;
-  }
 
 }
