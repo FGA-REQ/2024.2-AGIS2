@@ -3,60 +3,107 @@ sidebar_position: 2
 sidebar_label: "Regras de Negócio"
 ---
 
-# Regras de Negócio 
+# Regras de Negócio
 
-## Regras de Restrição
+## 1. Regras de Restrição
 
-### Restrições de Agendamento
-- Um paciente não pode agendar mais de uma consulta no mesmo dia e horário.
-- Um paciente não pode agendar consultas fora do expediente da clínica.
-- Um paciente não pode marcar consultas, acessar registros ou acompanhar tratamento sem um cadastro com confirmação dos dados pessoais.
-- O sistema deve permitir agendamentos com antecedência mínima de 24 horas.
-- O sistema deve informar ao paciente se há disponibilidade antes do cadastro.
+### **Tela de Login**
+- O **campo de usuário** deve aceitar **apenas números** e deve ter **exatamente 11 dígitos** (CPF).
+- O **campo de senha** deve ser **exibido com caracteres ocultos** (criptografado).
+- Na **aba de alteração de senha**, o usuário deve informar o e-mail obrigatoriamente.
+  - O formato do e-mail deve ser **texto@texto.texto**.
+  - Caso o formato esteja incorreto, um alerta deve ser exibido.
 
-### Restrições de Cadastro
-- O sistema deve permitir a criação de dois tipos de perfil: médico e paciente.
-- O sistema deve ter diferentes funcionalidades dependendo do tipo de perfil logado.
-- O sistema deve informar quais planos de saúde são aceitos no momento do cadastro.
-- Cada paciente deve ter cadastro único, identificado pelo CPF, incluindo informações obrigatórias e opcionais.
-- O sistema conta com administradores capazes de cadastrar e editar os dados de médicos e pacientes no software.
+### **Tela do Paciente**
+- **Alteração de Senha**:
+  - Precisa preencher os dois campos de nova senha e confirmação.
+  - Os campos devem ser comparados em tempo real e precisam **iguais**, caso não seja um alerta deve ser exibido.
+- **Consultas**:
+  - O paciente pode visualizar **apenas suas próprias consultas**.
+- **Cadastro de Remédios**:
+  - Todos os campos são obrigatórios:
+    - Nome do remédio (texto)
+    - Local de ação (texto)
+    - Quantidade de dias (**apenas números positivos maiores que 1**)
+    - Intervalo de horas (**apenas números positivos maiores que 1**)
+  - Caso algum campo não seja preenchido corretamente, um alerta deve ser exibido.
 
-### Restrições de Prontuário
+### **Tela do Médico**
+- **Alteração de Senha**:
+  - Precisa preencher os dois campos de nova senha e confirmação.
+  - Os campos devem ser comparados em tempo real e precisam **iguais**, caso não seja um alerta deve ser exibido.
+- **Agenda de Consultas**:
+  - O médico pode visualizar **apenas consultas vinculadas a ele**.
+  - Consultas podem ser filtradas **por data**.
+- **Atendimentos / Prontuário Eletrônico**:
+  - O médico pode buscar pacientes **pelo nome**.
+  - O médico pode vincular um **prontuário** ao paciente.
+  - O campo **Descrição do Prontuário** é **obrigatório**.
+  - O médico pode visualizar o **histórico de prontuários anteriores**, incluindo todos os detalhes preenchidos e o médico que realizou o atendimento.
+- **Receita Médica**:
+  - Todos os campos são obrigatórios:
+    - Nome do médico (preenchido automaticamente)
+    - CRM do médico (preenchido automaticamente)
+    - Nome do paciente
+    - Data
+    - Descrição da receita
+  - O **nome do médico e CRM não podem ser alterados**, pois são preenchidos automaticamente, conforme o cadastro fornecido do médico logado no sistema.
+  - O médico tem a possibilidade de **imprimir** a receita.
+
+#### Restrições de Prontuário
 - Somente médicos ou autorizados podem acessar ou editar um prontuário.
-- Prontuários arquivados devem ser armazenados de forma segura para acesso sob solicitação.
+- Prontuários arquivados devem ser armazenados de forma segura.
 
-## Regras de Derivação
+### **Tela do Administrador**
+- **Alteração de Senha**:
+  - Precisa preencher os dois campos de nova senha e confirmação.
+  - Os campos devem ser comparados em tempo real e precisam **iguais**, caso não seja um alerta deve ser exibido.
+- **Lista de Médicos**:
+  - Permite **editar e excluir médicos**.
+  - Permite **filtrar médicos por especialidade**.
+- **Lista de Pacientes**:
+  - Permite **editar e excluir pacientes**.
+  - Permite **filtrar pacientes por plano de saúde**.
+- **Lista de Planos de Saúde**:
+  - Permite **editar e excluir planos**.
+  - Permite **filtrar planos por nome**.
+- **Dashboard**:
+  - Permite visualizar **graficamente**:
+    - Planos de Saúde por Paciente.
+    - Médicos por Especialidade.
+
+#### Restrições de Cadastro
+- O sistema deve permitir a criação de 3 tipos de perfil: médico, paciente e administrador.
+- O sistema deve ter diferentes funcionalidades dependendo do tipo de perfil logado.
+- Cada usuário deve ter cadastro único, identificado pelo CPF, incluindo informações obrigatórias e opcionais.
+
+## 2. Regras de Derivação
+- Se um paciente realizar um agendamento, então ele deve receber uma notificação de integração com o google agenda.
+- Se um paciente tem uma consulta agendada, então ele deve receber um lembrete 24 horas antes.
+- Se um paciente cadastrar um medicamento, então ele deve receber um lembrete 10 minutos antes do horário programado.
 
 ### Lembretes de Consulta
-- Enviar lembrete de consulta automaticamente no dia anterior à data marcada.
 - Somente o paciente pode confirmar o agendamento por meio do lembrete.
-- Uma consulta será marcada se e somente se o paciente confirmar.
-- O sistema deve ser vinculado ao Google Agenda para criar os lembretes.
 
-## Regras de Cálculo
+## 4. Regras de Cálculo
 - O sistema calcula automaticamente o horário de envio de lembretes, tanto de confirmação quanto de medicamentos.
-- O sistema deve enviar os lembretes de consultas com 24 horas e 2 horas de antecedência.
 
-## Regras de Diretriz
 
-### Alerta de Conflito de Horário
-- Caso um paciente tente agendar uma consulta em um horário já ocupado, o sistema exibirá um alerta com horários alternativos disponíveis.
-- Caso um paciente tente agendar uma consulta no mesmo horário e no mesmo dia que já possui outra marcada, será exibido um alerta com horários alternativos disponíveis.
+## 5. Regras de Causa e Efeito
+- Se um paciente cancela uma consulta, então o horário deve ser liberado para novo agendamento.
+
+## 6. Regras de Diretriz
 
 ### Cadastro Incompleto
-- Se o cadastro do paciente não tiver todos os campos obrigatórios preenchidos, o sistema exibirá um aviso e não permitirá o agendamento.
+- Se o cadastro do paciente, médico ou do plano não tiver todos os campos obrigatórios preenchidos, o sistema exibirá um aviso e não permitirá o cadastro.
 
-## Regras de Causa e Efeito
-
-### Cancelamento Automático
-- Caso o paciente não confirme a consulta até o início do expediente no mesmo dia da clínica, a consulta será automaticamente cancelada.
-- Caso o paciente se atrase, um aviso deve ser enviado.
-
-## Regras de Estímulo e Resposta
-- Caso tenha necessidade de uso de medicamento:
-  - Se o usuário cadastrar os horários de uso deste medicamento, ele deve receber um lembrete 15 minutos antes.
-
-## Regras de Segurança e Privacidade
+## 7. Regras de Segurança e Privacidade
 - O sistema deve criptografar os dados dos pacientes, como prontuários e dados pessoais.
 - Apenas usuários identificados possuem acesso ao sistema, via login e senha.
-- Informações do paciente não podem ser compartilhadas sem a devida autorização.
+
+## 8. Regras de Restrição de Estrutura
+- Um paciente não pode ter mais de uma consulta agendada com médicos diferentes no mesmo dia e horário.
+- Um médico não pode ter mais de uma consulta vinculada a ele no mesmo dia e horário, simultaneamente.
+- Um administrador não pode agendar consultas fora do expediente da clínica.
+- Um administrador não pode agendar consultas no passado.
+
