@@ -45,8 +45,41 @@ export class ScheduleService {
     return `This action returns a #${id} schedule`;
   }
 
-  update(id: number, updateScheduleDto: UpdateScheduleDto) {
-    return `This action updates a #${id} schedule`;
+  async update(id: string, updateScheduleDto: UpdateScheduleDto) {
+    try {
+      const schedule = await this.prisma.schedule.findUnique({ where: { id } });
+      if (!schedule) throw new BadRequestException("A consulta não foi encontrada");
+
+      const { doctorId, patientId, createdAt } = updateScheduleDto;
+
+      if (doctorId) {
+        const isThereADoctor = await this.checkDPExists(doctorId, 'doctors');
+        if (!isThereADoctor) throw new BadRequestException('O médico informado não existe');
+      }
+
+      if (patientId) {
+        const isThereAPatient = await this.checkDPExists(patientId, 'patients');
+        if (!isThereAPatient) throw new BadRequestException('O médico informado não existe');
+      }
+
+      if (doctorId && createdAt) {
+        const checkDoctorSchedule = await this.prisma.schedule.findFirst({ where: { doctorId, createdAt, NOT: { id } } });
+        if (checkDoctorSchedule) throw new BadRequestException(`O médico já tem uma consulta nesse horário.`);
+      }
+
+      if (patientId && createdAt) {
+        const checkPatientSchedule = await this.prisma.schedule.findFirst({ where: { patientId, createdAt, NOT: { id } } });
+        if (checkPatientSchedule) throw new BadRequestException(`O paciente já tem uma consulta nesse horário.`);
+      }
+
+      await this.prisma.schedule.update({ where: { id }, data: updateScheduleDto });
+      this.logger.log(`Agendamento com ID ${id} atualizado com sucesso.`);
+      return;
+
+    } catch (error) {
+      this.logger.error(`Falha ao atualizar agendamento ${id}: ${error.message}`);
+      throw error;
+    }
   }
 
   async remove(id: string) {
