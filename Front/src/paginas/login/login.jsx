@@ -16,22 +16,15 @@ function Login() {
   };
 
   const botaoLogin = () => {
-    const { login, senha } = formData;
 
     // Lógica para determinar a rota com base no login
-    if (login === "admin") {
+    if (cpf === "admin") {
       navigate("/admin");
-    } else if (login === "paciente") {
+    } else if (cpf === "paciente") {
       navigate("/paciente");
-    } else if (login === "medico") {
+    } else if (cpf === "medico") {
       navigate("/medico");
     }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData); // Printar os dados do formulário
-    botaoLogin();
   };
 
   const handleChange = (e) => {
@@ -111,29 +104,26 @@ function Login() {
 
         <form className="forms-login" onSubmit={handleSubmit}>
 
-          <span className="required">*campo obrigatório</span>
-
           <label>Usuário (CPF)</label>
           <input
             type="text"
             placeholder="Digite o CPF"
             value={cpf}
+            name='cpf'
             onChange={handleCpfChange}
             maxLength="14"
             required
           />
 
-          <span className="required">*campo obrigatório</span>
-
           <label>Senha</label>
           <input
             type="password"
             placeholder="Digite a senha"
+            name='senha'
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
             required
           />
-
 
           <button type="submit" className="btn-entrar">Entrar</button>
         </form>
