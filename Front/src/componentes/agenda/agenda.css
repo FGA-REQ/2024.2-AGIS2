@@ -1,117 +1,125 @@
-.medico-calendario {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .rbc-calendar {
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .rbc-toolbar {
-    background: #c8dbf8;
-    padding: 15px;
-    border-radius: 8px;
-  }
-  
-  .rbc-time-content {
-    overflow: hidden; /* Remove rolagem interna */
-  }
-  
-  .rbc-event {
-    background-color: #f6a192; /* Cor de fundo do evento */
-    color: #ffffff; /* Cor do texto */
-    border: none;
-    border-radius: 50px; /* Arredondar bordas para manter o stick elegante */
-    font-size: 14px;
-    font-weight: bold;
-    padding: 10px 15px; /* Espaçamento interno para o texto */
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centralizar o texto */
-    position: absolute;
-    width: calc(100% - 10px); /* Ajustar para ocupar quase toda a largura disponível */
-    left: 5px; /* Margem para centralizar */
-    overflow: hidden; /* Evitar rolagem horizontal */
-    word-wrap: break-word; /* Permitir quebra de linha */
-    white-space: normal; /* Permitir quebra de linha automática */
-  }
-  
-  .rbc-time-slot, .rbc-header {
-    height: 60px; /* Define altura consistente para os slots */
-    padding: 0;
-  }
-  
-  .rbc-header {
-    background-color: #e8f4fd;
-    text-align: center;
-    font-weight: bold;
-  }
-  
+
+.titulo-agendamento {
+  text-align: center;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.filtro-especialidade, .filtro-medico {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  font-size: 15px;
+  gap: 10px;
+  margin: 0 30px 50px 0;
+}
+
+
+.filtro-especialidade select, .filtro-medico select {
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  font-size: 13px;
+  background-color: #e7f4f9;
+}
+
+.react-modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
   .filtros {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-  }
-  
-  .filtro-especialidade, .filtro-medico {
-    display: flex;
     flex-direction: column;
-  }
-  
-  .filtro-especialidade select, .filtro-medico select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-  }
-  
-  .rbc-time-view {
-    border-radius: 8px;
-  }
-  
-  .rbc-time-slot {
-    min-height: 180px;
     align-items: center;
-    justify-content: center;
-    display: flex;
   }
-  
-  .rbc-event-label {
-    display: none; /* Ocultar o horário do stick */
-  }
-  
-  .rbc-event {
-    height: 4% !important; /* Altura */
-    width: 85% !important; /* Largura */
-    border-radius: 14px;
-    display: flex !important;
+}
 
-    overflow: hidden; /* Impedir que o conteúdo saia do bloco */
-    background-color: #f6a192; /* Cor de fundo do evento */
-    color: #ffffff; /* Cor do texto */
-    font-weight: bold; /* Destaque para o nome */
-    margin: 20px;
-    font-size: 20px;
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Background overlay */
+  z-index: 1000; /* Ensure it appears above other content */
+}
 
-  }
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+}
 
-  .rbc-event-content{
-    align-items: center;
-    justify-content: center;
-    display: flex;
+.modal-buttons button {
+  flex: 1;
+  margin: 0 10px;
+  padding: 10px;
+  font-size: 14px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
 
-  }
-  
-  .rbc-header {
-    background-color: #e8f4fd; /* Cor de fundo */
-    text-align: center; 
-    font-weight: bold;
-    position: sticky !important; /* Fixa no topo */
-    top: 0; /* Posição fixa no topo */
-    z-index: 10; /* Garantir que fique sobre outros elementos */
-    border-bottom: 1px solid #ccc; /* Opcional: Adiciona uma borda inferior para separação */
-  }
-  
+.modal-buttons .cancel-button {
+  background-color: #e7f4f9;
+}
+
+.modal-buttons .cancel-button:hover {
+  background-color: #c1e9f8;
+}
+
+.modal-buttons .add-button {
+  background-color: #0078d7;
+  color: white;
+}
+
+.modal-buttons .add-button:hover {
+  background-color: #025ca7;
+}
+
+.modal-content input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #bdc3c7; width: 80%;
+}
+
+.modal-content h2 {
+  color: #0078d7;
+}
+
+.rbc-time-slot {
+  height: 60px !important; /* Ajuste para o valor desejado */
+}
+
+.rbc-timeslot-group {
+  min-height: 60px !important; /* Ajuste a altura mínima */
+}

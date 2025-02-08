@@ -3,7 +3,7 @@ import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { format, parse, startOfWeek, getDay } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
-import Modal from "react-modal";
+import './agenda.css';
 
 const locales = { "pt-BR": ptBR };
 const localizer = dateFnsLocalizer({ format, parse, startOfWeek, getDay, locales });
@@ -17,7 +17,7 @@ const medicos = [
   { id: 5, nome: "Dr. Pedro Lima", especialidade: "Cardiologia" },
 ];
 
-const Agenda = () => {
+function Agenda() {
   const [view, setView] = useState("week");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -28,24 +28,54 @@ const Agenda = () => {
   const [medicoSelecionado, setMedicoSelecionado] = useState("");
 
   const handleSelectSlot = ({ start, end }) => {
+    const agora = new Date();
+    if (start < agora) {
+      alert("Não é possível agendar no passado!");
+      return;
+    }
     setNewEvent({ title: "", start, end });
     setIsModalOpen(true);
   };
 
   const handleAddEvent = () => {
+    if (!newEvent.title.trim()) {
+      alert("O nome do paciente não pode estar vazio!");
+      return;
+    }
+    const conflito = allEvents.some(
+      (event) =>
+        event.medico === medicoSelecionado &&
+        ((newEvent.start >= event.start && newEvent.start < event.end) ||
+          (newEvent.end > event.start && newEvent.end <= event.end) ||
+          (newEvent.start <= event.start && newEvent.end >= event.end))
+    );
+    if (conflito) {
+      alert("Horário já ocupado para este médico!");
+      return;
+    }
     const eventoComMedico = { ...newEvent, medico: medicoSelecionado, especialidade: especialidadeSelecionada };
     setAllEvents([...allEvents, eventoComMedico]);
     setIsModalOpen(false);
   };
 
   const handleDoubleClickEvent = (event) => {
+    const agora = new Date();
+    if (event.start < agora) {
+      alert("Não é possível editar eventos passados!");
+      return;
+    }
     setSelectedEvent(event);
     setIsEditModalOpen(true);
   };
 
   const handleEditEvent = () => {
     setAllEvents(
-      allEvents.map((event) => (event === selectedEvent ? { ...selectedEvent, title: newEvent.title } : event))
+      allEvents.map((event) =>
+        event.start.getTime() === selectedEvent.start.getTime() &&
+          event.end.getTime() === selectedEvent.end.getTime()
+          ? { ...event, title: selectedEvent.title }
+          : event
+      )
     );
     setIsEditModalOpen(false);
   };
@@ -55,13 +85,20 @@ const Agenda = () => {
     setIsEditModalOpen(false);
   };
 
+  const hoje = new Date();
+  const minTime = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate(), 8, 0);
+  const maxTime = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate(), 18, 0);
+
   const medicosFiltrados = especialidadeSelecionada
     ? medicos.filter((medico) => medico.especialidade === especialidadeSelecionada)
     : [];
 
+
   return (
     <div style={{ height: "100vh", padding: "20px" }}>
-      <h1>Calendário de Agendamentos</h1>
+      <div className="titulo-agendamento">
+        <h1>Calendário de Agendamentos</h1>
+      </div>
       <div className="filtros">
         <div className="filtro-especialidade">
           <label>Filtrar por Especialidade:</label>
@@ -83,13 +120,16 @@ const Agenda = () => {
           <div className="filtro-medico">
             <label>Selecione o Médico:</label>
             <select value={medicoSelecionado} onChange={(e) => setMedicoSelecionado(e.target.value)}>
-              <option value="">Selecione</option>
+              <option value="" disabled>
+                {medicosFiltrados.length > 0 ? "Selecione" : "Nenhum médico disponível"}
+              </option>
               {medicosFiltrados.map((medico) => (
                 <option key={medico.id} value={medico.nome}>{medico.nome}</option>
               ))}
             </select>
           </div>
         )}
+
       </div>
 
       {medicoSelecionado && (
@@ -100,10 +140,10 @@ const Agenda = () => {
           views={["month", "week", "day"]}
           step={30}
           timeslots={1}
-          defaultDate={new Date()}
+          defaultDate={hoje}
           style={{ height: "90vh", fontSize: "16px" }}
-          min={new Date(2025, 1, 3, 8, 0)}
-          max={new Date(2025, 1, 3, 18, 0)}
+          min={minTime}
+          max={maxTime}
           selectable
           onSelectSlot={handleSelectSlot}
           onDoubleClickEvent={handleDoubleClickEvent}
@@ -111,23 +151,54 @@ const Agenda = () => {
         />
       )}
 
-      <Modal isOpen={isModalOpen} onRequestClose={() => setIsModalOpen(false)}>
-        <h2>Novo Agendamento</h2>
-        <input type="text" placeholder="Título" value={newEvent.title} onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })} />
-        <button onClick={handleAddEvent}>Adicionar</button>
-        <button onClick={() => setIsModalOpen(false)}>Cancelar</button>
-      </Modal>
+<div className="modal-container" style={{ display: isModalOpen || isEditModalOpen ? 'flex' : 'none' }}>
+        <div className="modal-content">
+          {isModalOpen && (
+            <>
+              <h2>Novo Agendamento</h2>
+              <input
+                type="text"
+                placeholder="Nome do paciente"
+                value={newEvent.title}
+                onChange={(e) => {
+                  let value = e.target.value.replace(/\s+/g, " ");
+                  const regex = /^[A-Za-zÀ-ÿ\s]*$/;
+                  if (regex.test(value)) {
+                    setNewEvent({ ...newEvent, title: value.trimStart() });
+                  }
+                }}
+                />
+                <div className="modal-buttons">
+                <button className="add-button" onClick={handleAddEvent}>Adicionar</button>
+                <button className="cancel-button" onClick={() => setIsModalOpen(false)}>Cancelar</button>
+                </div>
+              </>
+              )}
+              {isEditModalOpen && (
+              <>
+                <h2>Editar Agendamento</h2>
+                <input
+                type="text"
+                placeholder="Título"
+                value={selectedEvent?.title || ""}
+                onChange={(e) => {
+                  const regex = /^[A-Za-z\s]*$/;
+                  if (regex.test(e.target.value)) {
+                  setSelectedEvent({ ...selectedEvent, title: e.target.value });
+                  }
+                }}
+                />
+                <div className="modal-buttons">
+                <button className="add-button" onClick={handleEditEvent}>Salvar</button>
+                <button className="cancel-button" onClick={handleDeleteEvent}>Excluir</button>
+                <button className="cancel-button" onClick={() => setIsEditModalOpen(false)}>Cancelar</button>
+                </div>
+              </>
+              )}
+            </div>
+            </div>
+          </div>
+          );
+        };
 
-      <Modal isOpen={isEditModalOpen} onRequestClose={() => setIsEditModalOpen(false)}>
-        <h2>Editar Agendamento</h2>
-        <input type="text" placeholder="Título" value={selectedEvent?.title || ""} onChange={(e) => setSelectedEvent({ ...selectedEvent, title: e.target.value })} />
-        <button onClick={handleEditEvent}>Salvar</button>
-        <button onClick={handleDeleteEvent}>Excluir</button>
-        <button onClick={() => setIsEditModalOpen(false)}>Cancelar</button>
-      </Modal>
-    </div>
-  );
-};
-
-Modal.setAppElement("#root");
-export default Agenda;
+        export default Agenda;
