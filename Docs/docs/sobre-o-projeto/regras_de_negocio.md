@@ -79,7 +79,7 @@ sidebar_label: "Regras de Negócio"
 
 ## 2. Regras de Derivação
 - Se um paciente realizar um agendamento, então ele deve receber uma notificação de integração com o google agenda.
-- Se um paciente tem uma consulta agendada, então ele deve receber um lembrete 24 horas antes.
+- Se um paciente tem uma consulta agendada, então ele deve receber um lembrete 24 horas e 2 horas antes.
 - Se um paciente cadastrar um medicamento, então ele deve receber um lembrete 10 minutos antes do horário programado.
 
 ### Lembretes de Consulta
