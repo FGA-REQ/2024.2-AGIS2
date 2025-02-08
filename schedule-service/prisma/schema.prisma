@@ -22,3 +22,12 @@ model Schedule {
   @@unique([doctorId, createdAt])
   @@unique([patientId, createdAt])
 }
+
+model DrugSchedule {
+  id           Int      @id @default(autoincrement())
+  drugId       String // chave estrangeira de remédio
+  numberOfDays Int
+  initialDate  DateTime @default(now())
+  drugBreak    Int
+  patientId    Int
+}
