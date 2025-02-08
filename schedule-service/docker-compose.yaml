@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  schedule-service:
+    build: .
+    container_name: schedule-service
+    env_file:
+      - .env
+    ports:
+      - "3005:80"

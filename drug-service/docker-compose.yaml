@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  drugs-service:
+    build: .
+    container_name: drugs-service
+    env_file:
+      - .env
+    ports:
+      - "3001:80"
