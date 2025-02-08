@@ -65,7 +65,6 @@ export class ScheduleService {
     }
   }
 
-
   private async checkDPExists(DPId: number, existingDP: 'doctors' | 'patients'): Promise<boolean> {
     const path = `${existingDP}/${DPId}`;
     const data = await this.apiService.get(path);
