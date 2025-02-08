@@ -29,6 +29,6 @@ import { GoogleAuthController } from './google-auth/google-auth.controller';
             AdminModule,
             PasswordResetModule
   ]
-});
+})
 
 export class AppModule {}
