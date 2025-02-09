@@ -14,14 +14,18 @@ datasource db {
 }
 
 model Prescription {
-  id        String   @id @default(cuid())
-  content   String
-  createdAt DateTime @default(now())
+  id         String   @id @default(cuid())
+  patientCPF String
+  doctorCRM  String
+  content    String
+  createdAt  DateTime @default(now())
 }
 
 model MedicalRecords {
   id         String   @id @default(cuid())
   age        Int
+  patientCPF String
+  doctorCRM  String
   weight     Float
   height     Float
   recordText String

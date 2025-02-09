@@ -2,16 +2,24 @@ import { BadRequestException, Injectable, Logger, NotFoundException } from '@nes
 import { CreateHealthcareplanDto } from './dto/create-healthcareplan.dto';
 import { UpdateHealthcareplanDto } from './dto/update-healthcareplan.dto';
 import { PrismaService } from 'src/prisma.service';
+import { ApiService } from 'src/api/api.service';
+
 
 @Injectable()
 export class HealthcareplanService {
-  constructor(private readonly prisma: PrismaService) { }
+  constructor(private readonly prisma: PrismaService, private readonly api: ApiService) { }
   private readonly logger = new Logger(HealthcareplanService.name);
 
   async create(createHealthcareplanDto: CreateHealthcareplanDto) {
     try {
-      const { name, patientId, contractNumber, expirationDate, company, CNPJ, companyPhoneNumber, companyEmail } = createHealthcareplanDto;
-      await this.prisma.healthCarePlans.create({ data: { name, patientId, contractNumber, expirationDate, company, CNPJ, companyPhoneNumber, companyEmail } });
+      const { name, patientCPF, contractNumber, expirationDate, company, CNPJ, companyPhoneNumber, companyEmail } = createHealthcareplanDto;
+      this.logger.log(patientCPF);
+      const patient = await this.api.getPatient(patientCPF);
+      if (!patient) {
+        this.logger.error(`Patient with CPF ${patientCPF} not found`);
+        throw new NotFoundException(`Patient with CPF ${patientCPF} not found`);
+      }
+      await this.prisma.healthCarePlans.create({ data: { name, patientCPF, contractNumber, expirationDate, company, CNPJ, companyPhoneNumber, companyEmail } });
       this.logger.log(`Created healthcareplan ${name}, ${contractNumber}`);
       return;
     } catch (error) {

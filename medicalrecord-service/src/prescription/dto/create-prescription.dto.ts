@@ -1,5 +1,5 @@
 export class CreatePrescriptionDto {
-  id: string
-  content: string
-  createdAt: Date
+  content: string;
+  patientCPF: string;
+  doctorCRM: string;
 }

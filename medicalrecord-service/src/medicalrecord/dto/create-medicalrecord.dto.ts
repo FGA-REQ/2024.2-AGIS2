@@ -1,9 +1,9 @@
 export class CreateMedicalrecordDto {
-  id: string
+  patientCPF: string
+  doctorCRM: string
   age: number
   weight: number
   height: number
   recordText: string
   alergies: string
-  createdAt: Date
 }
