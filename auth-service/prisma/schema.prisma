@@ -32,7 +32,7 @@ model Patient {
   email                String   @unique
   birthday             DateTime
   CPF                  String   @unique
-  telephone            String   @unique
+  telephone            String   
   hashedPassword       String
   passwordResetToken   String?
 }

@@ -20,9 +20,9 @@ export class PatientsController {
     return this.patientsService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.patientsService.findOne(+id);
+  @Get(':CPF')
+  findOne(@Param('CPF') CPF: string) {
+    return this.patientsService.findOne(CPF);
   }
 
   @Patch(':CPF')

@@ -16,16 +16,20 @@ export class AdminController {
   }
 
   @Get()
+  @SetMetadata("roles", ["admin"])
+  @UseGuards(RolesGuard)
   findAll() {
     return this.adminService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.adminService.findOne(+id);
+  @Get(':CPF')
+  @SetMetadata("roles", ["admin"])
+  @UseGuards(RolesGuard)
+  findOne(@Param('CPF') CPF: string) {
+    return this.adminService.findOne(CPF);
   }
 
-  @Patch(':id')
+  @Patch(':CPF')
   @SetMetadata("roles", ["admin"])
   @UseGuards(RolesGuard)
   update(@Param('CPF') CPF: string, @Body() updateAdminDto: UpdateAdminDto) {

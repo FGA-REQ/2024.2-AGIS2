@@ -16,13 +16,17 @@ export class DoctorsController {
   }
 
   @Get()
+  @SetMetadata("roles", ["admin"])
+  @UseGuards(RolesGuard)
   findAll() {
     return this.doctorsService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.doctorsService.findOne(+id);
+  @Get(':CRM')
+  @SetMetadata("roles", ["admin"])
+  @UseGuards(RolesGuard)
+  findOne(@Param('CRM') CRM: string) {
+    return this.doctorsService.findOne(CRM);
   }
 
   @Patch(':CRM')
