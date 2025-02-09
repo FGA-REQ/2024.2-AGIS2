@@ -2,7 +2,7 @@ import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { CreatePatientDto } from './dto/create-patient.dto';
 import { UpdatePatientDto } from './dto/update-patient.dto';
 import { PrismaService } from 'src/prisma.service';
-import * as bcrypt from 'bcrypt';
+import { UsersHelper } from 'src/helpers/users.helper';
 
 @Injectable()
 export class PatientsService {
@@ -11,36 +11,50 @@ export class PatientsService {
 
   async create(createPatientDto: CreatePatientDto) {
     try {
-      const { name, email, birthday, CPF, telephone, password } = createPatientDto;
-      const salt = bcrypt.genSaltSync(10);
-      const hashedPassword = bcrypt.hashSync(password, salt);
-
+      let { name, email, birthday, CPF, telephone, password } = createPatientDto;
+      CPF = UsersHelper.validateCPFOrCNPJ(CPF);
+      const hashedPassword = await UsersHelper.hashPassword(password);
       await this.prisma.patient.create({ data: { name, email, birthday, CPF, telephone, hashedPassword } })
       this.logger.log(`Created patient ${name}.`);
     } catch (error) {
       this.logger.log(error);
+      throw error;
     }
   }
 
-  findAll() {
-    return this.prisma.patient.findMany();
+  async findAll() {
+    try {
+      return await this.prisma.patient.findMany();
+    } catch (error) {
+      this.logger.error(`Falha ao buscar Pacientes: ${error.message}`);
+      throw error;
+    }
+
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} patient`;
-  }
-
-  async update(CPF: string, updatePatientDto: UpdatePatientDto) {
+  async findOne(CPF: string) {
     try {
       const patient = await this.prisma.patient.findUnique({ where: { CPF } });
       if (!patient) {
         throw new NotFoundException(`Paciente com CPF ${CPF} não encontrado`);
       }
-      const salt = bcrypt.genSaltSync(10);
-      const hashedPassword = bcrypt.hashSync(updatePatientDto.password, salt);
+      return patient;
+    } catch (error) {
+      this.logger.error(`Falha ao buscar paciente com CPF ${CPF}: ${error.message}`);
+      throw error;
+    }
+  }
 
-      const payload = { ...(({ password, ...all }) => all)(updatePatientDto), hashedPassword };
+  async update(CPF: string, updatePatientDto: UpdatePatientDto) {
+    try {
+      await this.findOne(CPF);
+      let hashedPassword: string | undefined;
+      if (updatePatientDto.password) {
+        hashedPassword = await UsersHelper.hashPassword(updatePatientDto.password);
+      }
+      const payload = { ...(({ password, ...all }) => all)(updatePatientDto), ...(hashedPassword && { hashedPassword }) };
       await this.prisma.patient.update({ where: { CPF: CPF }, data: payload });
+      this.logger.log(`Updated patient ${CPF}`);
       return;
     } catch (error) {
       this.logger.error(`Falha ao editar Doutor com CPF ${CPF}: ${error.message}`);
@@ -50,11 +64,7 @@ export class PatientsService {
 
   async remove(CPF: string) {
     try {
-      const patient = await this.prisma.patient.findUnique({ where: { CPF } });
-      if (!patient) {
-        throw new NotFoundException(`Paciente com CPF ${CPF} não encontrado`);
-      }
-
+      await this.findOne(CPF);
       await this.prisma.patient.delete({ where: { CPF } });
       return;
     } catch (error) {

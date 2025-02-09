@@ -19,7 +19,7 @@ export class ScheduleController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.scheduleService.findOne(+id);
+    return this.scheduleService.findOne(id);
   }
 
   @Patch(':id')
