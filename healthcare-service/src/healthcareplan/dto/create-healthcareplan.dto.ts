@@ -1,6 +1,6 @@
 export class CreateHealthcareplanDto {
     name: string;
-    patientId: number;
+    patientCPF: string;
     contractNumber: string;
     expirationDate: Date;
     company: string;

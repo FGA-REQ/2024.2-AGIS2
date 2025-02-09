@@ -16,7 +16,7 @@ datasource db {
 model HealthCarePlans {
   id                 String   @id @default(cuid())
   name               String
-  patientId          Int
+  patientCPF         String
   contractNumber     String
   expirationDate     DateTime
   company            String
