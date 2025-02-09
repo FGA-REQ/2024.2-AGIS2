@@ -16,7 +16,8 @@ const HOSTS: { [key: string]: string | undefined } = {
 
 export const getHost = (req: Request): string => {
   const path = req.baseUrl.trimStart();
-  return HOSTS[path.replace("/", "")] || "";
+  const firstPart = path.split('/')[1];
+  return HOSTS[firstPart] || "";
 };
 
 export const getUrlComplement = (req: Request): string => {

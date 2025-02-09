@@ -23,7 +23,7 @@ export class DoctorsController {
   }
 
   @Get(':CRM')
-  @SetMetadata("roles", ["admin"])
+  @SetMetadata("roles", ["admin", "doctor"])
   @UseGuards(RolesGuard)
   findOne(@Param('CRM') CRM: string) {
     return this.doctorsService.findOne(CRM);
