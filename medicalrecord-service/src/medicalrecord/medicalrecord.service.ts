@@ -20,18 +20,29 @@ export class MedicalrecordService {
     }
   }
 
-  findAll() {
-    return `This action returns all medicalrecord`;
+  async findAll() {
+    try {
+      return this.prisma.medicalRecords.findMany();
+    } catch (error) {
+      this.logger.error(`Falha ao buscar Prontuários Médicos: ${error.message}`);
+    }
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} medicalrecord`;
+  async findOne(id: string) {
+    try {
+      const medicalRecords = await this.prisma.medicalRecords.findUnique({ where: { id } });
+      if (!medicalRecords) throw new NotFoundException(`Prontuário médico não encontrado`);
+
+      return medicalRecords;
+    } catch (error) {
+      this.logger.error(`Falha ao buscar Prontuário Médico com ID ${id}: ${error.message}`);
+      throw error;
+    }
   }
 
   async update(id: string, updateMedicalrecordDto: UpdateMedicalrecordDto) {
     try {
-      const medicalRecords = await this.prisma.medicalRecords.findUnique({ where: { id } });
-      if (!medicalRecords) throw new NotFoundException(`Prontuário médico não encontrado`);
+      await this.findOne(id);
 
       await this.prisma.medicalRecords.update({ where: { id }, data: updateMedicalrecordDto });
       this.logger.log(`Prontuário médico  atualizado com sucesso`);
@@ -44,8 +55,7 @@ export class MedicalrecordService {
 
   async remove(id: string) {
     try {
-      const medicalRecords = await this.prisma.medicalRecords.findUnique({ where: { id } });
-      if (!medicalRecords) throw new NotFoundException(`Prontuário médico não encontrado`);
+      await this.findOne(id);
 
       await this.prisma.medicalRecords.delete({ where: { id } });
       this.logger.log(`Prontuário médico removido com sucesso`);
