@@ -20,18 +20,29 @@ export class PrescriptionService {
     }
   }
 
-  findAll() {
-    return `This action returns all prescription`;
+  async findAll() {
+    try {
+      return this.prisma.prescription.findMany();
+    } catch (error) {
+      this.logger.error(`Falha ao buscar receitas: ${error.message}`);
+    }
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} prescription`;
+  async findOne(id: string) {
+    try {
+      const prescription = await this.prisma.prescription.findUnique({ where: { id } });
+      if (!prescription) throw new NotFoundException(`Receita médica não encontrada`);
+
+      return prescription;
+    } catch (error) {
+      this.logger.error(`Falha ao buscar receita médica com ID ${id}: ${error.message}`);
+      throw error;
+    }
   }
 
   async update(id: string, updatePrescriptionDto: UpdatePrescriptionDto) {
     try {
-      const prescription = await this.prisma.prescription.findUnique({ where: { id } });
-      if (!prescription) throw new NotFoundException(`Receita médica não encontrada`);
+      await this.findOne(id);
 
       await this.prisma.prescription.update({ where: { id }, data: updatePrescriptionDto });
       this.logger.log(`Receita médica atualizada com sucesso`);
@@ -44,8 +55,7 @@ export class PrescriptionService {
 
   async remove(id: string) {
     try {
-      const prescription = await this.prisma.prescription.findUnique({ where: { id } });
-      if (!prescription) throw new NotFoundException(`Receita médica não encontrado`);
+      await this.findOne(id);
 
       await this.prisma.prescription.delete({ where: { id } });
       this.logger.log(`Receita médica removida com sucesso`);
