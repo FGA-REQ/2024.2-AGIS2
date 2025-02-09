@@ -5,6 +5,8 @@ sidebar_label: "Requisitos"
 
 # Lista de Requisitos 
 
+<br>
+
 ## Requisitos Funcionais (RF)
 
 RF1. O sistema impede que um paciente esteja agendado em mais de uma consulta no mesmo dia e no mesmo horário.
@@ -84,93 +86,113 @@ RF11. O sistema envia lembretes automáticos de consultas no dia anterior à con
    - **História de Usuário - US2:** Receber Lembretes de Consultas e/ou Remédios
 
 
-RF12. O paciente pode confirmar ou cancelar o agendamento por meio do lembrete.
-   - **Épico - E4:** Comunicação com Pacientes
-   - **Capacidade - C3:** Interação com Pacientes
-   - **Feature - F4:** Integração com o WhatsApp
-   - **História de Usuário - US2:** Receber Lembretes de Consultas e/ou Remédios
-
-
-RF13. O sistema integra-se ao Google Agenda para a criação de lembretes.
+RF12. O sistema integra-se ao Google Agenda para a criação de lembretes.
    - **Épico - E4:** Comunicação com Pacientes
    - **Capacidade - C3:** Interação com Pacientes
    - **Feature - F1:** Integração com Google Agenda
    - **História de Usuário - US2:** Receber Lembretes de Consultas e/ou Remédios
 
 
-RF14. O sistema exibe um alerta caso um paciente tente agendar em um horário já ocupado.
+RF13. O sistema exibe um alerta caso um paciente tente agendar em um horário já ocupado.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
    - **Feature - F5:** Organização do Sistema
    - **História de Usuário - US1:** Funcionalidades dos Admins
 
 
-RF15. O sistema exibe um alerta caso o paciente tente agendar no mesmo dia e horário de outra consulta já marcada com o mesmo.
+RF14. O sistema impede dois pacientes agendados no mesmo dia e horário com o mesmo médico.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
    - **Feature - F5:** Organização do Sistema
    - **História de Usuário - US1:** Funcionalidades dos Admins
 
 
-RF16. O sistema exibe um aviso e impede o cadastro caso os dados estejam incompleto.
+RF15. O sistema exibe um aviso e impede o cadastro caso todos os campos obrigatórios não sejam preenchidos.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
    - **Feature - F5:** Organização do Sistema
    - **História de Usuário - US1:** Funcionalidades dos Admins
 
 
-RF17. O sistema envia lembretes 15 minutos antes do horário cadastrado para uso do medicamento.
+RF16. O sistema envia lembretes 15 minutos antes do horário cadastrado para uso do medicamento.
    - **Épico - E4:** Comunicação com Pacientes
    - **Capacidade - C3:** Interação com Pacientes
    - **Feature - F4:** Integração com WhatsApp
    - **História de Usuário - US2:** Receber Lembretes de Consultas e/ou Remédios
 
 
-RF18. O sistema criptografa os dados dos pacientes, incluindo prontuários e dados pessoais.
+RF17. O sistema criptografa os dados dos pacientes, incluindo prontuários e dados pessoais.
    - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
    - **Capacidade - C4:** Conformidade com Segurança e LGPD
    - **Feature - F3:** Criptografia de Dados Sensíveis
    - **História de Usuário - US5:** Segurança e proteção
 
 
-RF19. O sistema exige login e senha para acesso.
+RF18. O sistema exige login e senha para acesso.
    - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
    - **Capacidade - C4:** Conformidade com Segurança e LGPD
    - **Feature - F2:** Criação de Perfis de Usuário
-    **História de Usuário - US4:** Acesso a funcionalidades do sistema
+   - **História de Usuário - US4:** Acesso a funcionalidades do sistema
 
 
-RF20. O sistema impede o compartilhamento de informações dos pacientes sem autorização.
+RF19. O sistema impede o compartilhamento de informações dos pacientes sem autorização.
    - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
    - **Capacidade - C4:** Conformidade com Segurança e LGPD
    - **Feature - F3:** Criptografia de Dados Sensíveis
    - **História de Usuário - US5:** Segurança e proteção
 
 
-RF21. O sistema permite a criação de um usuário administrador, que será responsável por cadastrar médicos, pacientes, planos e agendamentos.
+RF20. O sistema permite a criação de um usuário administrador, que será responsável por cadastrar médicos, pacientes, planos e agendamentos.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
    - **Feature - F5:** Organização do Sistema
    - **História de Usuário - US1:** Funcionalidades dos Admins
 
-RF22 - O sistema deve apresentar uma interface intuitiva para pacientes, médicos e administradores. Deve permitir navegação simples e responsiva em qualquer dispositivo
+RF21. O sistema permite uma navegação simples e responsiva.
    - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
    - **Feature - F5:** Organização do Sistema
    - **História de Usuário - US6:** Rapidez e Eficiência
 
-RF23 - O sistema valida ao fazer o cadastro de remédio  a quantidade de dias e horas no cadastro de remédios sejam valores positivos e maiores que 1.
+RF22. O sistema permite o gerenciamento (adionar, editar e excluir) de medicamentos.
+   - **Épico - E5:** Gestão de Tratamentos e Prescrições
+   - **Capacidade - C6:** Gestão de Medicamentos
+   - **Feature - F8:** Geração de Remédios
+   - **História de Usuário - US9:** Acompanhamento de Tratamento
 
-RF24 - Validações de Campos em Cadastros (Médico, Paciente e Plano). Os campos devem seguir as regras específicas de formato (letras, números, tamanho máximo, etc.).
+RF23. O sistema valida se a quantidade de dias e horários do remédio que o paciente cadastra sejam valores 
+positivos e maiores que 1.
+   - **Épico - E5:** Gestão de Tratamentos e Prescrições
+   - **Capacidade - C6:** Gestão de medicamentos
+   - **Feature - F8:** Geração de Remédios
+   - **História de Usuário - US9:** Acompanhamento de Tratamento
 
-RF25 - Impedir Edição do Nome e CRM na Receita Médica. O sistema deve garantir que o nome e CRM do médico sejam preenchidos automaticamente e não editáveis.
+RF24. O sistema valida os campos de cadastro de médicos, pacientes e planos de saúde conforme regras específicas (apenas letras ou números, tamanho máximo, etc.).
+   - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
+   - **Capacidade - C5:** Validação e Padronização dos Dados
+   - **Feature - F7:** Validação e Padronização de Dados no Cadastro
+   - **História de Usuário - US8:** Cadastro Seguro e Padronizado
 
-RF26 - Requisito para o Dashboard. O sistema deve exibir gráficos de médicos por especialidade e planos por paciente.
+RF25. O sistema preenche automaticamente o nome e CRM do médico na receita (prescrição) médica e impede sua edição.
+   - **Épico - E5:** Gestão de Tratamentos e Prescrições
+   - **Capacidade - C2:** Gestão de Prontuários
+   - **Feature - F6:** Geração de Prontuários e Receitas 
+   - **História de Usuário - US3:** Prontuário Eletrônico e Receitas
 
-RF27 - Validação do Formato do E-mail na Recuperação de Senha. O sistema deve aceitar apenas e-mails no formato válido (texto@texto.texto).
+RF26. O sistema exibe gráficos estatísticos, como número de médicos por especialidade e quantidade de planos de saúde por paciente.
+   - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
+   - **Capacidade - C7:** Análise de Dados e Relatórios*
+   - **Feature - F9:** Painel de Estatísticas e Relatórios
+   - **História de Usuário - US10:** Acompanhar Estatísticas da Clínica
 
+RF27. O sistema aceita apenas e-mails em formato válido (texto@dominio) no processo de recuperação de senha
+   - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
+   - **Capacidade - C4:** Conformidade com Segurança e LGPD
+   - **Feature - F3:** Criptografia de Dados Sensíveis
+   - **História de Usuário - US11:** Recuperação Segura de Senhas
 
-requisito para validação dos campos do plano de saúde, requisito para validação dos campos do paciente como letras, CPF, requisito para validação do formato do e-mail
+<br>
+
 ## Requisitos Não Funcionais (RNF)
 
 ### Segurança
@@ -209,7 +231,7 @@ RNF4. O sistema deve ser capaz de escalar para manter o desempenho em caso de al
 
 ### Compatibilidade
 
-RNF5. O sistema deve ser compatível com navegadores modernos e dispositivos móveis.
+RNF5. O sistema deve ser compatível com navegadores modernos.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
    - **Feature - F5:** Organização do Sistema
@@ -250,7 +272,7 @@ RNF9. O sistema deve estar disponível em grande parte do tempo, com tolerância
 
 ### Manutenabilidade
 
-RNF10. O código deve ser modular e documentado, permitindo fácil manutenção e atualização.
+RNF10. O código deve ser modular (arquitetura limpa e documentação da API) e documentado, permitindo fácil manutenção e atualização.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
    - **Feature - F5:** Organização do Sistema
@@ -271,3 +293,4 @@ RNF12. O sistema deve estar em conformidade com a Lei Geral de Proteção de Dad
    - **Capacidade - C4:** Conformidade com Segurança e LGPD
    - **Feature - F3:** Criptografia de Dados Sensíveis 
    - **História de Usuário - US5:** Segurança e proteção
+
