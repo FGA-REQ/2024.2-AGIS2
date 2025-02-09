@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  healthcare-service:
+    build: .
+    container_name: healthcare-service
+    env_file:
+      - .env
+    ports:
+      - "3003:80"

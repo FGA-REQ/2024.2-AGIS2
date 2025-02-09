@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  medicalrecord-service:
+    build: .
+    container_name: medicalrecord-service
+    env_file:
+      - .env
+    ports:
+      - "3004:80"

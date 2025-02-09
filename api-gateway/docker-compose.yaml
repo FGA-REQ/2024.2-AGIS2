@@ -1,0 +1,16 @@
+services:
+  api-gateway:
+    container_name: medmanager-api-gateway
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - '8080:8080'
+    networks:
+      - medmanager-network
+
+networks:
+  medmanager-network:
+    driver: bridge

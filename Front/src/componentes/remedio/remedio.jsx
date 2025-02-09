@@ -82,7 +82,18 @@ function Remedio() {
 
           <div className="campo">
             <label>Local de Ação</label>
-            <input type="text" value={localDeAcao} onChange={(e) => setLocalDeAcao(e.target.value)} required />
+            <input
+              type="text"
+              placeholder='Ex: Dor de cabeça'
+              value={localDeAcao}
+              onChange={(e) => {
+                const value = e.target.value;
+                if (/^[a-zA-Z\s]*$/.test(value)) {
+                  setLocalDeAcao(value);
+                }
+              }}
+              required
+            />
           </div>
 
           <div className="campo">

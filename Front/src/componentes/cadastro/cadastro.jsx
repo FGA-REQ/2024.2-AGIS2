@@ -294,6 +294,7 @@ function Cadastro({ medicoEditado, pacienteEditado, planoEditado, onSalvarMedico
             <input
               type="email"
               placeholder="Digite o email do paciente"
+
               {...register("email", { required: true })}
             />
 
