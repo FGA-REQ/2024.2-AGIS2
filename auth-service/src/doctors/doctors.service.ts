@@ -33,6 +33,7 @@ export class DoctorsService {
     }
   }
 
+
   async findOne(CRM: string) {
     try {
       const doctor = await this.prisma.doctor.findUnique({ where: { CRM } });

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Sidebar from '../../componentes/sidebar/sidebar';
 import Header2 from '../../componentes/header/header2';
 import Cadastro from '../../componentes/cadastro/cadastro';
-import ListaMedicos from '../../componentes/listas/listaMedicos';
+import ListaMedicos from '../../componentes/listas/listaMedicos.jsx';
 import ListaPacientes from '../../componentes/listas/listaPacientes';
 import ListaPlanosSaude from '../../componentes/listas/listaPlanosSaude'; // Importando ListaPlanosSaude
 import Inicio from '../../componentes/inicio/inicio';
@@ -11,7 +11,7 @@ import Agenda from '../../componentes/agenda/agenda';
 import Dashboard from '../../componentes/dashboard/dashboard';
 
 function Admin() {
-  const [conteudo, setConteudo] = useState('Inicio');
+  const [conteudo, setConteudo] = useState();
   const [sidebarVisivel, setSidebarVisivel] = useState(false);
   const [medicoEditado, setMedicoEditado] = useState(null);
   const [pacienteEditado, setPacienteEditado] = useState(null);
@@ -54,7 +54,7 @@ function Admin() {
     const getConteudo = () => {
         switch (conteudo) {
             case 'Médicos':
-                return <ListaMedicos onEditarMedico={handleEditarMedico} />;
+                return <ListaMedicos/>;
             case 'Pacientes':
                 return <ListaPacientes onEditarPaciente={handleEditarPaciente} />;
             case 'Planos de Saúde': 
@@ -66,12 +66,12 @@ function Admin() {
             case 'Cadastro':
                 return (
                     <Cadastro
-                        medicoEditado={medicoEditado}
-                        pacienteEditado={pacienteEditado}
-                        planoEditado={planoEditado} // Passando o planoEditado
-                        onSalvarMedico={handleSalvarMedico}
-                        onSalvarPaciente={handleSalvarPaciente}
-                        onSalvarPlano={handleSalvarPlano} // Adicionando o callback para salvar plano
+                        // medicoEditado={medicoEditado}
+                        // pacienteEditado={pacienteEditado}
+                        // planoEditado={planoEditado} // Passando o planoEditado
+                        // onSalvarMedico={handleSalvarMedico}
+                        // onSalvarPaciente={handleSalvarPaciente}
+                        // onSalvarPlano={handleSalvarPlano} // Adicionando o callback para salvar plano
                     />
                 );
             default:

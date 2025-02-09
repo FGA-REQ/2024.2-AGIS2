@@ -1,90 +1,72 @@
-import './login.css';
+import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import * as api from "../../services/api";
+import { jwtDecode } from "jwt-decode";
+import './login.css';
 
 function Login() {
   const navigate = useNavigate();
   const [showForgotPassword, setPopEsqueceuSenha] = useState(false); // Controle do pop-up
-
   const [email, setEmail] = useState(""); // Controle do campo de e-mail do esqueci senha
-  const [cpf, setCpf] = useState("");
-  const [senha, setSenha] = useState("");
-
+  const [formData, setFormData] = useState({
+    CPF: "",
+    password: ""
+  }); // Estado para armazenar dados do formulário
 
   const cliqueSeta = () => {
     navigate("/");
   };
 
-  const botaoLogin = () => {
-
-    // Lógica para determinar a rota com base no login
-    if (cpf === "admin") {
-      navigate("/admin");
-    } else if (cpf === "paciente") {
-      navigate("/paciente");
-    } else if (cpf === "medico") {
-      navigate("/medico");
-    }
+  const lidarComMudancaNoInput = ({ target }) => {
+    setFormData({ ...formData, [target.name]: target.value });
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const botaoLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await api.login(formData);
+      const decoded = jwtDecode(response.data);
+
+      // Lógica para determinar a rota com base na role
+      if (decoded.role === "admin") {
+        navigate("/admin");
+      } else if (decoded.role === "patient") {
+        navigate("/paciente");
+      } else if (decoded.role === "doctor") {
+        navigate("/medico");
+      } else {
+        alert("Role desconhecida");
+      }
+
+    } catch (error) {
+      console.error("Erro ao fazer login", error);
+      alert("Erro ao fazer login. Verifique seu CPF ou senha!!");
+    }
   };
 
   const esqueceuSenha = () => {
     setPopEsqueceuSenha(true);
   };
 
-  const validarEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  };
+  const lidarComMudancaNoInputCPF = ({ target }) => {
+    let { name, value } = target;
 
-  const validarCpf = (cpf) => {
-    const regex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/; // Valida CPF no formato xxx.xxx.xxx-xx
-    return regex.test(cpf);
-  };
+    if (name === "CPF") {
+      value = value.replace(/\D/g, ""); // Remove tudo que não for número
 
-  const enviarEmail = () => {
-    if (email.trim() === "") {
-      alert("Por favor, digite seu e-mail.");
-      return;
+      // Adiciona a formatação automática
+      if (value.length <= 3) {
+        value = value.replace(/(\d{3})(\d+)/, "$1");
+      } else if (value.length <= 6) {
+        value = value.replace(/(\d{3})(\d{3})(\d+)/, "$1.$2");
+      } else if (value.length <= 9) {
+        value = value.replace(/(\d{3})(\d{3})(\d{3})(\d+)/, "$1.$2.$3");
+      } else {
+        value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+      }
     }
+    setFormData({ ...formData, [name]: value });
 
-    if (!validarEmail(email)) {
-      alert("Por favor, digite um e-mail válido.");
-      return;
-    }
-
-    alert(`E-mail de recuperação enviado para: ${email}`);
-    setPopEsqueceuSenha(false);
-    setEmail("");
-  };
-
-  const handleCpfChange = (e) => {
-    let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
-
-    // Adiciona a formatação automática
-    if (value.length <= 3) {
-      value = value.replace(/(\d{3})(\d+)/, "$1");
-    } else if (value.length <= 6) {
-      value = value.replace(/(\d{3})(\d{3})(\d+)/, "$1.$2");
-    } else if (value.length <= 9) {
-      value = value.replace(/(\d{3})(\d{3})(\d{3})(\d+)/, "$1.$2.$3");
-    } else {
-      value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
-    }
-
-    setCpf(value); // Atualiza o estado com o CPF formatado
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!validarCpf(cpf)) {
-      alert("Por favor, digite um CPF válido com 11 dígitos");
-      return;
-    }
   };
 
   return (
@@ -102,16 +84,16 @@ function Login() {
         </div>
         <h2>Med Manager</h2>
 
-        <form className="forms-login" onSubmit={handleSubmit}>
+        <form className="forms-login" onSubmit={botaoLogin} >
 
-          <label>Usuário </label>
+          <label>Usuário</label>
           <input
             type="text"
             placeholder="Digite o CPF"
-            value={cpf}
-            name='cpf'
-            onChange={handleCpfChange}
-            maxLength="14"
+            name="CPF"
+            value={formData.CPF}
+            onChange={(e) => lidarComMudancaNoInputCPF(e)}
+            maxLength="11"
             required
           />
 
@@ -119,13 +101,15 @@ function Login() {
           <input
             type="password"
             placeholder="Digite a senha"
-            name='senha'
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
+            name="password"
+            value={formData.password}
+            onChange={(e) => lidarComMudancaNoInput(e)}
             required
           />
 
-          <button type="submit" className="btn-entrar">Entrar</button>
+          <button
+            type="submit"
+            className="btn-entrar">Entrar</button>
         </form>
 
         <p className="forgot-password" onClick={esqueceuSenha}>

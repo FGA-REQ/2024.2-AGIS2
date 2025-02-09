@@ -29,6 +29,7 @@ export class PatientsService {
       this.logger.error(`Falha ao buscar Pacientes: ${error.message}`);
       throw error;
     }
+
   }
 
   async findOne(CPF: string) {

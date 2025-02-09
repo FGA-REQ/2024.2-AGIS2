@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./listaMedicos.css";
 
 function ListaMedicos({ onEditarMedico }) {
-
     const [medicos, setMedicos] = useState([
         { id: 1, nome: "Dr Daniel Pereira", especialidade: "Oncologista" },
         { id: 2, nome: "Dra Ana Silva", especialidade: "Cardiologista" },
@@ -23,8 +22,6 @@ function ListaMedicos({ onEditarMedico }) {
 
     return (
         <div className="listaMedicos">
-
-            {/* FORMA DE COLOCAR TODOS OS CADASTADOS AQ AUTOMATICAMENTE*/}
             <div className="dropdown">
                 <select onChange={(e) => setFiltroEspecialidade(e.target.value)}>
                     <option value="default">Todas especialidades</option>
@@ -34,7 +31,6 @@ function ListaMedicos({ onEditarMedico }) {
                     <option value="oftalmologista">Oftalmologista</option>
                 </select>
             </div>
-
             <div className="medicos-lista">
                 {medicosFiltrados.map((medico) => (
                     <div key={medico.id} className="medico-item">

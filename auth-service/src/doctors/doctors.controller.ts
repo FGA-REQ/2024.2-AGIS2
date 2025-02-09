@@ -9,8 +9,8 @@ export class DoctorsController {
   constructor(private readonly doctorsService: DoctorsService) { }
 
   @Post()
-  @SetMetadata("roles", ["admin"])
-  @UseGuards(RolesGuard)
+  // @SetMetadata("roles", ["admin"])
+  // @UseGuards(RolesGuard)
   create(@Body() createDoctorDto: CreateDoctorDto) {
     return this.doctorsService.create(createDoctorDto);
   }
