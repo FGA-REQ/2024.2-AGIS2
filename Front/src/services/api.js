@@ -2,29 +2,29 @@ import axios from "axios";
 
 const BASE_URL = "http://localhost:3001";
 
-// const createConfig = () => {
-// 	return {
-// 		headers: {
-// 			Authorization: `Bearer ${localStorage.getItem("token")}`,
-// 		},
-// 	};
-// };
+const createConfig = () => {
+	return {
+		headers: {
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		},
+	};
+};
 
-// get login
-export const loginAdmin = async (data) => {
-	return axios.get(`${BASE_URL}/admin/login`, data);
+// LOGIN
+export const login = async (data) => {
+	return axios.post(`${BASE_URL}/login`, data);
 };
 
 // PATIENTS
 export const cadastroPaciente = async (data) => {
-	return axios.post(`${BASE_URL}/patients/`, data, createConfig());
+	return axios.post(`${BASE_URL}/patients`, data, createConfig());
 };
 
 export const excluirPaciente = async (CPF) => {
 	return axios.delete(`${BASE_URL}/patients/${CPF}`, CPF, createConfig());
 };
 
-export const updatePaciente = async (CPF) => {
+export const editarPaciente = async (CPF) => {
 	return axios.patch(`${BASE_URL}/patients/${CPF}`, CPF, createConfig());
 };
 
@@ -39,14 +39,14 @@ export const buscarPacienteEspecifico = async (id) => {
 
 // DOCTORS
 export const cadastroDoutor = async (data) => {
-	return axios.post(`${BASE_URL}/doctors/`, data, createConfig());
+	return axios.post(`${BASE_URL}/doctors`, data, createConfig());
 };
 
 export const excluirDoutor = async (CRM) => {
 	return axios.delete(`${BASE_URL}/doctors/${CRM}`, CRM, createConfig());
 };
 
-export const updateDoutor = async (CRM) => {
+export const editarDoutor = async (CRM) => {
 	return axios.patch(`${BASE_URL}/doctors/${CRM}`, CRM, createConfig());
 };
 
@@ -68,7 +68,7 @@ export const excluirAdmin = async (CPF) => {
 	return axios.delete(`${BASE_URL}/admin/${CPF}`, CPF, createConfig());
 };
 
-export const updateAdmin = async (id) => {
+export const editarAdmin = async (id) => {
 	return axios.patch(`${BASE_URL}/admin/${id}`, id, createConfig());
 };
 

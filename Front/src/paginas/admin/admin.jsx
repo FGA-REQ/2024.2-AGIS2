@@ -11,7 +11,7 @@ import Agenda from '../../componentes/agenda/agenda';
 import Dashboard from '../../componentes/dashboard/dashboard';
 
 function Admin() {
-  const [conteudo, setConteudo] = useState('Inicio');
+  const [conteudo, setConteudo] = useState();
   const [sidebarVisivel, setSidebarVisivel] = useState(false);
   const [medicoEditado, setMedicoEditado] = useState(null);
   const [pacienteEditado, setPacienteEditado] = useState(null);
@@ -66,12 +66,12 @@ function Admin() {
             case 'Cadastro':
                 return (
                     <Cadastro
-                        medicoEditado={medicoEditado}
-                        pacienteEditado={pacienteEditado}
-                        planoEditado={planoEditado} // Passando o planoEditado
-                        onSalvarMedico={handleSalvarMedico}
-                        onSalvarPaciente={handleSalvarPaciente}
-                        onSalvarPlano={handleSalvarPlano} // Adicionando o callback para salvar plano
+                        // medicoEditado={medicoEditado}
+                        // pacienteEditado={pacienteEditado}
+                        // planoEditado={planoEditado} // Passando o planoEditado
+                        // onSalvarMedico={handleSalvarMedico}
+                        // onSalvarPaciente={handleSalvarPaciente}
+                        // onSalvarPlano={handleSalvarPlano} // Adicionando o callback para salvar plano
                     />
                 );
             default:
