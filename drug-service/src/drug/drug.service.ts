@@ -20,18 +20,29 @@ export class DrugServiceService {
     }
   }
 
-  findAll() {
-    return `This action returns all drugService`;
+  async findAll() {
+    try {
+      return this.prisma.drug.findMany();
+    } catch (error) {
+      this.logger.error(`Falha ao buscar administrador: ${error.message}`);
+    }
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} drugService`;
+  async findOne(id: string) {
+    try {
+      const drug = await this.prisma.drug.findUnique({ where: { id } });
+      if (!drug) throw new NotFoundException(`Remédio com ${name} não encontrado`);
+
+      return drug;
+    } catch (error) {
+      this.logger.error(`Falha ao buscar Remédio: ${error.message}`);
+      throw error;
+    }
   }
 
   async update(id: string, updateDrugServiceDto: UpdateDrugServiceDto) {
     try {
-      const drug = await this.prisma.drug.findUnique({ where: { id } });
-      if (!drug) throw new NotFoundException(`Remédio com ${name} não encontrado`);
+      await this.findOne(id);
 
       await this.prisma.drug.update({ where: { id }, data: updateDrugServiceDto });
       this.logger.log(`Remédio ${name} atualizado com sucesso`);
@@ -44,9 +55,8 @@ export class DrugServiceService {
 
   async remove(id: string) {
     try {
-      const drug = await this.prisma.drug.findUnique({ where: { id } });
-      if (!drug) throw new NotFoundException(`Remédio com ${name} não encontrado`);
-
+      await this.findOne(id);
+      
       await this.prisma.drug.delete({ where: { id } });
       this.logger.log(`Remédio ${name} removido com sucesso`);
       return;
