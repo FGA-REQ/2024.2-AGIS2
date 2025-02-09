@@ -29,8 +29,8 @@ export class DrugscheduleService {
 
   async findDrug(drugId: string) {
     try {
-      const isThereADrug = await this.apiService.get(`/drug-service/${drugId}`, '3002');
-      if (!isThereADrug) throw new BadRequestException(`O medicamento '${drugId}' não foi encontrado no banco de dados.`);
+      const isThereADrug = await this.apiService.get(`/drugs/${drugId}`, 'DRUG');
+      if (!isThereADrug) throw new BadRequestException(`O medicamento com ID '${drugId}' não foi encontrado no drug-service.`);
 
       return isThereADrug;
     } catch (error) {
@@ -41,9 +41,9 @@ export class DrugscheduleService {
 
   async findPatient(patientId: number) {
     try {
-      const isThereAPatient = await this.apiService.get(`/patients/${patientId}`, '3001');
-      if (!isThereAPatient) throw new BadRequestException(`O paciente '${patientId}' não foi encontrado no banco de dados.`);
-
+      const isThereAPatient = await this.apiService.get(`/patients/${patientId}`, 'AUTH');
+      if (!isThereAPatient) throw new BadRequestException(`O paciente com ID '${patientId}' não foi encontrado no auth-service.`);
+    
       return isThereAPatient;
     } catch (error) {
       this.logger.error(`Falha ao buscar paciente '${patientId}' no banco de dados.`);

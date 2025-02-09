@@ -32,9 +32,9 @@ export class ScheduleService {
 
   async findPatient(patientId: number) {
     try {
-      const isThereAPatient = await this.apiService.get(`/patients/${patientId}`, '3001');
+      const isThereAPatient = await this.apiService.get(`/patients/${patientId}`, 'AUTH');
       if (!isThereAPatient) throw new BadRequestException(`O paciente '${patientId}' não foi encontrado no banco de dados.`);
-
+      
       return isThereAPatient;
     } catch (error) {
       this.logger.error(`Falha ao buscar paciente '${patientId}' no banco de dados.`);
@@ -44,8 +44,8 @@ export class ScheduleService {
 
   async findDoctors(doctorId: number) {
     try {
-      const isThereADoctor = await this.apiService.get(`/doctors/${doctorId}`, '3001');
-      if (!isThereADoctor) throw new BadRequestException('O médico informado não existe.');
+      const isThereADoctor = await this.apiService.get(`/doctors/${doctorId}`, 'AUTH');
+      if (!isThereADoctor) throw new BadRequestException(`O médico '${doctorId}' não foi encontrado no banco de dados.`);
 
       return isThereADoctor;
     } catch (error) {
