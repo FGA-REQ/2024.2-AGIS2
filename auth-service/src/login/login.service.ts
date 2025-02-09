@@ -3,40 +3,43 @@ import { LoginDto } from './dto/login.dto';
 import { PrismaService } from 'src/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
+import { UsersHelper } from 'src/helpers/users.helper';
 
 @Injectable()
 export class LoginService {
   constructor(private prisma: PrismaService, private jwt: JwtService) { }
   async login(loginDto: LoginDto) {
-    const { CPF, password } = loginDto;
+    let { CPF, password } = loginDto;
+    CPF = UsersHelper.validateCPFOrCNPJ(CPF);
+    let roles: string[] = [];
+    let hashedPassword: string;
     try {
+      const admin = await this.prisma.admin.findFirst({ where: { CPF: CPF } });
       const doctor = await this.prisma.doctor.findFirst({ where: { CPF: CPF } });
       const patient = await this.prisma.patient.findFirst({ where: { CPF: CPF } });
-      const admin = await this.prisma.admin.findFirst({ where: { CPF: CPF } });
-      let hashedPassword: string;
-      let role: string;
+      
+      if (admin) {
+        hashedPassword = admin.hashedPassword;
+        roles.push("admin");
+      }
       if (doctor) {
-        role = "doctor";
+        roles.push("doctor");
         hashedPassword = doctor.hashedPassword;
       }
-      else if (patient) {
-        role = "patient";
+      if (patient) {
+        if (patient) roles.push("patient");
         hashedPassword = patient.hashedPassword;
       }
-      else if (admin) {
-        role = "admin";
-        hashedPassword = admin.hashedPassword;
-      }
-      else {
-        throw new ForbiddenException(`Usuário ou senha incorreta!`);
-      }
+
+      if (roles.length === 0) throw new ForbiddenException(`Usuário ou senha incorreta!`);
+
       if (!await bcrypt.compare(password, hashedPassword)) {
         throw new ForbiddenException(`Usuário ou senha incorreta!`);
       }
       const token = this.jwt.sign(
         {
-          name: doctor ? doctor.name : admin ? admin.name : patient.name,
-          role: role,
+          name: admin ? admin.name : doctor ? doctor.name : patient.name,
+          roles: roles,
         },
         {
           secret: process.env.JWT_SECRET,
