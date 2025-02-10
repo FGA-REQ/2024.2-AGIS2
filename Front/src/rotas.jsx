@@ -5,11 +5,13 @@ import Login from './paginas/login/login';
 import Admin from './paginas/admin/admin';
 import Medico from './paginas/medico/medico';
 import Paciente from './paginas/paciente/paciente';
+import AlterarSenha from './paginas/alterarSenha/alterarSenha';
 
 import { UsuarioProvider } from '../src/context/context.jsx';
 
 function Rotas() {
   return (
+
     <UsuarioProvider>
       <BrowserRouter>
         <Routes>
@@ -18,6 +20,7 @@ function Rotas() {
           <Route path="/admin" element={<Admin />} />               <Route path="/medico" element={<Medico />} />
           <Route path="/paciente" element={<Paciente />} />         <Route path="/medico" element={<Medico />} />
           <Route path="/medico" element={<Medico />} />             <Route path="/medico" element={<Medico />} />
+          <Route path="/alterarSenha" element={<AlterarSenha />} />  
         </Routes>
       </BrowserRouter>
     </UsuarioProvider>

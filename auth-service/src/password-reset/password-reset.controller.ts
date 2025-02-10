@@ -8,17 +8,16 @@ export class PasswordResetController {
   @Post('send-token')
   async sendResetToken(
     @Body('email') email: string,
-    @Body('userType') userType: "doctor" | "patient",
   ) {
-    return await this.passwordResetService.sendResetToken(email, userType);
+    console.log(`Recebido pedido de reset para: ${email}`);    return await this.passwordResetService.sendResetToken(email);
   }
   @Post('reset-password')
   async resetPassword(
     @Body('email') email: string,
     @Body('token') token: string,
     @Body('newPassword') newPassword: string,
-    @Body('userType') userType: "doctor" | "patient",
   ){
-    return await this.passwordResetService.resetPassword(email, token, newPassword, userType);
+    console.log(`Tentando reset de senha para: ${email} com token: ${token}`);
+    return await this.passwordResetService.resetPassword(email, token, newPassword);
   }
 }

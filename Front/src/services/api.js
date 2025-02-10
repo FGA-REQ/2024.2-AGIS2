@@ -29,8 +29,8 @@ export const editarPaciente = async (CPF) => {
 	return axios.patch(`${BASE_URL}/patients/${CPF}`, CPF, createConfig());
 };
 
-export const buscarPaciente = async (data) => {
-	return axios.get(`${BASE_URL}/patients/`, data);
+export const buscarPaciente = async () => {
+    return axios.get(`${BASE_URL}/patients`, createConfig());
 };
 
 export const buscarPacienteEspecifico = async (id) => {
@@ -81,6 +81,27 @@ export const buscarAdminEspecifico = async (id) => {
 	return axios.get(`${BASE_URL}/admin/${id}`, id);
 }
 
+
+export const enviaToken = async (data) => {
+	return axios.post(`${BASE_URL}/password-reset/send-token`, data);
+};
+
+export const redefinirSenha = async (data) => {
+	return axios.post(`${BASE_URL}/password-reset/reset-password`, data);
+};
+
+export const salvarProntuario = async (data) => {
+	console.log(createConfig(), data);
+    return axios.post(`http://localhost:3003/medicalrecord`, data, createConfig());
+};
+
+export const buscarProntuarios = async (patientCPF) => {
+    return axios.get(`${BASE_URL}/medicalrecord/${patientCPF}`, createConfig());
+};
+
+export const buscarTodosProntuarios = async () => {
+    return axios.get(`${BASE_URL}/medicalrecord`, createConfig());
+};
 
 // PLANO DE SAUDE
 export const cadastroPlano = async (data) => {
