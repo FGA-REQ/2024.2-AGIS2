@@ -9,41 +9,43 @@ O MVP (Produto Mínimo Viável), prioriza as funcionalidades básicas do sistema
 
 
 ## Objetivo do MVP
-Validar a capacidade do sistema em gerir agendamentos e comunicação com pacientes.
-Oferecer uma básica experiência do sistema, mostrando os lembretes automatizados e prontuários eletrônicos.
+- Validar a capacidade do sistema em gerir agendamentos e comunicação com pacientes.
+- Oferecer uma básica experiência do sistema, mostrando os lembretes automatizados e prontuários eletrônicos.
 
 
 ## Funcionalidades essenciais do MVP
-1. Coordenação de Agendamentos
-2. Comunicação com Pacientes
-3. Cadastro Básico de Usuários
-4. Segurança e Privacidade
-5. Prontuário Eletrônico
+1. Login e Recuperação de senha
+2. Coordenação de Agendamentos (filtros por especialidade e médico, restrição de horários ocupados)
+3. Comunicação com Pacientes (lembretes automáticos de consultas e medicamentos)
+4. Cadastro e Gerenciamento de Usuários (pacientes, médicos e administradores)
+5. Segurança e Privacidade (criptografia de senhas e dados sensíveis)
+6. Prontuário Eletrônico (histórico de atendimentos e receitas médicas)
 
 
 ## Fluxo do MVP
 
 ### Paciente
-- Cadastro no sistema
-- Agendamento de consulta em horário disponível
-- Recebimento de lembrete automático antes da consulta
-- Cadastro de medicamento para receber lembretes
-- Opção de editar informações de perfil
-- Opção de alterar senha
+- Opção de alterar senha;
+- Cadastro de medicamento;
+- Recebimento de lembrete automático antes da consulta;
+- Possibilidade de confirmar ou cancelar a consulta pelo lembrete automático;
+- Recebimento de lembrete automático um pouco antes do horário cadastrado de tomar o remédio.
+- Vizualização de suas consultas agendadas.
+
 
 ### Médico
-- Acesso ao calendário com agendamentos para consulta com o mesmo
-- Visualização e edição de prontuários
-- Visualização do histórico de prontuários
-- Escrita e opção de impressão de receita
-- Opção de editar informações de perfil
-- Opção de alterar senha
+- Opção de alterar senha;
+- Acesso a uma agenda com consultas vinculada ao mesmo;
+- Escrita de novos prontuários;
+- Visualização do histórico de prontuários;
+- Escrita e opção de impressão de receita;
+
 
 ### Administrador
-- Gerenciamento de cadastros (médicos, pacientes e planos)
-- Visualização de agendamentos.
-- Opção de editar informações de perfil
-- Opção de alterar senha
+- Opção de alterar senha;
+- Gerenciamento (adicionar, editar e excluir) de cadastros de médicos, pacientes e planos;
+- Gerenciamento de agendamentos;
+- Vizualização de gráficos pré-definidos;
 
 
 # Tecnologias para o MVP

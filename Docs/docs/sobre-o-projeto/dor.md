@@ -7,8 +7,6 @@ sidebar_label: "DoR"
 
 A Definition of Ready (DoR) garante que um item do backlog esteja suficientemente detalhado e pronto para ser desenvolvido. Para o MedManager, um item do backlog deve atender aos seguintes critérios antes de ser iniciado:
 
-## Critérios Gerais:
-
 1. Clareza no Requisito: A história ou tarefa deve estar bem definida, sem ambiguidades.
 
 2. Critérios de Aceitação Definidos: Os critérios devem estar documentados e revisados pela equipe.
@@ -25,6 +23,8 @@ A Definition of Ready (DoR) garante que um item do backlog esteja suficientement
 
 8. Entendimento do requisito: O desenvolvedor não deve ter dúvidas a respeito do requisito a ser implementado.
 
-9. Gerenciamento eficiente: O responsável por gerenciar a equipe deve dividir bem as responsabilidades e definir prazos
+9. Gerenciamento eficiente: As responsabilidades da equipe e os prazos estão claramente definidos.
 
-10. Disponibilidade: O desenvolvedor deve alertar quando não puder realizar a tarefa atribuida a ele dentro do prazo fornecido.
+10. Disponibilidade: O desenvolvedor deve comunicar qualquer impedimento que possa afetar o prazo de entrega.
+
+11. Testabilidade: As taferas precisam ter cenários de teste básicos definidos, como testes unitários, de integração ou até mesmo manuais.
