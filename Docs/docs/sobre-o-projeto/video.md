@@ -13,4 +13,4 @@ O vídeo de validação do cliente tem como objetivo apresentar o MedManager em 
 
 Neste vídeo, apresentamos o MedManager em funcionamento, demonstrando como cada parte do sistema foi desenvolvida para oferecer uma solução eficiente, segura e intuitiva para a gestão de clínicas médicas. A demonstração inclui a navegação pelas telas principais, a realização de operações no backend e a interação com funcionalidades como agendamento de consultas, prontuários eletrônicos e lembretes automatizados. O objetivo deste vídeo é mostrar a estabilidade do sistema, validar as regras de negócio implementadas e reforçar que todas as funcionalidades previstas já estão em pleno funcionamento.
 
-- [Link](https://youtu.be/J_-mkc5zJUk)
+- [Link](https://drive.google.com/file/d/1MPURmz8JLk6LV960dN4gZ6GnKqvTEG3H/view?usp=sharing)
