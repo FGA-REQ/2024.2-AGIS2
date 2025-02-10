@@ -69,12 +69,3 @@ Utilizar a GitPage do projeto para manter as atualizações mais recentes.
 
 **Organização**
 - Utilização do Miro como ferramenta de suporte. [Link](https://miro.com/app/board/uXjVLwHaqu4=/)
-
-
-## Vídeo de apresentação com o cliente
-
-- [Link](https://youtu.be/xjI0AW3fs_A)
-
-## Vídeo do funcoinamento do sistema
-
-- 
