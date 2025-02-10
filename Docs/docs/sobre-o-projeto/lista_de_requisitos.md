@@ -12,14 +12,14 @@ sidebar_label: "Requisitos"
 RF1. O sistema impede que um paciente esteja agendado em mais de uma consulta no mesmo dia e no mesmo horário.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US1:** Funcionalidades dos Admins
 
 
 RF2. O sistema impede agendamentos fora do expediente da clínica.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US1:** Funcionalidades dos Admins
 
 
@@ -33,7 +33,7 @@ RF3. O sistema valida se o paciente está cadastrado antes de vincular um novo p
 RF4. O sistema não permite agendamentos no passado.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US1:** Funcionalidades dos Admins
 
 
@@ -79,113 +79,99 @@ RF10. O sistema armazena prontuários arquivados de forma segura, em que apenas 
    - **História de Usuário - US3:** Prontuário Eletrônico
 
 
-RF11. O sistema envia lembretes automáticos de consultas no dia anterior à consulta e 2 horas antes da mesma.
-   - **Épico - E4:** Comunicação com Pacientes
-   - **Capacidade - C3:** Interação com Pacientes
-   - **Feature - F4:** Integração com WhatsApp
-   - **História de Usuário - US2:** Receber Lembretes de Consultas e/ou Remédios
-
-
-RF12. O sistema integra-se ao Google Agenda para a criação de lembretes.
+RF11. O sistema integra-se ao Google Agenda para a criação de lembretes.
    - **Épico - E4:** Comunicação com Pacientes
    - **Capacidade - C3:** Interação com Pacientes
    - **Feature - F1:** Integração com Google Agenda
    - **História de Usuário - US2:** Receber Lembretes de Consultas e/ou Remédios
 
 
-RF13. O sistema exibe um alerta caso um paciente tente agendar em um horário já ocupado.
+RF12. O sistema exibe um alerta caso um paciente tente agendar em um horário já ocupado.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
    - **Feature - F5:** Organização do Sistema
    - **História de Usuário - US1:** Funcionalidades dos Admins
 
 
-RF14. O sistema impede dois pacientes agendados no mesmo dia e horário com o mesmo médico.
+RF13. O sistema impede dois pacientes agendados no mesmo dia e horário com o mesmo médico.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US1:** Funcionalidades dos Admins
 
 
-RF15. O sistema exibe um aviso e impede o cadastro caso todos os campos obrigatórios não sejam preenchidos.
+RF14. O sistema exibe um aviso e impede o cadastro caso todos os campos obrigatórios não sejam preenchidos.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US1:** Funcionalidades dos Admins
 
 
-RF16. O sistema envia lembretes 15 minutos antes do horário cadastrado para uso do medicamento.
-   - **Épico - E4:** Comunicação com Pacientes
-   - **Capacidade - C3:** Interação com Pacientes
-   - **Feature - F4:** Integração com WhatsApp
-   - **História de Usuário - US2:** Receber Lembretes de Consultas e/ou Remédios
-
-
-RF17. O sistema criptografa os dados dos pacientes, incluindo prontuários e dados pessoais.
+RF15. O sistema criptografa os dados dos pacientes, incluindo prontuários e dados pessoais.
    - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
    - **Capacidade - C4:** Conformidade com Segurança e LGPD
    - **Feature - F3:** Criptografia de Dados Sensíveis
    - **História de Usuário - US5:** Segurança e proteção
 
 
-RF18. O sistema exige login e senha para acesso.
+RF16. O sistema exige login e senha para acesso.
    - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
    - **Capacidade - C4:** Conformidade com Segurança e LGPD
    - **Feature - F2:** Criação de Perfis de Usuário
    - **História de Usuário - US4:** Acesso a funcionalidades do sistema
 
 
-RF19. O sistema impede o compartilhamento de informações dos pacientes sem autorização.
+RF17. O sistema impede o compartilhamento de informações dos pacientes sem autorização.
    - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
    - **Capacidade - C4:** Conformidade com Segurança e LGPD
    - **Feature - F3:** Criptografia de Dados Sensíveis
    - **História de Usuário - US5:** Segurança e proteção
 
 
-RF20. O sistema permite a criação de um usuário administrador, que será responsável por cadastrar médicos, pacientes, planos e agendamentos.
+RF18. O sistema permite a criação de um usuário administrador, que será responsável por cadastrar médicos, pacientes, planos e agendamentos.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US1:** Funcionalidades dos Admins
 
-RF21. O sistema permite uma navegação simples e responsiva.
+RF19. O sistema permite uma navegação simples e responsiva.
    - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US6:** Rapidez e Eficiência
 
-RF22. O sistema permite o gerenciamento (adionar, editar e excluir) de medicamentos.
+RF20. O sistema permite o gerenciamento (adionar, editar e excluir) de medicamentos.
    - **Épico - E5:** Gestão de Tratamentos e Prescrições
    - **Capacidade - C6:** Gestão de Medicamentos
    - **Feature - F8:** Geração de Remédios
    - **História de Usuário - US9:** Acompanhamento de Tratamento
 
-RF23. O sistema valida se a quantidade de dias e horários do remédio que o paciente cadastra sejam valores 
+RF21. O sistema valida se a quantidade de dias e horários do remédio que o paciente cadastra sejam valores 
 positivos e maiores que 1.
    - **Épico - E5:** Gestão de Tratamentos e Prescrições
    - **Capacidade - C6:** Gestão de medicamentos
    - **Feature - F8:** Geração de Remédios
    - **História de Usuário - US9:** Acompanhamento de Tratamento
 
-RF24. O sistema valida os campos de cadastro de médicos, pacientes e planos de saúde conforme regras específicas (apenas letras ou números, tamanho máximo, etc.).
+RF22. O sistema valida os campos de cadastro de médicos, pacientes e planos de saúde conforme regras específicas (apenas letras ou números, tamanho máximo, etc.).
    - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
    - **Capacidade - C5:** Validação e Padronização dos Dados
-   - **Feature - F7:** Validação e Padronização de Dados no Cadastro
+   - **Feature - F6:** Validação e Padronização de Dados no Cadastro
    - **História de Usuário - US8:** Cadastro Seguro e Padronizado
 
-RF25. O sistema preenche automaticamente o nome e CRM do médico na receita (prescrição) médica e impede sua edição.
+RF23. O sistema preenche automaticamente o nome e CRM do médico na receita (prescrição) médica e impede sua edição.
    - **Épico - E5:** Gestão de Tratamentos e Prescrições
    - **Capacidade - C2:** Gestão de Prontuários
-   - **Feature - F6:** Geração de Prontuários e Receitas 
+   - **Feature - F5:** Geração de Prontuários e Receitas 
    - **História de Usuário - US3:** Prontuário Eletrônico e Receitas
 
-RF26. O sistema exibe gráficos estatísticos, como número de médicos por especialidade e quantidade de planos de saúde por paciente.
+RF24. O sistema exibe gráficos estatísticos, como número de médicos por especialidade e quantidade de planos de saúde por paciente.
    - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
    - **Capacidade - C7:** Análise de Dados e Relatórios*
    - **Feature - F9:** Painel de Estatísticas e Relatórios
    - **História de Usuário - US10:** Acompanhar Estatísticas da Clínica
 
-RF27. O sistema aceita apenas e-mails em formato válido (texto@dominio) no processo de recuperação de senha
+RF25. O sistema aceita apenas e-mails em formato válido (texto@dominio) no processo de recuperação de senha
    - **Épico - E2:** Garantir a Segurança e Privacidade dos Dados Médicos
    - **Capacidade - C4:** Conformidade com Segurança e LGPD
    - **Feature - F3:** Criptografia de Dados Sensíveis
@@ -216,7 +202,7 @@ RNF2. O sistema deve oferecer autenticação robusta, garantindo acesso apenas a
 RNF3. Páginas, dados e outros componentes não dependentes de requisições ao servidor devem carregar em até 2 segundos.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US6:** Rapidez e Eficiência
 
 
@@ -225,7 +211,7 @@ RNF3. Páginas, dados e outros componentes não dependentes de requisições ao 
 RNF4. O sistema deve ser capaz de escalar para manter o desempenho em caso de alto tráfego.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US6:** Rapidez e Eficiência
 
 
@@ -234,7 +220,7 @@ RNF4. O sistema deve ser capaz de escalar para manter o desempenho em caso de al
 RNF5. O sistema deve ser compatível com navegadores modernos.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US6:** Rapidez e Eficiência
 
 
@@ -250,14 +236,14 @@ RNF6. A integração com o Google Agenda deve funcionar de forma transparente e 
 RFN7. O sistema deve apresentar uma interface intuitiva para pacientes, médicos e administradores.
    - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US6:** Rapidez e Eficiência
 
 
 RNF8. O sistema deve ser responsivo.
    - **Épico - E1:** Otimizar a Experiência de Agendamento e Gestão Médica
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US6:** Rapidez e Eficiência
 
 
@@ -266,7 +252,7 @@ RNF8. O sistema deve ser responsivo.
 RNF9. O sistema deve estar disponível em grande parte do tempo, com tolerância a falhas em caso de picos de acesso.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US6:** Rapidez e Eficiência
 
 
@@ -275,14 +261,14 @@ RNF9. O sistema deve estar disponível em grande parte do tempo, com tolerância
 RNF10. O código deve ser modular (arquitetura limpa e documentação da API) e documentado, permitindo fácil manutenção e atualização.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US7:** Crescimento do Software
 
 
 RNF11. O sistema deve permitir a atualização ou adição de novas funcionalidades sem impacto nas existentes.
    - **Épico - E3:** Gestão de Agendamentos
    - **Capacidade - C1:** Sistema de Agendamentos Automatizados
-   - **Feature - F5:** Organização do Sistema
+   - **Feature - F4:** Organização do Sistema
    - **História de Usuário - US7:** Crescimento do Software
 
 

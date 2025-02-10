@@ -53,7 +53,7 @@ Nosso software simplificará o gerenciamento de operações diárias de consult�
 
 A gestão eficiente de consultórios médicos é essencial para garantir a qualidade do atendimento e a satisfação dos pacientes, mas muitos profissionais enfrentam desafios para atender às necessidades específicas. Essas dificuldades acabam gerando processos demorados e dificuldades na comunicação com os pacientes, especialmente em relação ao envio de lembretes.
 
-Com o objetivo de resolver essas questões, o MedManager foi desenvolvido como uma plataforma web integrada e exclusiva para consultórios médicos. Este produto oferece um conjunto de funcionalidades para otimizar a gestão, como a organização de agendamentos, o acesso a prontuários e a comunicação direta com os pacientes por meio de lembretes. Um de seus diferenciais é a integração com o WhatsApp, permitindo o envio automático de lembretes personalizados, integrados também com o calendário pessoal do paciente, melhorando significativamente a experiência tanto do médico quanto do paciente.
+Com o objetivo de resolver essas questões, o MedManager foi desenvolvido como uma plataforma web integrada e exclusiva para consultórios médicos. Este produto oferece um conjunto de funcionalidades para otimizar a gestão, como a organização de agendamentos, o acesso a prontuários e a comunicação direta com os pacientes por meio de lembretes. Um de seus diferenciais é a integração com o calendário pessoal do paciente, melhorando significativamente a experiência tanto do médico quanto do paciente.
 
 **Tabela 1:** Framework de detalhamento do problema.
 
@@ -61,9 +61,9 @@ Com o objetivo de resolver essas questões, o MedManager foi desenvolvido como u
 |----------|---------------------------------------------------------------------------|
 | **Quem** | Enfrentam dificuldades com sistemas genéricos ou com planilhas manuais que não atendem às necessidades específicas de consultórios médicos. Além disso, dificuldades na comunicação com os participantes em lembrá-los da data e hora da consulta. |
 | **O produto** | O MedManager é uma plataforma web integrada para consultórios médicos. |
-| **Que** | Permite organizar agendamentos, acessar prontuários eletrônicos e comunicar-se diretamente com os pacientes, por meio de lembretes enviados pelo WhatsApp. |
+| **Que** | Permite organizar agendamentos, acessar prontuários eletrônicos ereceitas |
 | **Ao contrário** | Sistemas de gestão genéricos e ineficientes e uso de planilhas manuais. |
-| **Nosso produto** | Oferece uma solução específica para o contexto de consultório, com funcionalidades aplicadas, interface intuitiva e lembretes enviados pelo WhatsApp integrado com o calendário. |
+| **Nosso produto** | Oferece uma solução específica para o contexto de consultório, com funcionalidades aplicadas e interface intuitiva. |
 
 ---
 

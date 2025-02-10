@@ -60,9 +60,8 @@ As **Features** estão organizadas em grupos baseados nas **Capacidades** às qu
 
 
 #### **E4. Comunicação com Pacientes**
-**Descrição:** Facilitar a comunicação direta com pacientes através de mensagens e lembretes automatizados via integração com Google Agenda e WhatsApp. 
+**Descrição:** Facilitar a comunicação direta com pacientes através de mensagens e lembretes automatizados via integração com Google Agenda. 
 **Critérios de Aceitação:**  
-- O sistema deve enviar lembretes automáticos via WhatsApp ou e-mail, com 24 horas e 2 horas de antecedência da consulta.
 - O sistema deve integrar-se com o Google Agenda para garantir que os agendamentos de consultas sejam sincronizados com os calendários pessoais dos pacientes e médicos.
 - A comunicação deve ser automatizada, mas o sistema deve possibilitar que a clínica envie mensagens específicas para pacientes individualmente.
 
@@ -95,7 +94,7 @@ As **Features** estão organizadas em grupos baseados nas **Capacidades** às qu
 
 
 #### **C3. Interação com Pacientes**
-**Descrição:** Lembretes automáticos de consulta (24h e 2h de antecedência) e notificações de medicamentos (15 minutos de antecedência) baseadas em horários cadastrados.  
+**Descrição:** Lembretes automáticos de consulta.
 **Critérios de Aceitação:**  
 - Notificações sobre o agendamento, devem fornecer informações sobre a consulta, como local, horário e médico responsável.  
 - Notificações de medicamentos devem chegar 15 minutos antes do horário cadastrado do remédio
@@ -153,25 +152,19 @@ As **Features** estão organizadas em grupos baseados nas **Capacidades** às qu
 - Formato válido para permitir a alteração de senha
 
 
-#### **F4. Integração com WhatsApp (C3)**
-**Descrição:** Enviar lembretes automáticos via WhatsApp para recordação de consulta.  
-**Critérios de Aceitação:**  
-- Paciente da clínica recebe a mensagem de atendimento com possibilidade de confirmação.
-
-
-#### **F5. Organização do Sistema (C1)**
+#### **F4. Organização do Sistema (C1)**
 **Descrição:** Implementar calendário dinâmico para administradores e permitir agendamentos conforme as restrições, e CRUDs sem conflitos para todos os perfis.
 **Critérios de Aceitação:**  
 - Exibir horários alternativos em caso de conflito. 
 - CRUDs funcionais 
 
-#### **F6. Geração de Prontuários e Receitas (C2)**
+#### **F5. Geração de Prontuários e Receitas (C2)**
 **Descrição:** Permitir a geração de prontuários médicos para análise.
 **Critérios de Aceitação:**
 - Relatórios devem incluir pelo menos os dados da descrição do atendimento
 - Apenas médicos podem gerar prontuários e receitas.
 
-### **F7. Validação e Padronização de Dados no Cadastro (C5)**  
+### **F6. Validação e Padronização de Dados no Cadastro (C5)**  
 **Descrição:** Validações nos campos de cadastro e garantir padronização de dados para evitar erros e inconsistências.  
 **Critérios de Aceitação:**  
 - Campos como: nome, plano, especilidade, etc. só permitirem letras. 
@@ -205,10 +198,9 @@ As **Features** estão organizadas em grupos baseados nas **Capacidades** às qu
 
 
 #### **US2. Receber Lembretes de Consultas e/ou Remédios**
-**Como paciente**, quero receber lembretes 24 horas e 2 horas antes da consulta para garantir que eu compareça no horário marcado caso eu cadastre, receber lembretes também 15 minutos antes da hora que devo tomar remédio.
+**Como paciente**, quero receber lembrete da consulta para garantir que eu compareça no horário marcado caso eu cadastre, receber lembretes também 15 minutos antes da hora que devo tomar remédio.
 **Critérios de Aceitação:**  
-- Notificações devem ser enviadas via WhatsApp ou e-mail.  
-- O paciente deve poder confirmar a consulta pelo lembrete.     
+- O paciente deve poder verificar a consulta.     
 
 
 #### **US3. Prontuário Eletrônico e Receitas**
