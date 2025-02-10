@@ -1,7 +1,8 @@
 ---
 sidebar_position: 11
-sidebar_label: "Demais Produtos de Trabalho Gerados"
+sidebar_label: "Demais Produtos"
 ---
+
 
 # 📌 Demais Produtos de Trabalho Gerados pelo Processo de Desenvolvimento de Software
 
