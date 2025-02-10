@@ -1,5 +1,5 @@
 {
-  "name": "schedule-service",
+  "name": "whatsapp-service",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -12,7 +12,6 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "start:deploy": "npx prisma migrate deploy && npm run start:prod",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -21,17 +20,13 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/axios": "^4.0.0",
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
-    "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^11.0.1",
-    "@nestjs/schedule": "^5.0.1",
-    "@prisma/client": "^6.2.1",
-    "axios": "^1.7.9",
-    "node-fetch": "^3.3.2",
+    "puppeteer": "^24.2.0",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "venom-bot": "^5.3.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
@@ -41,7 +36,6 @@
     "@nestjs/testing": "^11.0.1",
     "@swc/cli": "^0.6.0",
     "@swc/core": "^1.10.7",
-    "@types/axios": "^0.9.36",
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.7",
@@ -52,7 +46,6 @@
     "globals": "^15.14.0",
     "jest": "^29.7.0",
     "prettier": "^3.4.2",
-    "prisma": "^6.2.1",
     "source-map-support": "^0.5.21",
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
