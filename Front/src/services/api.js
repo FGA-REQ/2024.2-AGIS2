@@ -149,22 +149,22 @@ export const buscarRemedioEspecifico = async (id) => {
 
 /// DRUG SCHEDULE
 export const cadastroDrugSchedule = async (data) => {
-	return axios.post(`${BASE_URL}/drugschedule/`, data, createConfig());
+	return axios.post(`${BASE_URL}/drugschedule/`, data);
 };
 
-export const excluirDrugSchedule = async (id) => {
+export const excluirdrugschedule = async (id) => {
 	return axios.delete(`${BASE_URL}/drugschedule/${id}`, id, createConfig());
 };
 
-export const editarDrugSchedule = async (id) => {
+export const editardrugschedule = async (id) => {
 	return axios.patch(`${BASE_URL}/drugschedule/${id}`, id, createConfig());
 };
 
-export const buscarDrugSchedule = async (data) => {
+export const buscardrugschedule = async (data) => {
 	return axios.get(`${BASE_URL}/drugschedule/`, data);
 };
 
-export const buscarDrugScheduleEspecifico = async (id) => {
+export const buscardrugscheduleEspecifico = async (id) => {
 	return axios.get(`${BASE_URL}/drugschedule/${id}`, id);
 };
 

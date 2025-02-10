@@ -76,15 +76,6 @@ function Receita() {
         }
     };
 
-    const pegarMedico = async () => {
-        try {
-            await api.buscarDoutorEspecifico();
-
-        } catch{
-            console.error("Erro ao cadastrar ou editar:", error);
-        }
-    };
-
     return (
         <div className="receita">
             <div className="header-receita">
