@@ -6,18 +6,21 @@ import Admin from './paginas/admin/admin';
 import Medico from './paginas/medico/medico';
 import Paciente from './paginas/paciente/paciente';
 
+import { UsuarioProvider } from '../src/context/context.jsx';
+
 function Rotas() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Admin />} />                <Route path="/medico" element={<Medico />} />
-        <Route path="/paciente" element={<Paciente />} />                <Route path="/medico" element={<Medico />} />
-        <Route path="/medico" element={<Medico />} />                <Route path="/medico" element={<Medico />} />
-
-      </Routes>
-    </BrowserRouter>
+    <UsuarioProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<Admin />} />               <Route path="/medico" element={<Medico />} />
+          <Route path="/paciente" element={<Paciente />} />         <Route path="/medico" element={<Medico />} />
+          <Route path="/medico" element={<Medico />} />             <Route path="/medico" element={<Medico />} />
+        </Routes>
+      </BrowserRouter>
+    </UsuarioProvider>
   );
 }
 

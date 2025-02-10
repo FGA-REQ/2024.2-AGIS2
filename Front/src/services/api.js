@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "http://localhost:3000";
 
 const createConfig = () => {
 	return {
@@ -14,6 +14,7 @@ const createConfig = () => {
 export const login = async (data) => {
 	return axios.post(`${BASE_URL}/login`, data);
 };
+
 
 // PATIENTS
 export const cadastroPaciente = async (data) => {
@@ -39,7 +40,7 @@ export const buscarPacienteEspecifico = async (id) => {
 
 // DOCTORS
 export const cadastroDoutor = async (data) => {
-	return axios.post(`${BASE_URL}/doctors`, data, createConfig());
+	return axios.post(`${BASE_URL}/doctors/`, data, createConfig());
 };
 
 export const excluirDoutor = async (CRM) => {
@@ -54,8 +55,8 @@ export const buscarDoutor = async () => {
 	return axios.get(`${BASE_URL}/doctors`);
 };
 
-export const buscarDoutorEspecifico = async (id) => {
-	return axios.get(`${BASE_URL}/doctors/${id}`, id);
+export const buscarDoutorEspecifico = async (CRM) => {
+	return axios.get(`${BASE_URL}/doctors/${CRM}`, CRM);
 }
 
 
@@ -79,3 +80,90 @@ export const buscarAdmin = async (data) => {
 export const buscarAdminEspecifico = async (id) => {
 	return axios.get(`${BASE_URL}/admin/${id}`, id);
 }
+
+
+// PLANO DE SAUDE
+export const cadastroPlano = async (data) => {
+	return axios.post(`${BASE_URL}/healthcareplan/`, data, createConfig());
+};
+
+export const excluirPlano = async (id) => {
+	return axios.delete(`${BASE_URL}/healthcareplan/${id}`, id, createConfig());
+};
+
+export const editarPlano = async (id) => {
+	return axios.patch(`${BASE_URL}/healthcareplan/${id}`, id, createConfig());
+};
+
+export const buscarPlano = async (data) => {
+	return axios.get(`${BASE_URL}/healthcareplan/`, data);
+};
+
+export const buscarPlanoEspecifico = async (id) => {
+	return axios.get(`${BASE_URL}/healthcareplan/${id}`, id);
+};
+
+
+// REMEDIO
+export const cadastroRemedio = async (data) => {
+	return axios.post(`${BASE_URL}/drugs/`, data, createConfig());
+};
+
+export const excluirRemedio = async (id) => {
+	return axios.delete(`${BASE_URL}/drugs/${id}`, id, createConfig());
+};
+
+export const editarRemedio = async (id, dados) => {
+	return axios.patch(`${BASE_URL}/drugs/${id}`, id, dados, createConfig());
+};
+
+export const buscarRemedio = async () => {
+	return axios.get(`${BASE_URL}/drugs/`);
+};
+
+export const buscarRemedioEspecifico = async (id) => {
+	return axios.get(`${BASE_URL}/drugs/${id}`, id);
+};
+
+
+/// DRUG SCHEDULE
+export const cadastroDrugSchedule = async (data) => {
+	return axios.post(`${BASE_URL}/drugschedule/`, data, createConfig());
+};
+
+export const excluirDrugSchedule = async (id) => {
+	return axios.delete(`${BASE_URL}/drugschedule/${id}`, id, createConfig());
+};
+
+export const editarDrugSchedule = async (id) => {
+	return axios.patch(`${BASE_URL}/drugschedule/${id}`, id, createConfig());
+};
+
+export const buscarDrugSchedule = async (data) => {
+	return axios.get(`${BASE_URL}/drugschedule/`, data);
+};
+
+export const buscarDrugScheduleEspecifico = async (id) => {
+	return axios.get(`${BASE_URL}/drugschedule/${id}`, id);
+};
+
+/// RECEITA
+export const cadastroReceita = async (data) => {
+	return axios.post(`${BASE_URL}/prescription/`, data, createConfig());
+};
+
+export const excluirReceita = async (id) => {
+	return axios.delete(`${BASE_URL}/prescription/${id}`, id, createConfig());
+};
+
+export const editarReceita = async (id) => {
+	return axios.patch(`${BASE_URL}/prescription/${id}`, id, createConfig());
+};
+
+export const buscarReceita = async (data) => {
+	return axios.get(`${BASE_URL}/prescription/`, data);
+};
+
+export const buscarReceitaEspecifico = async (id) => {
+	return axios.get(`${BASE_URL}/prescription/${id}`, id);
+};

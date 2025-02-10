@@ -1,16 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './receita.css';
+import * as api from "../../services/api";
+import { UsuarioContext } from '../../context/context';
 
 function Receita() {
     const [nomePaciente, setNomePaciente] = useState('');
-    const [nomeMedico, setNomeMedico] = useState('Maria Clara'); // Nome padrão inserido automaticamente
-    const [crmMedico, setCrmMedico] = useState('123456'); // CRM padrão inserido automaticamente
+    const [nomeMedico, setNomeMedico] = useState(''); // Nome padrão inserido automaticamente
+    const [crmMedico, setCrmMedico] = useState(''); // CRM padrão inserido automaticamente
     const [dataReceita, setDataReceita] = useState('');
     const [receita, setReceita] = useState('');
+
+    const { CRM, nome } = useContext(UsuarioContext);
 
     useEffect(() => {
         const hoje = new Date().toISOString().split('T')[0];
         setDataReceita(hoje);
+
+        setNomeMedico(nome);
+        setCrmMedico(CRM);
     }, []);
 
     const imprimirReceita = () => {
@@ -66,6 +73,15 @@ function Receita() {
         const value = e.target.value;
         if (/^[a-zA-Z\s]*$/.test(value)) {
             setNomePaciente(value);
+        }
+    };
+
+    const pegarMedico = async () => {
+        try {
+            await api.buscarDoutorEspecifico();
+
+        } catch{
+            console.error("Erro ao cadastrar ou editar:", error);
         }
     };
 

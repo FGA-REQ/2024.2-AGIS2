@@ -4,6 +4,7 @@ import Inicio from '../../componentes/inicio/inicio';
 import Sidebar2 from '../../componentes/sidebar/sidebar2';
 import Remedio from '../../componentes/remedio/remedio';
 import Consulta from '../../componentes/consultas/consultas';
+import Cronograma from '../../componentes/cronograma/cronograma';
 
 function Paciente() {
   const [conteudo, setConteudo] = useState('Inicio');
@@ -17,7 +18,9 @@ function Paciente() {
     switch (conteudo) {
       case 'Consultas':
         return <Consulta />;
-      case 'Remédios':
+      case 'Cronograma':
+        return <Cronograma />;
+      case 'Remedio':
         return <Remedio />;
       default:
         return <Inicio />;
