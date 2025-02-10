@@ -56,4 +56,4 @@ O diagrama abaixo ilustra como cada serviço opera dentro dessa arquitetura:
 Com essa estrutura bem definida, o **MedManager** se torna uma plataforma altamente eficiente para a gestão de consultas médicas, garantindo um fluxo organizado para pacientes, médicos e administradores. 🚀  
 
 
-![Diagrama de Arquitetura](../../static/img/servicos.jpg)
+![Diagrama de Arquitetura](..//imagens/servicos.jpg)
