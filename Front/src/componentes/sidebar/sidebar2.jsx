@@ -9,7 +9,6 @@ function Sidebar2({ setConteudo }) {
 
     const handleMenuClick = (menu) => {
         setConteudo(menu); // Atualizar o conteúdo exibido
-
     };
 
     const logout = () => {
@@ -23,7 +22,8 @@ function Sidebar2({ setConteudo }) {
                 <ul className="menu-sidebar">
                     <li onClick={() => handleMenuClick('Início')}>Início</li>
                     <li onClick={() => handleMenuClick('Consultas')}>Consultas</li>
-                    <li onClick={() => handleMenuClick('Remédios')}>Remédios</li>
+                    <li onClick={() => handleMenuClick('Cronograma')}>Cronograma</li>
+                    <li onClick={() => handleMenuClick('Remedio')}>Remédio </li>
                 </ul>
             </div>
             <div className="footer-sidebar">
