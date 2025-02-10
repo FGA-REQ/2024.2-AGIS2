@@ -12,6 +12,7 @@ export class MedicalrecordService {
   async create(createMedicalrecordDto: CreateMedicalrecordDto, authHeader: string) {
     try {
       const { age, doctorCRM, patientCPF, weight, height, recordText, alergies } = createMedicalrecordDto;
+      console.log('backend', age, doctorCRM, patientCPF, weight, height, recordText, alergies);
       const patient = await this.api.getPatient(patientCPF);
       const token = authHeader.split(' ')[1];
       const doctor = await this.api.getDoctor(doctorCRM, token);

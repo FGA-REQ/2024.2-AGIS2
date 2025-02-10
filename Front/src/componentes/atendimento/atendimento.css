@@ -59,7 +59,7 @@ textarea {
     gap: 10px;
 }
 
-.botao-salvar-prontuario {
+.botao-salvar-prontuario button {
     background: #0078d7;
     color: white;
     padding: 10px;

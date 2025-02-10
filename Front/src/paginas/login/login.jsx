@@ -13,12 +13,17 @@ function Login() {
     password: ""
   }); // Estado para armazenar dados do formulário
 
+  const [formDataEsqueceu, setFormDataEsqueceu] = useState({
+    email: ""
+  }); // Estado para armazenar dados do formulário
+
   const cliqueSeta = () => {
     navigate("/");
   };
 
   const lidarComMudancaNoInput = ({ target }) => {
     setFormData({ ...formData, [target.name]: target.value });
+    setFormDataEsqueceu({ ...formDataEsqueceu, [target.name]: target.value });
   };
 
   const botaoLogin = async (e) => {
@@ -28,11 +33,11 @@ function Login() {
       const decoded = jwtDecode(response.data);
 
       // Lógica para determinar a rota com base na role
-      if (decoded.role === "admin") {
+      if (decoded.roles.includes("admin")) {
         navigate("/admin");
-      } else if (decoded.role === "patient") {
+      } else if (decoded.roles.includes("patient") ) {
         navigate("/paciente");
-      } else if (decoded.role === "doctor") {
+      } else if (decoded.roles.includes("doctor")) {
         navigate("/medico");
       } else {
         alert("Role desconhecida");
@@ -46,6 +51,45 @@ function Login() {
 
   const esqueceuSenha = () => {
     setPopEsqueceuSenha(true);
+  };
+
+  const botaoEsqueceuSenha = async (e) => {
+    e.preventDefault();
+  
+    if (!formDataEsqueceu.email) {
+      alert("Por favor, insira seu e-mail.");
+      return;
+    }
+  
+    try {
+      const response = await api.enviaToken(formDataEsqueceu);
+      alert(response.data.message || "E-mail de recuperação enviado com sucesso!");
+      
+      // Redireciona para a tela de alteração de senha enviando o email no state
+      navigate("/alterarSenha", { state: { email: formDataEsqueceu.email } });
+  
+    } catch (error) {
+      console.error("Erro ao enviar e-mail de recuperação:", error);
+      alert(error.response?.data?.message || "Erro ao enviar e-mail. Tente novamente.");
+    }
+  };
+  
+
+
+  const redefinirSenha = async () => {
+    if (!email || !token || !novaSenha) {
+      alert("Por favor, preencha todos os campos.");
+      return;
+    }
+
+    try {
+      const response = await api.resetPassword(email, token, novaSenha);
+      alert(response.message || "Senha redefinida com sucesso!");
+      navigate("/alterarSenha"); // Redirecionar para o login após sucesso
+    } catch (error) {
+      console.error("Erro ao redefinir senha:", error);
+      alert(error.message || "Erro ao redefinir senha. Tente novamente.");
+    }
   };
 
   const lidarComMudancaNoInputCPF = ({ target }) => {
@@ -119,27 +163,33 @@ function Login() {
 
       {/* Pop-up de esqueci a senha */}
       {showForgotPassword && (
-        <div className="forgot-password-popup">
-          <div className="popup-content">
-            <h2>Recuperação de Senha</h2>
-            <label>Digite seu e-mail:</label>
-            <input
-              type="email"
-              placeholder="Digite seu e-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <div className="popup-buttons">
-              <button
-                className="btn-enviar"
-                onClick={enviarEmail}
-              >
-                Enviar
-              </button>
-              <button className="btn-cancelar" onClick={() => setPopEsqueceuSenha(false)}>Cancelar</button>
+
+        <form className="forms-esqueceu-senha" onSubmit={botaoEsqueceuSenha} >
+
+          <div className="forgot-password-popup">
+            <div className="popup-content">
+              <h2>Recuperação de Senha</h2>
+              <label>Digite seu e-mail:</label>
+              <input
+                type="email"
+                placeholder="Digite seu e-mail"
+                value={formDataEsqueceu.email}
+                onChange={(e) => setFormDataEsqueceu({ ...formDataEsqueceu, email: e.target.value })}
+              />
+
+              <div className="popup-buttons">
+                <button
+                  className="btn-enviar"
+                  onClick={botaoEsqueceuSenha}
+                >
+                  Enviar
+                </button>
+                <button className="btn-cancelar" onClick={() => setPopEsqueceuSenha(false)}>Cancelar</button>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
+
       )}
     </div>
   );

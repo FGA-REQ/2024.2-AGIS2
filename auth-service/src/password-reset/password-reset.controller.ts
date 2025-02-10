@@ -9,7 +9,7 @@ export class PasswordResetController {
   async sendResetToken(
     @Body('email') email: string,
   ) {
-    return await this.passwordResetService.sendResetToken(email);
+    console.log(`Recebido pedido de reset para: ${email}`);    return await this.passwordResetService.sendResetToken(email);
   }
   @Post('reset-password')
   async resetPassword(
@@ -17,6 +17,7 @@ export class PasswordResetController {
     @Body('token') token: string,
     @Body('newPassword') newPassword: string,
   ){
+    console.log(`Tentando reset de senha para: ${email} com token: ${token}`);
     return await this.passwordResetService.resetPassword(email, token, newPassword);
   }
 }
