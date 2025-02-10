@@ -4,7 +4,7 @@ import { CreateDrugServiceDto } from './dto/create-drug.dto';
 import { UpdateDrugServiceDto } from './dto/update-drug.dto';
 import { RolesGuard } from 'src/roles.guard';
 
-@Controller('drug-service')
+@Controller('drugs')
 export class DrugServiceController {
   constructor(private readonly drugServiceService: DrugServiceService) { }
 

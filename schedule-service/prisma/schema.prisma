@@ -14,20 +14,21 @@ datasource db {
 }
 
 model Schedule {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  doctorId  Int
-  patientId Int
+  id         String   @id @default(cuid())
+  createdAt  DateTime @default(now())
+  doctorCRM   String
+  patientCPF String
+  scheduledAt DateTime
 
-  @@unique([doctorId, createdAt])
-  @@unique([patientId, createdAt])
+  @@unique([doctorCRM, createdAt])
+  @@unique([patientCPF, createdAt])
 }
 
 model DrugSchedule {
   id           Int      @id @default(autoincrement())
-  drugId       String // chave estrangeira de remédio
+  drugId       String
   numberOfDays Int
   initialDate  DateTime @default(now())
   drugBreak    Int
-  patientId    Int
+  patientCPF   String 
 }
