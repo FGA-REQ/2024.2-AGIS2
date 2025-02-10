@@ -23,7 +23,7 @@ No contexto do **SAFe (Scaled Agile Framework)**, as estruturas **Épicos**, **C
 
 Essas estruturas ajudam a organizar e priorizar o trabalho de forma escalável, garantindo que o desenvolvimento esteja alinhado com os objetivos de negócios e entregando valor continuamente.
 
-<br>
+<br />
 
 ---
 
@@ -33,7 +33,7 @@ O backlog do produto apresentado a seguir, reflete as principais funcionalidades
 
 As **Features** estão organizadas em grupos baseados nas **Capacidades** às quais elas pertencem, como indicado pelos códigos entre parênteses (ex.: C4). Cada código refere-se a uma **Capacidade** do sistema, facilitando o rastreamento e a priorização dentro do contexto do planejamento do backlog. Essa abordagem garante que as **Features** contribuam diretamente para os objetivos definidos por cada **Capacidade**, promovendo alinhamento estratégico e eficiência no desenvolvimento. 
 
-<br>
+<br/>
 
 ### **Epics**
 
@@ -74,7 +74,7 @@ As **Features** estão organizadas em grupos baseados nas **Capacidades** às qu
 - Apenas médicos podem emitir prescrições digitais, que devem ser armazenadas de forma segura e acessíveis somente para usuários autorizados.
 
 
-<br>
+<br/>
 
 ### **Capabilities (C)**
 
@@ -126,7 +126,7 @@ As **Features** estão organizadas em grupos baseados nas **Capacidades** às qu
 - O sistema deve exibir gráficos estatísticos sobre número de médicos por especialidade e quantidade de planos de saúde por paciente.  
 - Os dados exibidos devem ser atualizados em tempo real ou com atualização programada.  
 
-<br>
+<br/>
 
 ### **Features (F)**
 
@@ -185,7 +185,7 @@ As **Features** estão organizadas em grupos baseados nas **Capacidades** às qu
 - Deve exibir a quantidade de planos de saúde associados a cada paciente.  
 
 
-<br>
+<br/>
 
 ### **User stories (US)**
 
