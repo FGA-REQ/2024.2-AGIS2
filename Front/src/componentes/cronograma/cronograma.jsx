@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import * as api from "../../services/api";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import "./remedio.css";
+import "./cronograma.css";
+import { UsuarioContext } from "../../context/context";
 
-function Remedio() {
-  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+function Cronograma() {
   const [editarId, setEditarId] = useState(null);
+  const [remedios, setRemedios] = useState([]);
 
-  const remedio = location.state?.remedio;
+  // const remedio = location.state?.remedio;
+  const { CPF, setCPF } = useContext(UsuarioContext);
 
   const {
     register,
@@ -20,38 +22,38 @@ function Remedio() {
     formState: { errors },
   } = useForm();
 
-  // useEffect(() => {
-  //   async function carregarRemedios() {
-  //     try {
-  //       const { data } = await api.buscarRemedio();
-  //       setRemedios(data);
-  //     } catch (error) {
-  //       alert("Erro ao carregar os remédios!");
-  //     }
-  //   }
-  //   carregarRemedios();
-  // }, []);
+  useEffect(() => {
+    async function carregarRemedios() {
+      try {
+        const { data } = await api.buscarRemedio();
+        setRemedios(data);
+      } catch (error) {
+        alert("Erro ao carregar os remédios!");
+      }
+    }
+    carregarRemedios();
 
-  const enviarRemedio = async (dados) => {
+  }, []);
+
+  const enviarRemedio = async (e, dados) => {
+    e.preventDefault();
     try {
+      console.log(dados);
+      
       const dadosValidos = Object.fromEntries(
         Object.entries(dados).filter(
           ([key, value]) => value !== "" && value !== null && value !== undefined,
         ),
       );
 
-      console.log(dados);
+      console.log(dadosValidos);
+      //await api.cadastroDrugSchedule(dadosValidos);
+      console.log("aaaaa");
 
-      if (remedio) {
-        await api.editarRemedio(editarId, dadosValidos);
-      } else {
-        console.log(dadosValidos);
-        await api.cadastroRemedio(dadosValidos);
-      }
 
     } catch (error) {
-      console.error("Erro ao cadastrar remédio: ", error);
-      alert("Erro", error);
+      console.error("Erro ao cadastrar cronograma ", error);
+      alert("Erro :D", error);
     }
   };
 
@@ -75,26 +77,59 @@ function Remedio() {
 
   return (
     <div className="cadastro-remedio">
-
-      <form className="form-cadastro" onSubmit={handleSubmit(enviarRemedio)}>
+      <form className="form-cadastro" onSubmit={enviarRemedio}>
         <div className="campo">
           <label>Nome do Remédio</label>
+          <select
+            {...register("drugId", { required: true })}
+          >
+            <option value="">Selecione um remédio</option>
+            {remedios.map((remedio) => (
+              <option key={remedio.id} value={remedio.id}>
+                {remedio.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="campo">
+          <label>CPF do paciente </label>
           <input
             type="text"
-            {...register("name", { required: true })}
+            value={CPF}
+            readOnly
+            {...register("patientCPF", { required: true })}
           />
         </div>
 
         <div className="campo">
-          <label>Local de Ação</label>
+          <label>Quantidade de Dias</label>
           <input
-            type="text"
-            {...register("actionSite", { required: true })}
+            type="number"
+            min="1"
+            {...register("numberOfDays", { required: true })}
           />
         </div>
+
+        <div className="campo">
+          <label>Intervalo entre Doses (horas)</label>
+          <input
+            type="number"
+            min="1"
+            {...register("drugBreak", { required: true })}
+          />
+        </div>
+
+        <div className="campo">
+          <label>Data inicial</label>
+          <input
+            type="date"
+            {...register("initialDate", { required: true })}
+          />
+        </div>
+
         <button type="submit" className="btn-submit">{editarId ? "Atualizar" : "Cadastrar"}</button>
       </form>
-
 
       {/* Lista de Remédios */}
       {/* <div className="remedios-lista">
@@ -115,4 +150,4 @@ function Remedio() {
   );
 };
 
-export default Remedio;
+export default Cronograma;
