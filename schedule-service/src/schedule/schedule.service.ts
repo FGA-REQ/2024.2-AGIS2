@@ -2,85 +2,74 @@ import { BadRequestException, Injectable, Logger } from '@nestjs/common';
 import { CreateScheduleDto } from './dto/create-schedule.dto';
 import { UpdateScheduleDto } from './dto/update-schedule.dto';
 import { PrismaService } from 'src/prisma.service';
-import { ApiService } from 'src/api.service';
+import { ApiService } from 'src/api/api.service';
 
 
 @Injectable()
 export class ScheduleService {
-  constructor(private readonly prisma: PrismaService, private readonly apiService: ApiService) { }
+  constructor(private readonly prisma: PrismaService, private readonly api: ApiService) { }
   private readonly logger = new Logger(ScheduleService.name);
 
-  async create(createScheduleDto: CreateScheduleDto) {
+  async create(createScheduleDto: CreateScheduleDto, authHeader: string) {
     try {
-      const { doctorId, patientId, createdAt } = createScheduleDto;
+      const { doctorCRM, patientCPF, scheduledAt } = createScheduleDto;
+      this.logger.log([doctorCRM, patientCPF, scheduledAt]);
+      const doctor = await this.api.getDoctor(doctorCRM, authHeader);
+      this.logger.log(`Médico ${doctor.data.name} encontrado.`);
+      const patient = await this.api.getPatient(patientCPF);
 
-      await this.findPatient(patientId);
-      await this.findDoctors(doctorId);
+      if (!doctor) throw new BadRequestException(`Médico com CRM ${doctorCRM} não encontrado.`);
+      if (!patient) throw new BadRequestException(`Paciente com CPF ${patientCPF} não encontrado.`);
 
-      await this.findDoctorSchedule(doctorId, createdAt);
-      await this.findPatientSchedule(patientId, createdAt);
+      this.logger.log(`Paciente ${patient.data.name} encontrado.`);
 
-      await this.prisma.schedule.create({ data: { doctorId, patientId, createdAt } });
-      this.logger.log(`Agendamento de consulta com doutor ${doctorId} e horario ${createdAt} realizado com sucesso`);
+      await this.findDoctorSchedule(doctorCRM, scheduledAt);
+      await this.findPatientSchedule(patientCPF, scheduledAt);
+
+      await this.prisma.schedule.create({ data: createScheduleDto });
+      this.logger.log(`Agendamento de consulta com doutor ${doctorCRM} e horario ${scheduledAt} realizado com sucesso`);
       return;
 
     } catch (error) {
       this.logger.error(`Falha ao criar consulta: ${error.message}`);
-      throw error;
+      throw error.message;
     }
   }
 
-  async findPatient(patientId: number) {
+  async findDoctorSchedule(doctorCRM: string, scheduledAt: Date) {
     try {
-      const isThereAPatient = await this.apiService.get(`/patients/${patientId}`, 'AUTH');
-      if (!isThereAPatient) throw new BadRequestException(`O paciente '${patientId}' não foi encontrado no banco de dados.`);
-      
-      return isThereAPatient;
-    } catch (error) {
-      this.logger.error(`Falha ao buscar paciente '${patientId}' no banco de dados.`);
-      throw error;
-    }
-  }
-
-  async findDoctors(doctorId: number) {
-    try {
-      const isThereADoctor = await this.apiService.get(`/doctors/${doctorId}`, 'AUTH');
-      if (!isThereADoctor) throw new BadRequestException(`O médico '${doctorId}' não foi encontrado no banco de dados.`);
-
-      return isThereADoctor;
-    } catch (error) {
-      this.logger.error(`Falha ao buscar paciente '${doctorId}' no banco de dados.`);
-      throw error;
-    }
-  }
-
-  async findDoctorSchedule(doctorId: number, createdAt: Date) {
-    try {
-      const checkDoctorSchedule = await this.prisma.schedule.findFirst({ where: { doctorId, createdAt } });
+      const checkDoctorSchedule = await this.prisma.schedule.findFirst({ where: { doctorCRM, scheduledAt } });
       if (checkDoctorSchedule) throw new BadRequestException(`O médico já tem uma consulta neste horário.`);
 
       return checkDoctorSchedule;
     } catch (error) {
-      this.logger.error(`Falha ao buscar consulta do Médico '${doctorId}' no banco de dados.`);
+      this.logger.error(`Falha ao buscar consulta do Médico '${doctorCRM}' no banco de dados.`);
       throw error;
     }
   }
 
-  async findPatientSchedule(patientId: number, createdAt: Date) {
+  async findPatientSchedule(patientCPF: string, scheduledAt: Date) {
     try {
-      const checkPatientSchedule = await this.prisma.schedule.findFirst({ where: { patientId, createdAt } });
+      const checkPatientSchedule = await this.prisma.schedule.findFirst({ where: { patientCPF, scheduledAt } });
       if (checkPatientSchedule) throw new BadRequestException(`O paciente já tem uma consulta neste horário.`);
 
       return checkPatientSchedule;
     } catch (error) {
-      this.logger.error(`Falha ao buscar consulta do Paciente '${patientId}' no banco de dados.`);
+      this.logger.error(`Falha ao buscar consulta do Paciente '${patientCPF}' no banco de dados.`);
       throw error;
     }
   }
 
-  async findAll() {
+  async findAll(authHeader: string) {
     try {
-      return this.prisma.schedule.findMany();
+      let response: Array<{ doctorName: string; patientName: string; doctorCRM: string; patientCPF: string; id: string; createdAt: Date, scheduledAt: Date }> = [];
+      const schedules = await this.prisma.schedule.findMany();
+      for (let schedule of schedules) {
+        const doctor = await this.api.getDoctor(schedule.doctorCRM, authHeader);
+        const patient = await this.api.getPatient(schedule.patientCPF);
+        response.push({ ...schedule, doctorName: doctor.data.name, patientName: patient.data.name });
+      }
+      return response
     } catch (error) {
       this.logger.error(`Falha ao buscar agendamento de consulta: ${error.message}`);
     }
@@ -88,10 +77,24 @@ export class ScheduleService {
 
   async findOne(id: string) {
     try {
-      const schedule = await this.prisma.schedule.findUnique({ where: { id } });
-      if (!schedule) throw new BadRequestException("A consulta não foi encontrada");
+      let response: { doctorName: string; patientName: string; doctorCRM: string; patientCPF: string; id: string; scheduledAt: Date } = {
+        doctorName: '',
+        patientName: '',
+        doctorCRM: '',
+        patientCPF: '',
+        id: '',
+        scheduledAt: new Date()
+      };
 
-      return schedule;
+      const schedule = await this.prisma.schedule.findUnique({ where: { id } });
+      if (!schedule) throw new BadRequestException(`Agendamento de consulta não encontrado`);
+      response.doctorName = (await this.api.getDoctor(schedule.doctorCRM, '')).data.name;
+      response.patientName = (await this.api.getPatient(schedule.patientCPF)).data.name;
+      response.doctorCRM = schedule.doctorCRM;
+      response.patientCPF = schedule.patientCPF;
+      response.id = schedule.id;
+      response.scheduledAt = schedule.scheduledAt;
+      return response;
     } catch (error) {
       this.logger.error(`Falha ao buscar agendamento de consulta '${id}' no banco de dados.`);
       throw error;
@@ -101,21 +104,7 @@ export class ScheduleService {
   async update(id: string, updateScheduleDto: UpdateScheduleDto) {
     try {
       await this.findOne(id);
-
-      const { doctorId, patientId, createdAt } = updateScheduleDto;
-
-      if (doctorId) await this.findDoctors(doctorId);
-
-      if (patientId) await this.findDoctors(patientId);
-
-      if (doctorId && createdAt) await this.findDoctorSchedule(doctorId, createdAt);
-
-      if (patientId && createdAt) await this.findPatientSchedule(patientId, createdAt);
-
       await this.prisma.schedule.update({ where: { id }, data: updateScheduleDto });
-      this.logger.log(`Agendamento com ID ${id} atualizado com sucesso.`);
-      return;
-
     } catch (error) {
       this.logger.error(`Falha ao atualizar agendamento ${id}: ${error.message}`);
       throw error;
@@ -135,7 +124,4 @@ export class ScheduleService {
       throw error;
     }
   }
-
-
-
 }

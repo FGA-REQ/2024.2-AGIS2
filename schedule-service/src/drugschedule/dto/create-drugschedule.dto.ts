@@ -3,6 +3,6 @@ export class CreateDrugscheduleDto {
   numberOfDays: number
   initialDate: Date
   drugBreak: number
-  patientId: number
+  patientCPF: string
 }
 

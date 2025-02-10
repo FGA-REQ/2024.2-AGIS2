@@ -1,5 +1,5 @@
 export class CreateScheduleDto {
-  doctorId: number;
-  patientId: number;
-  createdAt: Date;
+  doctorCRM: string;
+  patientCPF: string;
+  scheduledAt: Date;
 }
