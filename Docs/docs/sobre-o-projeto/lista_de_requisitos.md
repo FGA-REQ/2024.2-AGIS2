@@ -5,7 +5,7 @@ sidebar_label: "Requisitos"
 
 # Lista de Requisitos 
 
-<br>
+<br />
 
 ## Requisitos Funcionais (RF)
 
@@ -177,7 +177,7 @@ RF25. O sistema aceita apenas e-mails em formato válido (texto@dominio) no proc
    - **Feature - F3:** Criptografia de Dados Sensíveis
    - **História de Usuário - US11:** Recuperação Segura de Senhas
 
-<br>
+<br />
 
 ## Requisitos Não Funcionais (RNF)
 
