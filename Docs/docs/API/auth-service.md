@@ -15,7 +15,7 @@ sidebar_label: "Auth Service"
 
 # Auth Service API
 
-
+<br/>
 
 ## Administrador 
 
@@ -96,6 +96,7 @@ sidebar_label: "Auth Service"
 - DELETE /admin/:CPF
     - Roles: ["admin"]
 
+<br/>
 
 ## Médico
 
@@ -200,6 +201,7 @@ sidebar_label: "Auth Service"
 - DELETE /doctors/:CRM
     - Roles: ["admin"]
 
+<br/>
 
 ## Paciente
 
@@ -290,7 +292,7 @@ sidebar_label: "Auth Service"
 - DELETE /patients/:CPF
     - Roles: ["admin"]
 
-
+<br/>
 
 ## Login
 
@@ -305,7 +307,7 @@ sidebar_label: "Auth Service"
         }
         ```
 
-
+<br/>
 
 ## Reset de Senha
 
@@ -370,3 +372,4 @@ sidebar_label: "Auth Service"
             }
         ]
     ```
+<br/>
