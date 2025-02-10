@@ -11,7 +11,8 @@ const HOSTS: { [key: string]: string | undefined } = {
   "medicalrecord": process.env.MEDICAL_RECORD_SERVICE_URL,
   "prescription": process.env.MEDICAL_RECORD_SERVICE_URL,
   "drugschedule": process.env.SCHEDULE_SERVICE_URL,
-  "schedule": process.env.SCHEDULE_SERVICE_URL
+  "schedule": process.env.SCHEDULE_SERVICE_URL,
+  "whatsapp": process.env.WHATSAPP_SERVICE_URL,
 };
 
 export const getHost = (req: Request): string => {

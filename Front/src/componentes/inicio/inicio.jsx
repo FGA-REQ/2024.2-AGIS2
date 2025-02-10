@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./inicio.css";
+import { jwtDecode } from "jwt-decode";
 // import { editPassword } from "../../queries/user";
 // import axios from "axios";
 // import { baseURL } from '../../config/baseurl';
@@ -124,6 +125,17 @@ function Inicio() {
     } else {
       setSenhaMatch(true); // Reinicia o estado se um dos campos estiver vazio
     }
+
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const decodificado = jwtDecode(token);
+        setNome(decodificado.name);
+        setEmail(decodificado.email);
+      } catch (error) {
+        console.error("erro ao decodificar token:", error);
+      }
+    }
   }, [novaSenha, confirmarSenha]);
 
   //   // Função para redirecionar para a página de administração se o usuário for admin
@@ -139,8 +151,8 @@ function Inicio() {
     <>
       <section className="inicio">
         <div className="header-inicio">
-          <p>Olá {nome}!</p>
-          <p> E-mail: {email} </p>
+          <p>Olá {`${nome}`}!</p>
+          <p> E-mail: {`${email}`} </p>
         </div>
 
         <div className="alterar-senha-inicio">

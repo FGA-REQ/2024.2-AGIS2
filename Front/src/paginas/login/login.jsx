@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import { data, useNavigate } from 'react-router-dom';
 import * as api from "../../services/api";
 import { jwtDecode } from "jwt-decode";
 import './login.css';
+import { UsuarioContext } from "../../context/context";
 
 function Login() {
   const navigate = useNavigate();
@@ -13,9 +14,12 @@ function Login() {
     password: ""
   }); // Estado para armazenar dados do formulário
 
+
   const [formDataEsqueceu, setFormDataEsqueceu] = useState({
     email: ""
   }); // Estado para armazenar dados do formulário
+  const { emailUsuario, CRM, CPF, nome, setCRM, setNome, setEmailUsuario, setCPF } = useContext(UsuarioContext)
+
 
   const cliqueSeta = () => {
     navigate("/");
@@ -30,12 +34,20 @@ function Login() {
     e.preventDefault();
     try {
       const response = await api.login(formData);
-      const decoded = jwtDecode(response.data);
+      const token = response.data.token;
+      localStorage.setItem("token", token);
+
+      setEmailUsuario(response.data.response.email);
+      setCPF(response.data.response.CPF);
+      setNome(response.data.response.name);
+
+      const decoded = jwtDecode(response.data.token);
+      if (decoded.roles.includes("doctor")) setCRM(response.data.response.CRM);
 
       // Lógica para determinar a rota com base na role
       if (decoded.roles.includes("admin")) {
         navigate("/admin");
-      } else if (decoded.roles.includes("patient") ) {
+      } else if (decoded.roles.includes("patient")) {
         navigate("/paciente");
       } else if (decoded.roles.includes("doctor")) {
         navigate("/medico");

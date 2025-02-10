@@ -17,7 +17,7 @@ model Doctor {
   id                   Int      @id @default(autoincrement())
   email                String   @unique
   name                 String
-  telephone            String   @unique
+  telephone            String   
   birthday             DateTime
   CRM                  String   @unique
   specialty            String
