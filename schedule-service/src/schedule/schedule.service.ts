@@ -3,18 +3,12 @@ import { CreateScheduleDto } from './dto/create-schedule.dto';
 import { UpdateScheduleDto } from './dto/update-schedule.dto';
 import { PrismaService } from 'src/prisma.service';
 import { ApiService } from 'src/api/api.service';
-import { WhatsappService } from '../../../whatsapp-service/src/whatsapp/whatsapp.service';
-import { Cron, CronExpression } from '@nestjs/schedule';
-
 
 @Injectable()
 export class ScheduleService {
   constructor(
     private readonly prisma: PrismaService, 
     private readonly api: ApiService,
-    private readonly prisma: PrismaService, 
-    private readonly apiService: ApiService,
-    private readonly whatsappService: WhatsappService,
   ) { }
   private readonly logger = new Logger(ScheduleService.name);
 
@@ -29,10 +23,7 @@ export class ScheduleService {
       await this.findPatientSchedule(patientCPF, scheduledAt);
       await this.prisma.schedule.create({ data: createScheduleDto });
       this.logger.log(`Agendamento de consulta com doutor ${doctorCRM} e horario ${scheduledAt} realizado com sucesso`);
-      this.logger.log(`Agendamento de consulta com doutor ${doctorCRM} e horario ${scheduledAt} realizado com sucesso`);
-      await this.sendConfirmation(patientId, doctorId, createdAt.toISOString());
       return;
-
     } catch (error) {
       this.logger.error(`Falha ao criar consulta: ${error.message}`);
       throw error.message;
@@ -126,80 +117,5 @@ export class ScheduleService {
       this.logger.error(`Falha ao remover agendamento: ${error.message}`);
       throw error;
     }
-  }
-    
-  @Cron(CronExpression.EVERY_30_MINUTES)
-  async handleCron() {
-    const now = new Date();
-    const twentyFourHoursBefore = new Date(now.getTime() + 24 * 60 * 60 * 1000); // 24 horas depois
-    const twoHoursBefore = new Date(now.getTime() + 2 * 60 * 60 * 1000); // 2 horas depois
-
-    const upcomingSchedules = await this.prisma.schedule.findMany({
-      where: {
-        createdAt: {
-          gte: now,
-        },
-      },
-    });
-
-    for (const schedule of upcomingSchedules) {
-      const timeDifference = new Date(schedule.createdAt).getTime() - now.getTime();
-
-      // Verificando se a consulta está marcada para 24 horas ou 2 horas antes
-      if (
-        timeDifference <= twentyFourHoursBefore.getTime() &&
-        timeDifference > 0
-      ) {
-        await this.sendReminder(schedule.patientId, schedule.doctorId, schedule.createdAt, '24h');
-      }
-
-      if (
-        timeDifference <= twoHoursBefore.getTime() &&
-        timeDifference > 0
-      ) {
-        await this.sendReminder(schedule.patientId, schedule.doctorId, schedule.createdAt, '2h');
-      }
-    }
-  }
-  async sendConfirmation(patientId: number, doctorId: number, createdAt: string) {
-    try {
-      const phone = await this.getPhoneNumber(patientId);
-      const doctor = await this.apiService.get(`/doctors/${doctorId}`, 'AUTH');
-      const message = `Olá, sua consulta com o doutor ${doctor.name} foi agendada para o dia ${createdAt}. Confirme seu comparecimento!`;
-
-      await this.whatsappService.sendMessage(phone, message);
-      this.logger.log(`Confirmação enviada para o paciente ${patientId} no WhatsApp`);
-    } catch (error) {
-      this.logger.error(`Erro ao enviar confirmação via WhatsApp: ${error.message}`);
-    }
-  }
-
-  async sendReminder(patientId: number, doctorId: number, createdAt: Date, timeFrame: string) {
-    try {
-      const phone = await this.getPhoneNumber(patientId);
-      const doctor = await this.apiService.get(`/doctors/${doctorId}`, 'AUTH');
-
-      let message = '';
-      if (timeFrame === '24h') {
-        message = `Olá! Sua consulta com o doutor ${doctor.name} está marcada para amanhã, às ${createdAt.toISOString()}.`;
-      } else if (timeFrame === '2h') {
-        message = `Olá! Sua consulta com o doutor ${doctor.name} será daqui a 2 horas, às ${createdAt.toISOString()}. Não perca!`;
-      }
-
-      await this.whatsappService.sendMessage(phone, message);
-      this.logger.log(`Lembrete enviado para o paciente ${patientId} no WhatsApp`);
-    } catch (error) {
-      this.logger.error(`Erro ao enviar lembrete via WhatsApp: ${error.message}`);
-    }
-  }
-
-  async getPhoneNumber(patientId: number): Promise<string> {
-    const patient = await this.findPatient(patientId);
-
-    if (!patient) {
-      throw new Error(`Paciente com ID ${patientId} não encontrado`);
-    }
-
-    return patient.telephone;
   }
 }
